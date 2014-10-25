@@ -3,7 +3,7 @@ var thinky = require('thinky')(config.rethinkdb);
 
 var r = thinky.r;
 
-var Post = thinky.createModel('Posts', {
+var Task = thinky.createModel('Tasks', {
     id: String,
     title: String,
     _slug: {
@@ -14,7 +14,7 @@ var Post = thinky.createModel('Posts', {
 
 
 // author_id -> primary key
-var PostMetadata = thinky.createModel('PostMetadata', {
+var TaskMetadata = thinky.createModel('TaskMetadata', {
     id: String,
     author_id: String,
     type: String,
@@ -39,21 +39,21 @@ var PostMetadata = thinky.createModel('PostMetadata', {
 });
 
 
-// Post.hasOne(PostMetadata, "postmetadata", 'id', 'author_id');
+// Task.hasOne(TaskMetadata, "Taskmetadata", 'id', 'author_id');
 
-PostMetadata.docAddListener('save', function(post) {
-    console.log( "A new post has been saved" );
-    console.log( "Saved post'id: " + post.id );
+TaskMetadata.docAddListener('save', function(Task) {
+    console.log( "A new Task has been saved" );
+    console.log( "Saved Task'id: " + Task.id );
 });
 
-Post.docAddListener('save', function(post) {
-    console.log( "A new post has been saved" );
-    console.log( "Saved post'id: " + post.id );
+Task.docAddListener('save', function(Task) {
+    console.log( "A new Task has been saved" );
+    console.log( "Saved Task'id: " + Task.id );
 });
 
-PostMetadata.ensureIndex("_slug");
-Post.ensureIndex("title");
+TaskMetadata.ensureIndex("_slug");
+Task.ensureIndex("title");
 
 
-module.exports = Post;
-module.exports = PostMetadata;
+module.exports = Task;
+module.exports = TaskMetadata;
