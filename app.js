@@ -16,16 +16,11 @@ var config = require("./config/database");
 var index = require('./routes/index');
 var users = require('./routes/users');
 var events = require('./routes/events');
-var posts = require('./routes/posts');
+var posts = require('./routes/tasks');
 var UserModel = require('./models/users');
 var authentication = require('./routes/authentication');
-// var ESusers = require('./routes/ES_Queries');
 
 var app = express();
-
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
 
 var port = process.env.PORT || 8000;
 
@@ -113,30 +108,11 @@ app.get('/logout',
 
 // static pages routes
 app.get('/', index.index);
-app.get('/about', index.about);
 app.get('/app', index.app);
 app.get('/login', index.login);
 app.get('/api', index.checkApi);
 
-// posts routes
-app.post('/api/post/addPost/', posts.addPost);
-app.get('/api/post/getPost/:id/', posts.getPostById);
-app.get('/api/post/getPosts/', posts.getPosts);
-app.delete('/api/post/deletePost/:id/', posts.deletePostById);
-app.put('/api/post/updatePost/:id/', posts.updatePostById);
 
-// users routes
-app.post('/api/user/addUser/', users.addUser);
-app.get('/api/user/getUser/:id/', users.getUserById);
-app.delete('/api/user/deleteUser/:id/', users.deleteUserById);
-app.put('/api/user/updateUser/:id/', users.updateUserById);
-app.post('/api/user/getUserByTag/', users.getUserByTag);
-
-// events routes
-app.post('/api/event/addEvent/', events.addEvent);
-app.get('/api/event/getEventById/:id/', events.getEventById);
-app.delete('/api/event/deleteEventById/:id/', events.deleteEventById);
-app.put('/api/event/updateEventById/:id/', events.updateEventById);
 
 //app.post('/api/user/elasticSearchUsers/', ESusers.elasticSearchUsers);
 //app.post('/api/post/elasticSearchPosts/', ESusers.elasticSearchPosts);
