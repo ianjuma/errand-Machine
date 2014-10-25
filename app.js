@@ -87,6 +87,13 @@ app.get('/auth/facebook/callback', passportSession.passport.authenticate('facebo
     successReturnToOrRedirect: '/', failureRedirect: '/login' })
 );
 
+app.post('/login', passport.authenticate('local',
+  { failureRedirect: '/login',
+    failureFlash: true,
+    successRedirect: '/' }), function(req, res) {
+      res.redirect('/');
+});
+
 
 app.get('/logout',
   function(req, res) {

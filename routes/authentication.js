@@ -2,6 +2,7 @@ var oauthConfig = require('../config/auth');
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var UserModel = require('../models/users');
 
@@ -111,6 +112,18 @@ passport.use(new FacebookStrategy(oauthConfig.facebookAuth,
       }
     });
 
+  }
+));
+
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
   }
 ));
 
