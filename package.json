@@ -1,6 +1,6 @@
 {
-  "name": "InkOverFlow",
-  "description": "Art, no matter its form, is the expression of one’s true self.",
+  "name": "TaskWetu",
+  "description": "Getting errands done!",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -20,7 +20,6 @@
     "winston": "*",
     "morgan": "*",
     "mocha": "*",
-    "socket.io": "*",
     "validator": "*",
     "serve-favicon": "*",
     "cookie-parser": "*",
