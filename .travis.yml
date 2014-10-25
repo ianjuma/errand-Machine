@@ -1,0 +1,43 @@
+language: node_js
+
+node_js:
+  - "0.10.32"
+
+compiler:
+  - node
+
+sudo: true
+
+before_install:
+  - echo "STAGING ... "
+  - echo "Installing Deps ..."
+  - npm install
+
+install:
+  - echo "Finished Install ... "
+
+
+before_script:
+  - echo "PASS"
+
+
+script: make
+
+# blacklist
+branches:
+  except:
+    - legacy
+    - experimental
+    - master
+    - staging
+
+# whitelist
+branches:
+  only:
+    - development
+
+notifications:
+  email:
+    
+  on_success: change
+  on_failure: always

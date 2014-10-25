@@ -1,0 +1,708 @@
+.io-wrapper.landing, .io-wrapper.about{
+  background-image: url('../images/banner1-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@font-face {
+    font-family: Cookie;
+    src: url(../fonts/cookie/cookie-regular.ttf);
+    font-weight: 400;
+}
+
+/*------------------------------
+  Hint CSS
+-------------------------------*/
+
+/*! Hint.css - v1.3.3 - 2014-07-06
+* http://kushagragour.in/lab/hint/
+* Copyright (c) 2014 Kushagra Gour; Licensed MIT */
+
+/*-------------------------------------*\
+  HINT.css - A CSS tooltip library
+\*-------------------------------------*/
+/**
+ * HINT.css is a tooltip library made in pure CSS.
+ *
+ * Source: https://github.com/chinchang/hint.css
+ * Demo: http://kushagragour.in/lab/hint/
+ *
+ * Release under The MIT License
+ *
+ */
+/**
+ * source: hint-core.scss
+ *
+ * Defines the basic styling for the tooltip.
+ * Each tooltip is made of 2 parts:
+ *  1) body (:after)
+ *  2) arrow (:before)
+ *
+ * Classes added:
+ *  1) hint
+ */
+.hint, [data-hint] {
+  position: relative;
+  display: inline-block;
+  /**
+   * tooltip arrow
+   */
+  /**
+   * tooltip body
+   */ }
+  .hint:before, .hint:after, [data-hint]:before, [data-hint]:after {
+    position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000000;
+    pointer-events: none;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    transition: 0.3s ease;
+    -webkit-transition-delay: 0ms;
+    -moz-transition-delay: 0ms;
+    transition-delay: 0ms; }
+  .hint:hover:before, .hint:hover:after, .hint:focus:before, .hint:focus:after, [data-hint]:hover:before, [data-hint]:hover:after, [data-hint]:focus:before, [data-hint]:focus:after {
+    visibility: visible;
+    opacity: 1; }
+  .hint:hover:before, .hint:hover:after, [data-hint]:hover:before, [data-hint]:hover:after {
+    -webkit-transition-delay: 100ms;
+    -moz-transition-delay: 100ms;
+    transition-delay: 100ms; }
+  .hint:before, [data-hint]:before {
+    content: '';
+    position: absolute;
+    background: transparent;
+    border: 6px solid transparent;
+    z-index: 1000001; }
+  .hint:after, [data-hint]:after {
+    content: attr(data-hint);
+    background: #383838;
+    color: white;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 12px;
+    white-space: nowrap; }
+
+/**
+ * source: hint-position.scss
+ *
+ * Defines the positoning logic for the tooltips.
+ *
+ * Classes added:
+ *  1) hint--top
+ *  2) hint--bottom
+ *  3) hint--left
+ *  4) hint--right
+ */
+/**
+ * set default color for tooltip arrows
+ */
+.hint--top:before {
+  border-top-color: #383838; }
+
+.hint--bottom:before {
+  border-bottom-color: #383838; }
+
+.hint--left:before {
+  border-left-color: #383838; }
+
+.hint--right:before {
+  border-right-color: #383838; }
+
+/**
+ * top tooltip
+ */
+.hint--top:before {
+  margin-bottom: -12px; }
+.hint--top:after {
+  margin-left: -18px; }
+.hint--top:before, .hint--top:after {
+  bottom: 100%;
+  left: 50%; }
+.hint--top:hover:after, .hint--top:hover:before, .hint--top:focus:after, .hint--top:focus:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+/**
+ * bottom tooltip
+ */
+.hint--bottom:before {
+  margin-top: -12px; }
+.hint--bottom:after {
+  margin-left: -18px; }
+.hint--bottom:before, .hint--bottom:after {
+  top: 100%;
+  left: 50%; }
+.hint--bottom:hover:after, .hint--bottom:hover:before, .hint--bottom:focus:after, .hint--bottom:focus:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+/**
+ * right tooltip
+ */
+.hint--right:before {
+  margin-left: -12px;
+  margin-bottom: -6px; }
+.hint--right:after {
+  margin-bottom: -14px; }
+.hint--right:before, .hint--right:after {
+  left: 100%;
+  bottom: 50%; }
+.hint--right:hover:after, .hint--right:hover:before, .hint--right:focus:after, .hint--right:focus:before {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px); }
+
+/**
+ * left tooltip
+ */
+.hint--left:before {
+  margin-right: -12px;
+  margin-bottom: -6px; }
+.hint--left:after {
+  margin-bottom: -14px; }
+.hint--left:before, .hint--left:after {
+  right: 100%;
+  bottom: 50%; }
+.hint--left:hover:after, .hint--left:hover:before, .hint--left:focus:after, .hint--left:focus:before {
+  -webkit-transform: translateX(-8px);
+  -moz-transform: translateX(-8px);
+  transform: translateX(-8px); }
+
+/**
+ * source: hint-color-types.scss
+ *
+ * Contains tooltips of various types based on color differences.
+ *
+ * Classes added:
+ *  1) hint--error
+ *  2) hint--warning
+ *  3) hint--info
+ *  4) hint--success
+ *
+ */
+/**
+ * Error
+ */
+.hint--error:after {
+  background-color: #b34e4d;
+  text-shadow: 0 -1px 0px #592726; }
+.hint--error.hint--top:before {
+  border-top-color: #b34e4d; }
+.hint--error.hint--bottom:before {
+  border-bottom-color: #b34e4d; }
+.hint--error.hint--left:before {
+  border-left-color: #b34e4d; }
+.hint--error.hint--right:before {
+  border-right-color: #b34e4d; }
+
+/**
+ * Warning
+ */
+.hint--warning:after {
+  background-color: #c09854;
+  text-shadow: 0 -1px 0px #6c5328; }
+.hint--warning.hint--top:before {
+  border-top-color: #c09854; }
+.hint--warning.hint--bottom:before {
+  border-bottom-color: #c09854; }
+.hint--warning.hint--left:before {
+  border-left-color: #c09854; }
+.hint--warning.hint--right:before {
+  border-right-color: #c09854; }
+
+/**
+ * Info
+ */
+.hint--info:after {
+  background-color: #3986ac;
+  text-shadow: 0 -1px 0px #193b4d; }
+.hint--info.hint--top:before {
+  border-top-color: #3986ac; }
+.hint--info.hint--bottom:before {
+  border-bottom-color: #3986ac; }
+.hint--info.hint--left:before {
+  border-left-color: #3986ac; }
+.hint--info.hint--right:before {
+  border-right-color: #3986ac; }
+
+/**
+ * Success
+ */
+.hint--success:after {
+  background-color: #458746;
+  text-shadow: 0 -1px 0px #1a321a; }
+.hint--success.hint--top:before {
+  border-top-color: #458746; }
+.hint--success.hint--bottom:before {
+  border-bottom-color: #458746; }
+.hint--success.hint--left:before {
+  border-left-color: #458746; }
+.hint--success.hint--right:before {
+  border-right-color: #458746; }
+
+/**
+ * source: hint-always.scss
+ *
+ * Defines a persisted tooltip which shows always.
+ *
+ * Classes added:
+ *  1) hint--always
+ *
+ */
+.hint--always:after, .hint--always:before {
+  opacity: 1;
+  visibility: visible; }
+.hint--always.hint--top:after, .hint--always.hint--top:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+.hint--always.hint--bottom:after, .hint--always.hint--bottom:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+.hint--always.hint--left:after, .hint--always.hint--left:before {
+  -webkit-transform: translateX(-8px);
+  -moz-transform: translateX(-8px);
+  transform: translateX(-8px); }
+.hint--always.hint--right:after, .hint--always.hint--right:before {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px); }
+
+/**
+ * source: hint-rounded.scss
+ *
+ * Defines rounded corner tooltips.
+ *
+ * Classes added:
+ *  1) hint--rounded
+ *
+ */
+.hint--rounded:after {
+  border-radius: 4px; }
+
+/**
+ * source: hint-effects.scss
+ *
+ * Defines various transition effects for the tooltips.
+ *
+ * Classes added:
+ *  1) hint--no-animate
+ *  2) hint--bounce
+ *
+ */
+.hint--no-animate:before, .hint--no-animate:after {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  transition-duration: 0ms; }
+
+.hint--bounce:before, .hint--bounce:after {
+  -webkit-transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -moz-transition: opacity 0.3s ease, visibility 0.3s ease, -moz-transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24); }
+
+/*------------------------------
+  End
+------------------------------*/
+
+/*------------------------------
+  Main InkOverflow styles
+------------------------------*/
+
+.io-wrapper{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.io-canvas{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateX(0);
+  transition: 0.3s ease all;
+}
+
+.io-menu{
+  width: 17em;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -17em;
+  background: rgb(46, 65, 84);
+  box-shadow: none;
+}
+
+.io-menu.show-menu{
+  box-shadow: inset -4px 0px 6px 0px rgb(34, 49, 65);
+}
+
+.io-menu> .logo-text{
+  font-size: 2.3em;
+  display: inline-block;
+  font-family: 'Cookie';
+  color: rgb(251, 252, 252);
+  padding: 0.1em 0em 0.2em 0.3em;
+}
+
+.io-menu> .menu{
+  list-style: none;
+  padding: 0em;
+  margin: 0em;
+  cursor: default;
+}
+
+.io-menu> .menu li{
+  display: block;
+  padding: 0em;
+  margin: 0em;
+}
+
+.io-menu> .menu li a:link, .io-menu> .menu li a:visited{
+  font-size: 1em;
+  display: block;
+  color: rgb(251,252,252);
+  width: 99.3%;
+  padding: 0.6em 0em 0.7em 1em;
+  box-shadow: inset 0 -1px rgb(37,53,70);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.io-menu> .menu li:first-child a:link, .io-menu> .menu li a:visited{
+  box-shadow: inset 0 1px rgb(37, 53, 70), inset 0 -1px rgb(37, 53, 70);
+}
+
+.io-menu> .menu li a:hover, .io-menu> .menu li a:active{
+  cursor: pointer;
+  background: rgb(37,53,70);
+  box-shadow: inset 0 -1px rgba(37,53,70,0);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.io-wrapper.show-menu .io-canvas{
+  transform: translateX(17em);
+}
+
+/* Header  */
+
+.header-banner{
+  height: 42em;
+}
+
+.header, .header-l{
+  height: 4em;
+}
+
+.header{
+  background-color: rgba(0,0,0,0.6);
+}
+
+.header-l{
+  background-color: rgb(251,252,252);
+}
+
+.header> .menu-switch{
+  font-size: 1.7em;
+  color: rgb(251, 252, 252);
+  margin: 0.6em 0.55em 0em 0em;
+  float: left;
+  cursor: pointer;
+}
+
+.header> .logo-text{
+  font-size: 2.3em;
+  font-family: 'Cookie';
+  color: rgb(251, 252, 252);
+  display: inline-block;
+  margin: 0.1em 0em 0em 0em;
+}
+
+.header-l> .menu-switch, .header-l> .logo-text{
+  color: #222;
+}
+
+.header> .menu{
+  float: right;
+  padding: 0em;
+  margin: 1.1em 0em 0em 0em;
+  list-style: none;
+  cursor: default;
+}
+
+.header> .menu li{
+  display: inline;
+  padding: 0em;
+  margin: 0em .5em 0em 0em;
+}
+
+.header> .menu li:last-child{
+  margin: 0em;
+}
+
+.header> .menu li a:link, .header> .menu li a:visited{
+  font-size: 1em;
+  color: rgb(251,252,252);
+  text-align: center;
+  text-decoration: none;
+  margin-right: 0.7em;
+  padding: 0.5em 0em 0.6em 0em;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.header-l> .menu li a:link, .header-l> .menu li a:visited{
+  color: #222;
+}
+
+.header> .menu li a:hover, .header> .menu li a:active{
+  box-shadow: inset 0 -3px rgb(251,252,252);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.header-l> .menu li a:hover, .header-l> .menu li a:active{
+  box-shadow: inset 0 -3px #222;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.header> .menu li:nth-child(3) a{
+  border: 1px solid rgb(251,252,252);
+  border-radius: 0.3em;
+  box-shadow: none;
+  padding: 0.5em 0.7em 0.6em 0.6em;
+}
+
+.header-l> .menu li:nth-child(3) a{
+  border-color: #222;
+  color: #222;
+}
+
+.header> .menu li:last-child a:hover, .header> .menu li:last-child a:active{
+  background-color: rgb(251,252,252);
+  color: #222;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.header-l> .menu li:last-child a:hover, .header-l> .menu li:last-child a:active{
+  background-color: #222;
+  color: rgb(251,252,252);
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.banner{
+  height: 38em;
+  background-color: rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.banner> .quote-b{
+  font-size: 3em;
+  color: rgb(251, 252, 252);
+  text-align: center;
+  padding: 0em;
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+  position: relative;
+}
+
+.banner> .quote-s{
+  font-size: 2.5em;
+  color: rgb(251, 252, 252);
+  text-align: center;
+  padding: 0em;
+  margin-top: 1em;
+  margin-bottom: 0em;
+}
+
+.banner> hr.divider-b{
+  padding: 0em;
+  margin-top: 2.8em;
+  margin-bottom: 2.8em;
+  border-color: rgb(251, 252, 252);
+}
+
+.banner> hr.divider-s{
+  padding: 0em;
+  margin-top: 1.3em;
+  margin-bottom: 1.7em;
+  border-color: rgb(251, 252, 252);
+}
+
+.banner> .signin-prompt{
+  font-size: 1.5em;
+  color: rgb(251, 252, 252);
+  padding: 0em;
+  margin-top: 0em;
+  margin-bottom: 1.4em;
+  text-align: center;
+}
+
+.banner> .signin-container{
+  padding: 0em;
+}
+
+.signin-container> .signin-bdiv{
+  padding: 0em;
+  margin: 0em;
+  margin-bottom: 0.5em;
+}
+
+.signin-bdiv> .signin-button{
+  font-size: 1.1em;
+  display: inline-block;
+  padding: 0.5em 0em 0.6em 0em;
+  width: 90%;
+  margin-left: 5.5%;
+  color: rgb(251, 252, 252);
+  border-radius: 0.3em;
+  position: relative;
+  text-align: center;
+  overflow: hidden;  
+}
+
+.signin-bdiv> a.facebook:link, .signin-bdiv> a.facebook:visited, .signin-bdiv> a.facebook:hover, .signin-bdiv> a.facebook:active{
+  background-color: rgb(59,89,152);
+}
+
+.signin-bdiv> a.google:link, .signin-bdiv> a.google:visited, .signin-bdiv> a.google:hover, .signin-bdiv> a.google:active{
+  background-color: rgb(211,63,42);
+}
+
+.signin-bdiv> a.twitter:link, .signin-bdiv> a.twitter:visited, .signin-bdiv> a.twitter:hover, .signin-bdiv> a.twitter:active{
+  background-color: rgb(85,172,238);
+}
+
+.signin-bdiv> .signin-button i, .login-div> .signin-button i{
+  margin-right: 0.5em;
+  font-size: 1.2em;
+}
+
+/* Log In */
+
+.login-wrapper{
+  background-color: rgb(251,252,252);
+  height: 40em;
+}
+
+.login-div{
+  padding: 0.5em;
+  margin: 3em 0em 0em 0em;
+}
+
+.login-div h3, .login-div p.signin{
+  color: #222;
+  text-align: center;
+}
+
+.login-div h3{
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0em;
+}
+
+.login-div p.signin{
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.login-div p.clause{
+  margin: 1em 0.5em 0em 0.5em;
+  color: #222;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+.login-div a{
+  font-size: 1.1em;
+  display: block;
+  padding: 0.5em 0em 0.6em 0em;
+  margin-bottom: 0.7em;
+  width: 90%;
+  margin-left: 5.5%;
+  color: rgb(251, 252, 252);
+  border-radius: 0.3em;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.login-div a.facebook{
+  background-color: rgb(59,89,152);
+}
+
+.login-div a.google{
+  background-color: rgb(211,63,42);
+}
+
+.login-div a.twitter{
+  background-color: rgb(85,172,238);
+}
+
+/* end */
+
+/* Main Landing body */
+
+.landing-section{
+  padding: 0em;
+  background: rgb(251,252,255);
+}
+
+.landing-section> .incentive-wrapper{
+  padding: 0em;
+}
+
+.incentive-wrapper> div.row .incentives{
+  height: 15em;
+}
+
+/* End */
+
+/* About Page */
+
+.about-wrapper{
+  background-color: rgb(251,252,252);
+}
+
+.about-wrapper div.row .about-body{
+  padding: 1.2em 1em 1em 1em;
+  background-color: rgb(251,252,252);
+  height: 38em;
+}
+
+/* End */
+
+/* Footer */
+
+.footer{
+  background-color: rgb(251,252,252);
+}
+
+.footer> div.row .info-wrapper{
+  padding: 0.5em 0em 0.5em 0.7em;
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.info-wrapper a{
+  color: #555;
+  font-size: 0.95em;
+  margin-right: 0.8em;
+}
+
+.info-wrapper a:last-child{
+  margin-right: 0em;
+}
+
+/* End of footer */
+
+/*------------------------------
+  End
+------------------------------*/

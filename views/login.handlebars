@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/stylesheets/foundation.min.css">
+        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/io.css">
+        <script src="/javascript/jquery.min.js"></script>
+        <script src="/javascript/modernizr.js"></script>
+    </head>
+    <body>
+        <div id="ioWrapper" class="io-wrapper">
+            <div class="io-canvas">
+                <div id="ioMenu" class="io-menu">
+                    <a href="/" class="logo-text">Ink Overflow</a>
+                    <ul class="menu">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Discover</a></li>
+                    </ul>
+                </div>
+                <div class="full-size">
+                    <div class="large-12 columns medium-12 columns header header-l">
+                        <i id="menuTrigger" class="fa fa-bars menu-switch show-for-small-only"></i>
+                        <a href="/" class="logo-text">Ink Overflow</a>
+                        <ul class="menu show-for-medium-up">
+                            <li><a href="/about">About</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Discover</a></li>
+                        </ul>
+                    </div>
+                </div>    
+                <div class="full-size login-wrapper">
+                    <div class="row">
+                        <div class="large-5 large-centered columns medium-5 medium-centered columns login-div">
+                            <h3>Ink Overflow</h3>
+                            <p class="signin">Sign in with</p>
+                            <a href="/auth/facebook" class="signin-button facebook"><i class="fa fa-facebook-square"></i>Facebook</a>
+                            <a href="/auth/google" class="signin-button google"><i class="fa fa-google-plus-square"></i>Google</a>
+                            <a href="/auth/twitter" class="signin-button twitter"><i class="fa fa-twitter-square"></i>Twitter</a>
+                            <p class="clause">We <b>do not</b> post to your Facebook, Google or Twitter accounts without your permission.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-size footer">
+                    <div class="row">
+                        <div class="large-12 columns medium-12 columns info-wrapper">
+                            <a href="/about" class="footer-link">About</a>
+                            <a href="#" class="footer-link">Privacy &amp; Terms</a>
+                            <a href="#" class="footer-link">Contact</a>
+                            <a href="#" class="footer-link">Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/javascript/foundation.min.js"></script>
+        <script src="/javascript/classie.js"></script>
+        <script src="/javascript/io.js"></script>
+        <script>
+            $(document).foundation();
+        </script>       
+    </body>
+</html>
