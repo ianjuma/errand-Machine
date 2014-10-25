@@ -4,31 +4,26 @@ var router = express.Router();
 
 exports.index = function(req, res) {
 	if (req.isAuthenticated()) {
-	  res.render('app', { title: 'Ink Overflow', user: req.user[0] });
+	  res.render('app', { title: 'taskwetu', user: req.user[0] });
 	  console.log(req.user);
 	} else {
-	  res.render('index', { title: 'Ink Overflow' });
+	  res.render('index', { title: 'taskwetu' });
 	}
 };
 
 
 exports.app = function(req, res) {
-  res.render('app', { title: 'Ink Overflow | App' });
-};
-
-
-exports.about = function(req, res) {
-  res.render('about', { title: 'Ink Overflow | About' });
+  res.render('app', { title: 'taskwetu | App' });
 };
 
 
 exports.login = function(req, res) {
-  res.render('login', { title: 'Ink Overflow | Login' });
+  res.render('login', { title: 'taskwetu | Login' });
 };
 
 
 exports.checkApi = function(req, res) {
-  res.render('users', { title: 'Ink Overflow', content: 'API is running' });
+  res.render('users', { title: 'taskwetu', content: 'API is running' });
 };
 
 
