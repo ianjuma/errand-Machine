@@ -1,15 +1,15 @@
 var slug = require('slug');
-var Post = require('../models/posts');
+var Task = require('../models/tasks');
 
 var reth = require('rethinkdb');
 
 
-exports.addPost = function(req, res) {
+exports.addTask= function(req, res) {
 	if ( ! req.is('application/json') ) {
 		res.status(400).json({ 'Error': 'Bad Request' });
 	}
 
-	var new_post = new Post({
+	var new_task = new Task({
 		id: req.body.id,
 	    title: req.body.title,
 	    _slug: slug((req.body.title).toLowerCase()),
@@ -17,35 +17,35 @@ exports.addPost = function(req, res) {
 	    author_id: req.body.idAuthor
 	});
 
-	new_post.save(function(error, result) {
+	new_task.save(function(error, result) {
 		if (result == null) {
-			res.status(400).json({ "Error": "Post Already Exists" });
+			res.status(400).json({ "Error": "Task Already Exists" });
 		}
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }
 	    else {
-	        console.log('Post Saved');
+	        console.log('Task Saved');
         	res.set({
 			  'Content-Type': 'application/json',
 			});
 
-			res.status(200).json({ 'OK': 'Post Created'});
+			res.status(200).json({ 'OK': 'Task Created'});
 	    }
 	});
 };
 
 
-exports.getPostById = function(req, res) {
+exports.getTaskById = function(req, res) {
 
-	Post.get( req.params.id ).run(function(error, result) {
+	Task.get( req.params.id ).run(function(error, result) {
 		if (result == null) {
-			res.status(404).json({ "Error": "Post Not Found" });
+			res.status(404).json({ "Error": "Task Not Found" });
 		}
 		if (error) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		} else {
-	        console.log('Post sent');
+	        console.log('Task sent');
 	        res.set({
 			  'Content-Type': 'application/json',
 			});
@@ -56,14 +56,14 @@ exports.getPostById = function(req, res) {
 };
 
 
-exports.getPosts = function(req, res) {
+exports.getTasks = function(req, res) {
 
-	Post.orderBy( "creation_date" ).getJoin().run(function(error, result) {
+	Task.orderBy( "creation_date" ).getJoin().run(function(error, result) {
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }
 	    else {
-	        console.log('Post sent');
+	        console.log('Task sent');
 	        res.set({
 			  'Content-Type': 'application/json',
 			});
@@ -74,29 +74,29 @@ exports.getPosts = function(req, res) {
 };
 
 
-exports.deletePostById = function(req, res) {
+exports.deleteTaskById = function(req, res) {
 
-	Post.get( req.params.id ).delete().run(function(error, result) {
+	Task.get( req.params.id ).delete().run(function(error, result) {
 		if (result == null) {
-			res.status(404).json({ "Error": "Post Not Found" });
+			res.status(404).json({ "Error": "Task Not Found" });
 		}
 		if (error) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		} else {
-	        console.log('Post deleted');
+	        console.log('Task deleted');
 	        res.set({
 			  'Content-Type': 'application/json'
 			});
 
-			res.status(200).json({ 'OK': 'Post Deleted' });
+			res.status(200).json({ 'OK': 'Task Deleted' });
 		}
 	});
 };
 
 
-exports.updatePostById = function(req, res) {
+exports.updateTaskById = function(req, res) {
 
-	var _post = new Post({
+	var _task = new Task({
 		id: req.body.id,
 	    title: req.body.title,
 	    _slug: slug((req.body.title).toLowerCase()),
@@ -104,19 +104,19 @@ exports.updatePostById = function(req, res) {
 	    idAuthor: req.body.idAuthor
 	});
 
-	Post.get( req.params.id ).update(_post).run(function(error, result) {
+	Task.get( req.params.id ).update(_task).run(function(error, result) {
 		if (result == null) {
-			res.status(404).json({ "Error": "Post Not Found" });
+			res.status(404).json({ "Error": "Task Not Found" });
 		}
 		if (error) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		} else {
-	        console.log('Post updated');
+	        console.log('Task updated');
 	        res.set({
 			  'Content-Type': 'application/json'
 			});
 
-			res.status(200).json(_post);
+			res.status(200).json(_task);
 		}
 	});
 };
