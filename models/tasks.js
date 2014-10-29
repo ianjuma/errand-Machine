@@ -29,6 +29,6 @@ Task.docAddListener('save', function(Task) {
     console.log( "A new Task has been saved" );
 });
 
-Task.ensureIndex("title");
+Task.ensureIndex("username");
 
 module.exports = Task;
