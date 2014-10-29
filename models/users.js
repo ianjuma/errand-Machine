@@ -8,9 +8,11 @@ var r = thinky.r;
 
 var User = thinky.createModel('Users', {
     id: String,
-    name: String,
+    lname: String,
+    fname: String,
     username: String,
     dob: Date,
+    password: String,
     date_joined: {
       _type: Date,
       default: r.now()
@@ -34,6 +36,5 @@ User.docAddListener('save', function(user) {
 });
 
 User.ensureIndex("username");
-
 
 module.exports = User;
