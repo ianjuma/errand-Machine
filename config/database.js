@@ -3,7 +3,7 @@ module.exports = {
         host: "localhost",
         port: 28015,
         authKey: "inkoverflow",
-        db: "inkoverflow"
+        db: "test"
     },
     redis: {
       host: 'localhost',
