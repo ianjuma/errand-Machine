@@ -4,14 +4,12 @@ var thinky = require('thinky')(config.rethinkdb);
 var r = thinky.r;
 
 var Task = thinky.createModel('Tasks', {
-    task_id: String,
     username: String,
     task_title: String,
-    locationData: String,
+    _slug: String,
+    author_id: String,
     task_description: String,
-    contactPersons: String,
     due_date: Date,
-    task_category: String,
     task_urgency: String,
     metadata: {
        creation_date: {

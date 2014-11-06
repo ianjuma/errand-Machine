@@ -12,7 +12,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  UserModel.filter({ 'id': user.id }).run(function(err, user) {
+  UserModel.get( user[0].id ).run(function(err, user) {
     if (err) { console.log(err); done(err); }
     if (!err && user != null && user != '' && user != '[]' && user != [] ) {
       done(null, user);

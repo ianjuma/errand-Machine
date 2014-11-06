@@ -7,7 +7,6 @@ exports.addUser = function(req, res) {
 	}
 
 	var new_user = new User({
-		id: req.body.id,
     	name: req.body.name,
     	email: req.body.email,
     	dob: req.body.dob,

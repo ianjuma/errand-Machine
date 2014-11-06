@@ -10,11 +10,13 @@ exports.addTask= function(req, res) {
 	}
 
 	var new_task = new Task({
-		id: req.body.id,
-	    title: req.body.title,
+	    task_title: req.body.title,
 	    _slug: slug((req.body.title).toLowerCase()),
-	    content: req.body.content,
-	    author_id: req.body.idAuthor
+	    username: req.body.username,
+	    author_id: req.body.idAuthor,
+	    due_date: req.body.due_date,
+	    task_description: req.body.task_description,
+	    task_urgency: req.body.task_urgency
 	});
 
 	new_task.save(function(error, result) {
@@ -58,7 +60,25 @@ exports.getTaskById = function(req, res) {
 
 exports.getTasks = function(req, res) {
 
-	Task.orderBy( "creation_date" ).getJoin().run(function(error, result) {
+	Task.orderBy( "creation_date" ).get().run(function(error, result) {
+	    if (error) {
+	        res.status(500).json({ error: "something blew up, we're fixing it" });
+	    }
+	    else {
+	        console.log('Task sent');
+	        res.set({
+			  'Content-Type': 'application/json',
+			});
+
+			res.status(200).json(result);
+	    }
+	});
+};
+
+
+exports.getTasksByUserId = function(req, res) {
+
+	Task.orderBy( "creation_date" ).filter({ author_id: req.body.id }).get().run(function(error, result) {
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }
@@ -97,11 +117,13 @@ exports.deleteTaskById = function(req, res) {
 exports.updateTaskById = function(req, res) {
 
 	var _task = new Task({
-		id: req.body.id,
-	    title: req.body.title,
+		task_title: req.body.title,
 	    _slug: slug((req.body.title).toLowerCase()),
-	    content: req.body.content,
-	    idAuthor: req.body.idAuthor
+	    username: req.body.username,
+	    author_id: req.body.idAuthor,
+	    due_date: req.body.due_date,
+	    task_description: req.body.task_description,
+	    task_urgency: req.body.task_urgency
 	});
 
 	Task.get( req.params.id ).update(_task).run(function(error, result) {
