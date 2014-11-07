@@ -75,7 +75,7 @@ exports.getTasks = function(req, res) {
 
 exports.getTasksByUserId = function(req, res) {
 
-	Task.orderBy( "creation_date" ).filter({ author_id: req.params.id }).get().run(function(error, result) {
+	Task.orderBy( "creation_date" ).filter({ author_id: req.params.author_id }).get().run(function(error, result) {
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }
