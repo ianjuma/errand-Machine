@@ -15,7 +15,6 @@ var config = require("./config/database");
 // import models to be used
 var index = require('./routes/index');
 var users = require('./routes/users');
-var events = require('./routes/events');
 var posts = require('./routes/tasks');
 var UserModel = require('./models/users');
 var authentication = require('./routes/authentication');
@@ -87,7 +86,7 @@ app.get('/auth/facebook/callback', passportSession.passport.authenticate('facebo
     successReturnToOrRedirect: '/', failureRedirect: '/login' })
 );
 
-app.post('/login', passport.authenticate('local',
+app.post('/login', passportSession.passport.authenticate('local',
   { failureRedirect: '/login',
     failureFlash: true,
     successRedirect: '/' }), function(req, res) {

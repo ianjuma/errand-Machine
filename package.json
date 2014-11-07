@@ -9,6 +9,7 @@
     "hiredis": "*",
     "redis": "*",
     "connect-redis": "2.1.0",
+    "thinky": "1.14.4",
     "rethinkdb": "1.15.0-0",
     "kue": "*",
     "forever": "*",
