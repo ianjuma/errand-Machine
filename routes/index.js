@@ -15,6 +15,21 @@ exports.app = function(req, res) {
 };
 
 
+/*
+exports.about = function(req, res) {
+  res.render('about', { title: 'taskwetu | About' });
+};
+
+exports.help = function(req, res) {
+  res.render('app', { title: 'taskwetu | Help' });
+};
+
+exports.team = function(req, res) {
+  res.render('team', { title: 'taskwetu | Team' });
+};
+*/
+
+
 exports.login = function(req, res) {
   res.render('login', { title: 'taskwetu | Login' });
 };
