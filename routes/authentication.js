@@ -1,6 +1,5 @@
 var oauthConfig = require('../config/auth');
 var passport = require('passport');
-var TwitterStrategy = require('passport-twitter').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -19,36 +18,6 @@ passport.deserializeUser(function(user, done) {
     }
   });
 });
-
-
-passport.use(new TwitterStrategy(oauthConfig.twitterAuth,
-  function(token, tokenSecret, profile, done) {
-
-    var user_info = {
-      id: String(profile.username),
-      username: profile.username,
-      name: profile.displayName,
-      provider: profile.provider,
-      location: profile._json.location,
-      profile_url: profile.photos[0].value
-    }
-
-    UserModel.filter({ 'id': String(profile.username) }).run(function(err, user) {
-      if (err) { console.log(err); }
-      if (!err && user != null && user != '' && user != '[]' && user != [] ) {
-        done(null, user);
-      } else {
-        UserModel.save( user_info, function(err, user) {
-          if (err) {
-            return done(err);
-          } else {
-            done(null, user);
-          }
-        });
-      }
-    });
-  }
-));
 
 
 passport.use(new GoogleStrategy(oauthConfig.googleAuth,

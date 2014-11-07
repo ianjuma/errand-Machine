@@ -10,7 +10,7 @@ exports.addUser = function(req, res) {
     	name: req.body.name,
     	email: req.body.email,
     	dob: req.body.dob,
-    	username: req.body.username
+    	profile_url: req.body.profile_url
 	});
 
 	new_user.save(function(error, result) {
@@ -98,7 +98,7 @@ exports.updateUserById = function(req, res) {
     	name: req.body.name,
     	dob: req.body.dob,
     	profile_url: req.body.profile_url,
-    	email: req.body.email,
+    	email: req.body.email
 	});
 
 	User.get( req.params.id ).update(_user).run( function(error, result) {
