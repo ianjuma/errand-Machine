@@ -5,9 +5,6 @@ var reth = require('rethinkdb');
 
 
 exports.addTask= function(req, res) {
-	if ( ! req.is('application/json') ) {
-		res.status(400).json({ 'Error': 'Bad Request' });
-	}
 
 	var new_task = new Task({
 	    task_title: req.body.title,
@@ -78,7 +75,7 @@ exports.getTasks = function(req, res) {
 
 exports.getTasksByUserId = function(req, res) {
 
-	Task.orderBy( "creation_date" ).filter({ author_id: req.body.id }).get().run(function(error, result) {
+	Task.orderBy( "creation_date" ).filter({ author_id: req.params.id }).get().run(function(error, result) {
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }

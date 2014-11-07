@@ -2,9 +2,6 @@ var User = require('../models/users');
 
 
 exports.addUser = function(req, res) {
-	if ( ! req.is('application/json') ) {
-		res.status(400).json( {'Error': 'Bad Request'} );
-	}
 
 	var new_user = new User({
     	name: req.body.name,
