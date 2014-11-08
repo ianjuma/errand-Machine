@@ -3,8 +3,9 @@ var thinky = require('thinky')(config.rethinkdb);
 
 var r = thinky.r;
 
+// id as user_id
 var Notification = thinky.createModel('Notifications', {
-    username: String,
+    id: String,
     content: {
         _type: Array,
         default: "No Display"
