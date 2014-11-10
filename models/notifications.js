@@ -7,14 +7,7 @@ var r = thinky.r;
 var Notification = thinky.createModel('Notifications', {
     id: String,
     content: {
-        _type: Array,
-        default: "No Display"
-    },
-    metadata: {
-       creation_date: {
-        _type: Date,
-        default: r.now()
-      }
+        _type: Array
     }
 });
 
