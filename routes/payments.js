@@ -22,5 +22,5 @@ exports.makeOrder = function(req, res) {
 	var order = new PesaPal.Order(ref_no, customer, item, price, currency, "MERCHANT");
 
 	// Redirect user to PesaPal
-	var url = PesaPal.getPaymentURL(order, "http://127.0.0.1/ouathCallBack");
+	var url = PesaPal.getPaymentURL(order, "https://taskwetu.com/ouathCallBack");
 };

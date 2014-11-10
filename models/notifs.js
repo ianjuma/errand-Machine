@@ -12,6 +12,10 @@ var Notif = thinky.createModel('Notifs', {
         _type: Date,
         default: r.now()
       }
+    },
+    status: {
+    	_type: String,
+    	default: 'NOT_READ'
     }
 });
 
