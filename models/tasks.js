@@ -12,7 +12,7 @@ var Task = thinky.createModel('Tasks', {
     due_date: Date,
     progress: {
         _type: String,
-        default: PENDING
+        default: 'PENDING'
     },
     paid: String,
     task_urgency: String,
