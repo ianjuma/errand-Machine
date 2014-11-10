@@ -10,7 +10,10 @@ var Task = thinky.createModel('Tasks', {
     author_id: String,
     task_description: String,
     due_date: Date,
-    progress: String,
+    progress: {
+        _type: String,
+        default: PENDING
+    },
     paid: String,
     task_urgency: String,
     metadata: {
@@ -32,4 +35,3 @@ Task.docAddListener('save', function(Task) {
 Task.ensureIndex("username");
 
 module.exports = Task;
-
