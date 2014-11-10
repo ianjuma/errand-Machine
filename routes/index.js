@@ -1,5 +1,3 @@
-var express = require('express');
-
 exports.index = function(req, res) {
 	if (req.isAuthenticated()) {
 	  res.render('app', { title: 'taskwetu', user: req.user });

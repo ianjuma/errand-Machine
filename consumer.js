@@ -1,4 +1,4 @@
-var kueConfig = require('./config/worker_queue');
+var kueConfig = require('./config/workers');
 
 
 var kue = require('kue')
