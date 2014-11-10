@@ -5,10 +5,14 @@ module.exports = {
 	    port: 6379,
 	    host: 'localhost',
 	    auth: '',
-	    db: 'inkOverFlow',
+	    db: 'taskwetu',
 	    options: {
 	    }
 	  },
      disableSearch: true
+	},
+	sendgrid: {
+		api_user: 'app27418636@heroku.com',
+		api_key: 'w4do409h'
 	}
 };

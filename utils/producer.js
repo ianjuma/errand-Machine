@@ -1,4 +1,4 @@
-var kueConfig = require('./config/workers');
+var kueConfig = require('../config/workers');
 var kue = require('kue')
   , redis = require('redis')
   , jobs = kue.createQueue(kueConfig.kue);
@@ -20,7 +20,7 @@ function sendwelcomeEmail (user) {
 		job.on('complete', function() {
 			console.log('Job Complete');
 		});
-		
+
 	})(user);
 
 }

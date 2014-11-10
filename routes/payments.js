@@ -1,7 +1,7 @@
 var PesaPal = require('pesapaljs');
-var config = require("../config/payments");
+var config = require("../config/pesapal");
 
-PesaPal.initialize(config.payments);
+PesaPal.initialize(config.pesapal);
 
 
 exports.ipn = function(req, res) {
