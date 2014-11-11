@@ -24,6 +24,9 @@ var Task = thinky.createModel('Tasks', {
       last_updated_date: {
         _type: Date,
         default: r.now()
+      },
+      completion_date: {
+        _type: Date
       }
     }
 });

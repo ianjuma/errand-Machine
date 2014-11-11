@@ -9,13 +9,21 @@ jobs.process('email', function(job, done) {
 	console.log(job.data);
 
 	sendgrid.send({
-	  to:       job.to,
+	  to:       job.data.to,
 	  from:     'no-reply@taskwetu.com',
-	  subject:  job.title,
-	  text:     job.body
+	  subject:  job.data.title,
+	  text:     job.data.body
 	}, function(err, json) {
 	  if (err) { return console.error(err); }
 	  console.log(json);
 	});
-
 });
+
+
+/*
+ job tracking interface will be set out of the app scope
+ far much better - its a tiny express app
+ 	var kue = require('kue');
+	kue.createQueue();
+	kue.app.listen(3000);
+*/

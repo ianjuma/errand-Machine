@@ -7,7 +7,7 @@ var kue = require('kue')
 function sendwelcomeEmail (user) {
 	(function() {
 		var job = jobs.create('email', {
-		    title: 'Welcome for ' + user.name,
+		    title: 'Welcome to Taskwetu',
 		    to: user.email,
 		    body: "Welcome to taskwetu, visit our site at www.taskwetu.com"
 		}).priority('high');
@@ -19,10 +19,31 @@ function sendwelcomeEmail (user) {
 }
 
 
-/*
- job tracking interface will be set out of the app scope
- far much better - its a tiny express app
- 	var kue = require('kue');
-	kue.createQueue();
-	kue.app.listen(3000);
-*/
+function taskCreated (user) {
+	(function() {
+		var job = jobs.create('email', {
+		    title: 'Task created successfully',
+		    to: user.email,
+		    body: 'Your task has been successfully created, please visit the taskwetu dashboard to view your task progress, thank you!';
+		}).priority('high');
+
+		job.attempts(2).backoff( true );
+		job.save();
+
+	})(user);
+}
+
+
+function passwordReset (user) {
+	(function() {
+		var job = jobs.create('email', {
+		    title: 'Password Reset',
+		    to: user.email,
+		    body: 'Your password has been reset to ' + user.password;
+		}).priority('high');
+
+		job.attempts(2).backoff( true );
+		job.save();
+
+	})(user);
+}
