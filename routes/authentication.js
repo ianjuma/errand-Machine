@@ -108,7 +108,6 @@ exports.signup = function(req, res) {
   var hash = bcrypt.hashSync(req.body.password, oauthConfig.passwordSalt.salt);
 
   var new_user = new User({
-      id: req.body.username,
       email: req.body.email,
       password: hash
   });

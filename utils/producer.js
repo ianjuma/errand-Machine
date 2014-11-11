@@ -24,7 +24,8 @@ function taskCreated (user) {
 		var job = jobs.create('email', {
 		    title: 'Task created successfully',
 		    to: user.email,
-		    body: 'Your task has been successfully created, please visit the taskwetu dashboard to view your task progress, thank you!';
+		    body: 'Your task has been successfully created, please visit ' + 
+		    		'the taskwetu dashboard to view your task progress, thank you!';
 		}).priority('high');
 
 		job.attempts(2).backoff( true );
