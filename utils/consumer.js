@@ -8,8 +8,14 @@ var kue = require('kue')
 jobs.process('email', function(job, done) {
 	console.log(job.data);
 
-	setTimeout(function() {
-		console.log('Job done');
-		done(new Error('some error happened'));
-	}, 3000);
+	sendgrid.send({
+	  to:       job.to,
+	  from:     'no-reply@taskwetu.com',
+	  subject:  job.title,
+	  text:     job.body
+	}, function(err, json) {
+	  if (err) { return console.error(err); }
+	  console.log(json);
+	});
+
 });
