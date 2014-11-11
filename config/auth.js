@@ -18,6 +18,10 @@ module.exports = {
 		'clientID' 		: '1006439073888-ll6qdu340hjvmrbjdvsak84a69r510s6.apps.googleusercontent.com',
 		'clientSecret' 	: '3Nz7wkOsA0LZgWGo2h4w7Nuv',
 		'callbackURL' 	: 'http://127.0.0.1:8000/auth/google/callback',
+	},
+
+	passwordSalt: {
+		salt: '$2a$10$KMwDkvODRe1GMqlJf.lXvO'
 	}
 
 };

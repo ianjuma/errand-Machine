@@ -1,5 +1,6 @@
 module.exports = function(app, express) {
 	var session = require('express-session');
+	var flash = require('connect-flash');
 	var RedisStore = require('connect-redis')(session);
 	var exphbs  = require('express-handlebars');
 	var path = require('path');
@@ -33,7 +34,6 @@ module.exports = function(app, express) {
 	  store: new RedisStore(config.redis)
 	}));
 
-
 	app.use(passportSession.passport.initialize());
 	app.use(passportSession.passport.session());
 
@@ -57,7 +57,7 @@ module.exports = function(app, express) {
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(cookieParser('session_secret'));
 	app.use(express.static(path.join(__dirname, 'assets')));
-
+	app.use(flash());
 
 	// middleware to use for all requests
 	app.all("*", function(req, res, next) {
@@ -87,7 +87,7 @@ module.exports = function(app, express) {
 
 	app.post('/login', passportSession.passport.authenticate('local',
 	  { failureRedirect: '/login',
-	    failureFlash: true,
+	    failureFlash: 'Invalid username or password',
 	    successRedirect: '/' }), function(req, res) {
 	      res.redirect('/');
 	});

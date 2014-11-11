@@ -4,6 +4,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var UserModel = require('../models/users');
+var bcrypt = require('bcryptjs');
 
 
 passport.serializeUser(function(user, done) {
@@ -48,7 +49,6 @@ passport.use(new GoogleStrategy(oauthConfig.googleAuth,
         });
       }
     });
-
   }
 ));
 
@@ -63,7 +63,7 @@ passport.use(new FacebookStrategy(oauthConfig.facebookAuth,
       name: profile.displayName,
       email: profile.emails[0].value,
       profile_url: profile.photos[0].value,
-      provider: profile.provider,
+      provider: profile.provider
     };
 
     UserModel.filter({ 'id': String(profile.id) }).run(function(err, user) {
@@ -80,14 +80,20 @@ passport.use(new FacebookStrategy(oauthConfig.facebookAuth,
         });
       }
     });
-
   }
 ));
 
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.filter({ username: username }, function (err, user) {
+
+    var user_info = {
+      provider: 'local',
+      username: username,
+      password: password
+    };
+
+    UserModel.filter({ 'id': username }, function (err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
       if (!user.verifyPassword(password)) { return done(null, false); }
@@ -95,6 +101,35 @@ passport.use(new LocalStrategy(
     });
   }
 ));
+
+
+exports.signup = function(req, res) {
+
+  var hash = bcrypt.hashSync(req.body.password, oauthConfig.passwordSalt.salt);
+
+  var new_user = new User({
+      id: req.body.username,
+      email: req.body.email,
+      password: hash
+  });
+
+  new_user.save(function(error, result) {
+    if (result == null) {
+      res.status(400).json({ "Error": "User Already Exists" });
+    }
+      if (error) {
+          res.status(500).json({ error: "something blew up, we're fixing it" });
+      }
+      else {
+          console.log('User Saved');
+          res.set({
+            'Content-Type': 'application/json',
+          });
+
+          res.status(200).json({ 'OK': 'User Created'});
+      }
+  });
+};
 
 
 exports.passport = passport;
