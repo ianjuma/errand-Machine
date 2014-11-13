@@ -84,51 +84,67 @@ passport.use(new FacebookStrategy(oauthConfig.facebookAuth,
 ));
 
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
+passport.use('local-login', new LocalStrategy({
+  usernameField : 'email',
+  passwordField : 'password',
+  passReqToCallback : true
+},
+  function(req, email, password, done) {
 
-    var user_info = {
-      provider: 'local',
-      username: username,
-      password: password
-    };
+    var hash = bcrypt.hashSync(password, oauthConfig.passwordSalt.salt);
 
-    UserModel.filter({ 'id': username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (!user.verifyPassword(password)) { return done(null, false); }
-      return done(null, user);
+    UserModel.filter({ 'id' :  email }, function(err, user) {
+        // if there are any errors, return the error before anything else
+        if (err)
+            return done(err);
+        // if no user is found, return the message
+        if (!user)
+            return done(null, false, req.flash('loginMessage', 'Sorry, wrong email.'));
+
+        // if the user is found but the password is wrong
+        if (!user.validPassword( hash ))
+            return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+
+        // all is well, return successful user
+        return done(null, user);
     });
-  }
-));
+}));
 
 
-exports.signup = function(req, res) {
+passport.use('local-signup', new LocalStrategy({
+    // local strategy uses username and password, override with email
+    usernameField : 'email',
+    passwordField : 'password',
+    passReqToCallback : true // pass back the entire request to the callback
+}, 
+  function(req, email, password, done) {
 
-  var hash = bcrypt.hashSync(req.body.password, oauthConfig.passwordSalt.salt);
+    // User.findOne wont fire unless data is sent back
+    process.nextTick(function() {
 
-  var new_user = new User({
-      email: req.body.email,
-      password: hash
-  });
-
-  new_user.save(function(error, result) {
-    if (result == null) {
-      res.status(400).json({ "Error": "User Already Exists" });
-    }
-      if (error) {
-          res.status(500).json({ error: "something blew up, we're fixing it" });
-      }
-      else {
-          console.log('User Saved');
-          res.set({
-            'Content-Type': 'application/json',
-          });
-
-          res.status(200).json({ 'OK': 'User Created'});
-      }
-  });
-};
+    // find a user whose email is the same as the forms email
+    UserModel.filter({ 'id' :  email }, function(err, user) {
+        if (err)
+            return done(err);
+        // check to see if theres already a user with that email
+        if (user) {
+            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+        } else {
+            // if there is no user -> create the user
+            var new_user = new UserModel({
+              email: email,
+              password: bcrypt.hashSync(password, oauthConfig.passwordSalt.salt),
+              provider: 'local'
+            });
+            new_user.save(function(err) {
+                if (err)
+                    throw err;
+                return done(null, new_user);
+            });
+        }
+    });
+    });
+}));
 
 
 exports.passport = passport;
