@@ -25,7 +25,7 @@ function taskCreated (user) {
 		    title: 'Task created successfully',
 		    to: user.email,
 		    body: 'Your task has been successfully created, please visit ' + 
-		    		'the taskwetu dashboard to view your task progress, thank you!';
+		    		'the taskwetu dashboard to view your task progress, thank you!'
 		}).priority('high');
 
 		job.attempts(2).backoff( true );
@@ -40,7 +40,7 @@ function passwordReset (user) {
 		var job = jobs.create('email', {
 		    title: 'Password Reset',
 		    to: user.email,
-		    body: 'Your password has been reset to ' + user.password;
+		    body: 'Your password has been reset to ' + user.password
 		}).priority('high');
 
 		job.attempts(2).backoff( true );
