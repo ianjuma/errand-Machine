@@ -120,9 +120,9 @@ module.exports = function(app, express) {
 	app.get('/login', index.login);
 	app.get('/api', index.checkApi);
 
-	app.get('/api/user/getUserById/:id/', user.getUserById);
-	app.delete('/api/user/deleteUserById/:id/', user.deleteUserById);
-	app.put('/api/user/updateUserById/:id/', user.updateUserById);
+	app.get('/api/user/getUserById/:id/', users.getUserById);
+	app.delete('/api/user/deleteUserById/:id/', users.deleteUserById);
+	app.put('/api/user/updateUserById/:id/', users.updateUserById);
 
 	app.post('/api/task/addTask/', tasks.addTask);
 	app.get('/api/task/getTasks/', tasks.getTasks);
