@@ -1,7 +1,5 @@
-var slug = require('slug');
-var Task = require('../models/tasks');
-
-var reth = require('rethinkdb');
+var slug = require('slug')
+  , Task = require('../models/tasks');
 
 
 exports.addTask= function(req, res) {

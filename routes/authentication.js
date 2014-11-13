@@ -1,10 +1,12 @@
-var oauthConfig = require('../config/auth');
-var passport = require('passport');
+var oauthConfig = require('../config/auth')
+  , passport = require('passport')
+  , bcrypt = require('bcryptjs')
+  , UserModel = require('../models/users');
+
+
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-var UserModel = require('../models/users');
-var bcrypt = require('bcryptjs');
 
 
 passport.serializeUser(function(user, done) {
@@ -116,7 +118,7 @@ passport.use('local-signup', new LocalStrategy({
     usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true // pass back the entire request to the callback
-}, 
+},
   function(req, email, password, done) {
 
     // User.findOne wont fire unless data is sent back

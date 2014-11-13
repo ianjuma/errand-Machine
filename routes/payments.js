@@ -1,5 +1,5 @@
-var PesaPal = require('pesapaljs');
-var config = require("../config/pesapal");
+var PesaPal = require('pesapaljs')
+  , config = require('../config/pesapal');
 
 PesaPal.initialize(config.pesapal);
 
