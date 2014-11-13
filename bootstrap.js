@@ -11,13 +11,12 @@ module.exports = function(app, express) {
 	var bodyParser = require('body-parser');
 
 	var passportSession = require('./routes/authentication');
-	var config = require("./config/database");
+	var config = require('./config/database');
 
 	// import models to be used
 	var index = require('./routes/index');
 	var users = require('./routes/users');
-	var posts = require('./routes/tasks');
-	var UserModel = require('./models/users');
+	var tasks = require('./routes/tasks');
 	var authentication = require('./routes/authentication');
 
 
@@ -60,7 +59,7 @@ module.exports = function(app, express) {
 	app.use(flash());
 
 	// middleware to use for all requests
-	app.all("*", function(req, res, next) {
+	app.all('*', function(req, res, next) {
 	    console.log('request being processed');
 	    next();
 	});
@@ -121,22 +120,29 @@ module.exports = function(app, express) {
 	app.get('/login', index.login);
 	app.get('/api', index.checkApi);
 
-	// app.post('/api/user/elasticSearchUsers/', ESusers.elasticSearchUsers);
-	// app.post('/api/post/elasticSearchPosts/', ESusers.elasticSearchPosts);
+	app.get('/api/user/getUserById/:id/', user.getUserById);
+	app.delete('/api/user/deleteUserById/:id/', user.deleteUserById);
+	app.put('/api/user/updateUserById/:id/', user.updateUserById);
+
+	app.post('/api/task/addTask/', tasks.addTask);
+	app.get('/api/task/getTasks/', tasks.getTasks);
+	app.get('/api/task/getTaskById/:id/', tasks.getTaskById);
+	app.get('/api/task/getTasksByUserId/:id/', tasks.getTasksByUserId);
+	app.delete('/api/task/deleteTaskById/:id/', tasks.deleteTaskById);
+	app.put('/api/task/updateTaskById/:id/', tasks.updateTaskById);
 
 	// 404 error handler
 	app.get('*', function(req, res) {
 	  res.render('404', 404);
 	});
 
-	/*
-	500 error handler --> production only
-	need to improve 500 logging
-	app.use(function(error, req, res, next) {
-	    res.status(500);
-	    res.render('500', { title:'500: Internal Server Error', error: error });
-	});
-	*/
+	if ( process.env.state == 'PRODUCTION' ) {
+		// 500 error handler --> production only
+		app.use(function(error, req, res, next) {
+		    res.status(500);
+		    res.render('500', { title:'500: Internal Server Error', error: error });
+		});
+	}
 
 	// ensure request is application/json
 	function ensureJSON(req, res, next) {

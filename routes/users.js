@@ -51,9 +51,9 @@ exports.getUserById = function(req, res) {
 };
 
 
-exports.getUserByTag = function(req, res) {
+exports.getUserByEmail = function(req, res) {
 
-	User.filter({ 'username': req.body.tagName }).limit(5).run(function(error, result) {
+	User.filter({ 'email': req.body.email }).limit(1).run(function(error, result) {
 		if (error) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		} else {
