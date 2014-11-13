@@ -1,5 +1,5 @@
-var config = require("../config/database");
-var thinky = require('thinky')(config.rethinkdb);
+var config = require('../config/database')
+  , thinky = require('thinky')(config.rethinkdb);
 
 var r = thinky.r;
 

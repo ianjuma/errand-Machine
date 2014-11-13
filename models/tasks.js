@@ -1,5 +1,5 @@
-var config = require("../config/database");
-var thinky = require('thinky')(config.rethinkdb);
+var config = require('../config/database')
+  , thinky = require('thinky')(config.rethinkdb);
 
 var r = thinky.r;
 
@@ -32,9 +32,9 @@ var Task = thinky.createModel('Tasks', {
 });
 
 Task.docAddListener('save', function(Task) {
-    console.log( "A new Task has been saved" );
+    console.log( 'A new Task has been saved' );
 });
 
-Task.ensureIndex("username");
+Task.ensureIndex('username');
 
 module.exports = Task;

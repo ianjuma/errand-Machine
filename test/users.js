@@ -1,6 +1,6 @@
-var should = require('should');
-var request = require('supertest');
-var winston = require('winston');
+var should = require('should')
+  , request = require('supertest')
+  , winston = require('winston');
 
 
 describe('Route', function() {

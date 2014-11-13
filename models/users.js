@@ -1,7 +1,6 @@
-var validator = require('validator');
-var config = require("../config/database");
-
-var thinky = require('thinky')(config.rethinkdb);
+var validator = require('validator')
+  , config = require('../config/database')
+  , thinky = require('thinky')(config.rethinkdb);
 
 var r = thinky.r;
 
@@ -19,9 +18,9 @@ var User = thinky.createModel('Users', {
     },
     email: {
         _type: String,
-        default: "",
+        default: '',
         // validator: validator.isEmail,
-        enforce_type: "strict"
+        enforce_type: 'strict'
     },
     profile_url: {
         _type: String
@@ -31,10 +30,10 @@ var User = thinky.createModel('Users', {
 
 
 User.docAddListener('save', function(user) {
-    console.log( "A new user has been saved" );
+    console.log( 'A new user has been saved' );
     console.log( "Saved user'id: " + user.user_id );
 });
 
-User.ensureIndex("username");
+User.ensureIndex('username');
 
 module.exports = User;

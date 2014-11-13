@@ -1,5 +1,5 @@
-var config = require("../config/database");
-var thinky = require('thinky')(config.rethinkdb);
+var config = require('../config/database')
+  , thinky = require('thinky')(config.rethinkdb);
 
 var r = thinky.r;
 
@@ -20,9 +20,9 @@ var Notif = thinky.createModel('Notifs', {
 });
 
 Notif.docAddListener('save', function(notification) {
-    console.log( "A new Notif has been saved" );
+    console.log( 'A new Notif has been saved' );
 });
 
-Notif.ensureIndex("username");
+Notif.ensureIndex('username');
 
 module.exports = Notif;
