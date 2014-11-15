@@ -21,6 +21,7 @@ module.exports = function(app, express) {
 
 
 	var port = process.env.PORT || 8000;
+	var env  = process.env.NODE_ENV || 'development';
 
 	app.use(session({
 		secret: 'session_secret',
@@ -40,8 +41,6 @@ module.exports = function(app, express) {
 	app.set('views', path.join(__dirname, 'views'));
 	app.engine('handlebars', exphbs());
 	app.set('view engine', 'handlebars');
-	app.set('trust proxy', 'loopback');
-
 
 	// setup the logger and only log errors
 	var accessLogStream = fs.createWriteStream(__dirname + 'InkOverFlow.log', 
@@ -136,25 +135,30 @@ module.exports = function(app, express) {
 	  res.render('404', 404);
 	});
 
-	if ( process.env.state == 'PRODUCTION' ) {
+	if ( process.env.state == env ) {
 		// 500 error handler --> production only
 		app.use(function(error, req, res, next) {
 		    res.status(500);
 		    res.render('500', { title:'500: Internal Server Error', error: error });
 		});
+
+		app.set('trust proxy', 'loopback');
 	}
 
-	// ensure request is application/json
-	function ensureJSON(req, res, next) {
-	    if ( ! req.is('application/json') ) {
-	      res.status(400).json({ 'Error': 'Bad Request' });
-	    } return next();
-	}
 
-	function ensureAuthenticated(req, res, next) {
-	    if (req.isAuthenticated()) {
-	        return next();
-	    } res.redirect('/login');
+	var checkRequest = {
+		// ensure request is application/json
+		var ensureJSON = function ensureJSON(req, res, next) {
+		    if ( ! req.is('application/json') ) {
+		      res.status(400).json({ 'Error': 'Bad Request' });
+		    } return next();
+		}
+
+		var ensureAuthenticated = function ensureAuthenticated(req, res, next) {
+		    if (req.isAuthenticated()) {
+		        return next();
+		    } res.redirect('/login');
+		}
 	}
 
 	module.exports = app;
