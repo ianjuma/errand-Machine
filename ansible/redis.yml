@@ -1,5 +1,5 @@
 ---
-- hosts: droplets
+- hosts: node-taskwetu
 
   vars_files:
     - vars/main.yml

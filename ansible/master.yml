@@ -1,18 +1,15 @@
 ---
-- hosts: all
+- hosts: node-taskwetu
   roles:
     - buildtools
     - redis
     - supervisor
     - iptables
-    - newrelic
 
-- hosts: dbserver
+- hosts: node-taskwetu
   roles:
     - rethinkdb
 
-- hosts: webserver
+- hosts: node-taskwetu
   roles:
     - nginx
-    - celery
-    - uwsgi
