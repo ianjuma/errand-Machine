@@ -7,7 +7,6 @@ exports.addTask= function(req, res) {
 	var new_task = new Task({
 	    task_title: req.body.title,
 	    _slug: slug((req.body.title).toLowerCase()),
-	    username: req.body.username,
 	    author_id: req.body.idAuthor,
 	    due_date: req.body.due_date,
 	    task_description: req.body.task_description,

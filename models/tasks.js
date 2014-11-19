@@ -4,15 +4,13 @@ var config = require('../config/database')
 var r = thinky.r;
 
 var Task = thinky.createModel('Tasks', {
-    username: String,
+    userId: String,
     task_title: String,
     _slug: String,
-    author_id: String,
     task_description: String,
-    due_date: Date,
     task_amount: {
         _type: String,
-        default: '500'
+        default: '700'
     },
     progress: {
         _type: String,

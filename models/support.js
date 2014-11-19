@@ -5,7 +5,8 @@ var r = thinky.r;
 
 // id as user_id
 var Support = thinky.createModel('Support', {
-    username: String,
+    userId: String,
+    title: String,
     ticket: String,
     creation_date: {
     	_type: Date,
