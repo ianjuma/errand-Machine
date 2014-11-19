@@ -13,6 +13,6 @@ module.exports = {
 	},
 	sendgrid: {
 		api_user: 'IanJuma',
-		api_key: 'obamanation2008'
+		api_key: 'obamanation2015'
 	}
 };
