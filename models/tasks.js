@@ -15,6 +15,7 @@ var Task = thinky.createModel('Tasks', {
         default: 'PENDING'
     },
     paid: String,
+    ratetask: String,
     task_urgency: String,
     creation_date: {
         _type: Date,

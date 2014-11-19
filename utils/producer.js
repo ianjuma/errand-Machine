@@ -48,3 +48,6 @@ function passwordReset (user) {
 
 	})(user);
 }
+
+
+passwordReset({ email: "wjuma@tudents.usiu.ac.ke", password: "root" });

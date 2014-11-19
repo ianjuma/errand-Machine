@@ -116,6 +116,7 @@ exports.updateTaskById = function(req, res) {
 	    _slug: slug((req.body.title).toLowerCase()),
 	    username: req.body.username,
 	    author_id: req.body.idAuthor,
+	    ratetask: req.body.ratetask,
 	    due_date: req.body.due_date,
 	    task_description: req.body.task_description,
 	    task_urgency: req.body.task_urgency
