@@ -7,11 +7,9 @@ var r = thinky.r;
 var Support = thinky.createModel('Support', {
     username: String,
     ticket: String,
-    metadata: {
-       creation_date: {
-        _type: Date,
-        default: r.now()
-      }
+    creation_date: {
+    	_type: Date,
+    	default: r.now()
     }
 });
 

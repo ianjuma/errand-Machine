@@ -1,5 +1,4 @@
-var slug = require('slug')
-  , Support = require('../models/support');
+var Support = require('../models/support');
 
 
 exports.addTicket= function(req, res) {
@@ -23,6 +22,24 @@ exports.addTicket= function(req, res) {
 			});
 
 			res.status(200).json({ 'OK': 'Ticket Created'});
+	    }
+	});
+};
+
+
+exports.getAllTickets = function(req, res) {
+
+	Support.orderBy( "creation_date" ).get().run(function(error, result) {
+	    if (error) {
+	        res.status(500).json({ error: "something blew up, we're fixing it" });
+	    }
+	    else {
+	        console.log('Support Sent');
+	        res.set({
+			  'Content-Type': 'application/json',
+			});
+
+			res.status(200).json(result);
 	    }
 	});
 };

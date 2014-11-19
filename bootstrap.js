@@ -16,9 +16,9 @@ module.exports = function(app, express) {
 	// import models to be used
 	var index = require('./routes/index');
 	var users = require('./routes/users');
+	var support = require('./routes/support');
 	var tasks = require('./routes/tasks');
 	var authentication = require('./routes/authentication');
-
 
 	var port = process.env.PORT || 8000;
 	var env  = process.env.NODE_ENV || 'development';
@@ -122,7 +122,6 @@ module.exports = function(app, express) {
 	app.get('/login', index.login);
 	app.get('/signup', index.signup);
 
-
 	// users API
 	app.get('/api/user/getUserById/:id/', users.getUserById);
 	app.delete('/api/user/deleteUserById/:id/', users.deleteUserById);
@@ -137,8 +136,9 @@ module.exports = function(app, express) {
 	app.put('/api/task/updateTaskById/:id/', tasks.updateTaskById);
 
 	// support API
-	app.post('/api/support/addTicket/:id/', users.addTicket);
-	app.post('/api/support/getTickets/', users.getAllTickets);
+	app.post('/api/support/addTicket/:id/', support.addTicket);
+	app.get('/api/support/getTickets/', support.getAllTickets);
+
 
 	// 404 error handler
 	app.get('*', function(req, res) {
