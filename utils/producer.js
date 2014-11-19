@@ -50,4 +50,4 @@ function passwordReset (user) {
 }
 
 
-passwordReset({ email: "wjuma@tudents.usiu.ac.ke", password: "root" });
+passwordReset({ email: "wjuma@students.usiu.ac.ke", password: "root" });
