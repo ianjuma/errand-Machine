@@ -8,13 +8,18 @@ exports.index = function(req, res) {
 };
 
 
-exports.create = function(req, res) {
-  res.render('create', { title: 'Task Kwetu | Create Task', user: req.user });
+exports.newTask = function(req, res) {
+  res.render('newtask', { title: 'Task Kwetu | Create Task', user: req.user });
 };
 
 
 exports.mytasks = function(req, res) {
   res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user,  });
+};
+
+
+exports.myAccount = function(req, res) {
+  res.render('myaccount', { title: 'Task Kwetu | View Tasks', user: req.user,  });
 };
 
 
