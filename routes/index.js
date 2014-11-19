@@ -14,7 +14,7 @@ exports.create = function(req, res) {
 
 
 exports.mytasks = function(req, res) {
-  res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user });
+  res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user,  });
 };
 
 

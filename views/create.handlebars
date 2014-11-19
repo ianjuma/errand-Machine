@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/stylesheets/foundation.min.css">
+        <link rel="stylesheet" href="/stylesheets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/tk.css">
+        <script src="/javascript/jquery.js"></script>
+        <script src="/javascript/modernizr.js"></script>
+    </head>
+    <body>
+        <div class="full-size fixed">
+            <div class="large-12 columns medium-12 columns header">
+                <a href="tasks.html" class="logo"><img src="assets/img/taskwetu.png"></a>
+                <ul class="header-ctrls show-for-medium-up">
+                    <li><a class="notifications notMenTrigger" data-show="notifications"><i class="fa fa-inbox"></i></a></li>
+                    <li><a class="tasks" href="tasks.html">My Tasks</a></li>
+                    <li><a class="profile-img notMenTrigger" data-show="menu"><img src="{{ profile_image }}"></a></li>
+                </ul>
+                <ul class="header-ctrls show-for-small-only">
+                    <li><a class="notifications notMenTrigger" data-show="notifications"><i class="fa fa-inbox"></i></a></li>
+                    <li><a class="profile-img notMenTrigger" data-show="menu"><img src="{{ profile_image }}"></a></li>
+                </ul>
+                <div class="not-men" id="notMen">
+                    <ul id="menu" class="menu">
+                        <li>{{ display_name }}<i class="fa fa-times-circle notMenClose"></i></li>
+                        <li><a href="/account"><i class="fa fa-user"></i>My Account</a></li>
+                        <li><a href="/createTask"><i class="fa fa-plus-square"></i>New Task</a></li>
+                        <li><a href="/myTasks"><i class="fa fa-tasks"></i>My Tasks</a></li>
+                        <li><a href="/support"><i class="fa fa-support"></i>Support</a></li>
+                        <li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    </ul>
+                    <ul id="notifications" class="notifications">
+                        <li>Notifications<i class="fa fa-times-circle notMenClose"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="large-12 columns medium-12 columns app-wrapper">
+            <div class="row">
+                <div class="large-12 columns medium-12 columns create-tasks-wrapper">
+                    <div class="large-12 columns medium-12 columns createf-wrapper">
+                        <form class="create-task-form">
+                            <div class="row">
+                                <div class="large-6 columns medium-6 columns"> 
+                                    <input type="text" class="task-title ctask-input" placeholder="Name your task"/>
+                                </div>
+                                <div class="large-5 large-pull-1 columns medium-5 medium-pull-1 columns show-for-medium-up tinfo-div">
+                                    <i class="fa fa-support"></i>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-6 columns medium-6 columns">     
+                                    <textarea placeholder="Tell us what you would like done" class="ctask-input"></textarea>
+                                </div>
+                                <div class="large-5 large-pull-1 columns medium-5 medium-pull-1 columns show-for-medium-up tinfo-div">
+                                    <i class="fa fa-support"></i>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin.</p>
+                                </div>
+                            </div>
+                            <div class="row urgent-section">
+                                <div class="large-6 columns medium-6 columns">    
+                                    <label class="title">Is your task urgent?</label>
+                                    <p class="prompt">Urgent tasks are priced at an extra <span>15% of the final task cost.</span></p>
+                                    <div class="switch small round">
+                                        <input id="urgent" type="checkbox" class="ctask-urgent" />
+                                        <label for="urgent"></label>
+                                        <i class="fa fa-check yes"></i>
+                                    </div>
+                                </div>
+                            </div>    
+                            <a href="#" class="large-3 columns medium-3 columns submit">Create task</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/javascript/foundation.min.js"></script>
+        <script src="/javascript/tk.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+    </body>
+</html>

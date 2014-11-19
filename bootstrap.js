@@ -116,10 +116,12 @@ module.exports = function(app, express) {
 	// static pages routes
 	app.get('/', index.index);
 	app.get('/login', index.login);
-	app.get('/createTask', index.create);
+	app.get('/createTask', index.createTask);
 	app.get('/support', index.support);
 	app.get('/login', index.login);
 	app.get('/signup', index.signup);
+	app.get('/myAccount', index.myAccount);
+	app.get('/myTasks', index.myTasks);
 
 	// users API
 	app.get('/api/user/getUserById/:id/', users.getUserById);
