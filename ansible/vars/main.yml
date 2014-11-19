@@ -4,7 +4,7 @@ max_clients: 200
 pid_log: /var/log/nginx/nginx.pid
 error_log: /var/log/nginx/error.log
 processes: 5
-server_name: www.inkoverflow.com
+server_name: www.taskwetu.com
 access_log: /var/log/nginx/access.log
 ssl_certificate: /etc/nginx/ssl/bundle.cer
 ssl_certificate_key: /etc/nginx/ssl/myserver.key
@@ -21,4 +21,4 @@ http_port: 9292
 driver_port: 28015
 runuser: rethinkdb
 rungroup: rethinkdb
-machine_name: InkOverFlow
+machine_name: taskwetu
