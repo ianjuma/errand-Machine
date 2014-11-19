@@ -11,11 +11,10 @@
     register: ppastable
 
   - name: Install rethinkdb
-    apt: pkg=nginx state=installed update_cache=true
+    apt: pkg=rethinkdb state=installed update_cache=true
     when: ppastable|success
-    register: nginxinstalled
     notify:
-    - state rethinkdb
+    - start rethinkdb
 
   - name: ensure rethinkdb is at the latest version
     when: ppastable|success
