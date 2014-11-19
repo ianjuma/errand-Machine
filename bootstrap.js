@@ -115,7 +115,6 @@ module.exports = function(app, express) {
 
 	// static pages routes
 	app.get('/', index.index);
-	app.get('/app', index.app);
 	app.get('/login', index.login);
 	app.get('/createTask', index.create);
 	app.get('/support', index.support);
@@ -136,7 +135,7 @@ module.exports = function(app, express) {
 	app.put('/api/task/updateTaskById/:id/', tasks.updateTaskById);
 
 	// support API
-	app.post('/api/support/addTicket/:id/', support.addTicket);
+	app.post('/api/support/addTicket/', support.addTicket);
 	app.get('/api/support/getTickets/', support.getAllTickets);
 
 

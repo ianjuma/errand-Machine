@@ -16,11 +16,11 @@ var Task = thinky.createModel('Tasks', {
     },
     paid: String,
     task_urgency: String,
-    metadata: {
-       creation_date: {
+    creation_date: {
         _type: Date,
         default: r.now()
-      },
+    },
+    metadata: {
       last_updated_date: {
         _type: Date,
         default: r.now()

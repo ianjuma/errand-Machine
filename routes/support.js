@@ -29,7 +29,7 @@ exports.addTicket= function(req, res) {
 
 exports.getAllTickets = function(req, res) {
 
-	Support.orderBy( "creation_date" ).get().run(function(error, result) {
+	Support.orderBy( "creation_date" ).run(function(error, result) {
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }
