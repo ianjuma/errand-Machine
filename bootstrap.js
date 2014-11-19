@@ -148,13 +148,12 @@ module.exports = function(app, express) {
 
 	var checkRequest = {
 		// ensure request is application/json
-		var ensureJSON = function ensureJSON(req, res, next) {
+		ensureJSON : function ensureJSON(req, res, next) {
 		    if ( ! req.is('application/json') ) {
 		      res.status(400).json({ 'Error': 'Bad Request' });
 		    } return next();
-		}
-
-		var ensureAuthenticated = function ensureAuthenticated(req, res, next) {
+		},
+		ensureAuthenticated : function ensureAuthenticated(req, res, next) {
 		    if (req.isAuthenticated()) {
 		        return next();
 		    } res.redirect('/login');
