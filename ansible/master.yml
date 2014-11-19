@@ -1,15 +1,15 @@
 ---
-- hosts: node-taskwetu
+- hosts: droplets
   roles:
     - buildtools
     - redis
     - supervisor
     - iptables
 
-- hosts: node-taskwetu
+- hosts: droplets
   roles:
     - rethinkdb
 
-- hosts: node-taskwetu
+- hosts: droplets
   roles:
     - nginx
