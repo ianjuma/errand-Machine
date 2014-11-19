@@ -12,7 +12,7 @@ module.exports = {
      disableSearch: true
 	},
 	sendgrid: {
-		api_user: 'app27418636@heroku.com',
-		api_key: 'w4do409h'
+		api_user: 'IanJuma',
+		api_key: 'obamanation2008'
 	}
 };

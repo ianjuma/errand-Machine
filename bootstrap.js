@@ -117,7 +117,11 @@ module.exports = function(app, express) {
 	app.get('/', index.index);
 	app.get('/app', index.app);
 	app.get('/login', index.login);
-	app.get('/api', index.checkApi);
+	app.get('/createTask', index.create);
+	app.get('/support', index.support);
+	app.get('/login', index.login);
+	app.get('/signup', index.signup);
+
 
 	app.get('/api/user/getUserById/:id/', users.getUserById);
 	app.delete('/api/user/deleteUserById/:id/', users.deleteUserById);

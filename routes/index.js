@@ -1,38 +1,33 @@
 exports.index = function(req, res) {
 	if (req.isAuthenticated()) {
-	  res.render('app', { title: 'taskwetu', user: req.user });
-	  console.log(req.user);
+		res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user });
+		console.log(req.user);
 	} else {
-	  res.render('index', { title: 'taskwetu' });
+		res.render('index', { title: 'Task Kwetu' });
 	}
 };
 
 
-exports.app = function(req, res) {
-  res.render('app', { title: 'taskwetu | App' });
+exports.create = function(req, res) {
+  res.render('create', { title: 'Task Kwetu | Create Task', user: req.user });
 };
 
 
-/*
-exports.about = function(req, res) {
-  res.render('about', { title: 'taskwetu | About' });
+exports.mytasks = function(req, res) {
+  res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user });
 };
 
-exports.help = function(req, res) {
-  res.render('app', { title: 'taskwetu | Help' });
-};
 
-exports.team = function(req, res) {
-  res.render('team', { title: 'taskwetu | Team' });
+exports.support = function(req, res) {
+  res.render('support', { title: 'Task Kwetu | support', user: req.user });
 };
-*/
 
 
 exports.login = function(req, res) {
-  res.render('login', { title: 'taskwetu | Login' });
+  res.render('login', { title: 'Task Kwetu | Login' });
 };
 
 
-exports.checkApi = function(req, res) {
-  res.render('users', { title: 'taskwetu', content: 'API is running' });
+exports.signup = function(req, res) {
+  res.render('signup', { title: 'Task Kwetu | Signup' });
 };
