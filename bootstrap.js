@@ -123,16 +123,22 @@ module.exports = function(app, express) {
 	app.get('/signup', index.signup);
 
 
+	// users API
 	app.get('/api/user/getUserById/:id/', users.getUserById);
 	app.delete('/api/user/deleteUserById/:id/', users.deleteUserById);
 	app.put('/api/user/updateUserById/:id/', users.updateUserById);
 
+	// tasks API
 	app.post('/api/task/addTask/', tasks.addTask);
 	app.get('/api/task/getTasks/', tasks.getTasks);
 	app.get('/api/task/getTaskById/:id/', tasks.getTaskById);
 	app.get('/api/task/getTasksByUserId/:id/', tasks.getTasksByUserId);
 	app.delete('/api/task/deleteTaskById/:id/', tasks.deleteTaskById);
 	app.put('/api/task/updateTaskById/:id/', tasks.updateTaskById);
+
+	// support API
+	app.post('/api/support/addTicket/:id/', users.addTicket);
+	app.post('/api/support/getTickets/', users.getAllTickets);
 
 	// 404 error handler
 	app.get('*', function(req, res) {
