@@ -14,12 +14,14 @@ var Task = thinky.createModel('Tasks', {
     },
     progress: {
         _type: String,
-        default: 'PENDING'
+        default: '0'
     },
-    paid: String,
+    paid: {
+        _type: String,
+        default: '0'
+    },
     ratetask: String,
     task_urgency: String,
-    task_price: String,
     creation_date: {
         _type: Date,
         default: r.now()
