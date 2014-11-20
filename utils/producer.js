@@ -16,7 +16,7 @@ exports.sendWelcomeEmail = function (user) {
 		job.save();
 
 	})(user);
-}
+};
 
 
 exports.taskCreated = function (user) {
@@ -32,7 +32,7 @@ exports.taskCreated = function (user) {
 		job.save();
 
 	})(user);
-}
+};
 
 
 exports.passwordReset = function (user) {
@@ -47,4 +47,4 @@ exports.passwordReset = function (user) {
 		job.save();
 
 	})(user);
-}
+};
