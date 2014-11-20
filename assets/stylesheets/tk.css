@@ -33,9 +33,9 @@
 }
 
 .header a.logo img{
-	width: 9.8em;
-	height: 2.8em;
-	margin-top: 0.5em;
+	width: 9.6em;
+	height: 2.6em;
+	margin-top: 0.6em;
 }
 
 .header> .header-ctrls{
@@ -805,7 +805,6 @@ span.amount::before{
 .account-settings div.email, .account-settings div.password, .account-settings div.notifications{
 	position: relative;
 	margin-bottom: 1em;
-	border: 1px solid;
 }
 
 .account-settings div.email h2, .account-settings div.password h2, .account-settings div.notifications h2{
@@ -831,20 +830,34 @@ span.amount::before{
 	font-size: 1em;
 	box-shadow: none;
 	border: none;
+	border-radius: 5px;
 	padding-left: 0.5em;
 	padding-right: 5em;
 	margin-bottom: 0.3em;
 	pointer-events: none;
 	outline: none;
+	background-color: #FFF;
+}
+
+.account-settings div.email label.error{
+	font-size: 0.875em;
+	color: #cf2a0e;
+	font-weight: 400;
+	margin: 0em;
+	padding: 0em;
+	position: relative;
+	top: -0.5em;
+	left: 0.55em;	
+}
+
+.account-settings div.email input:focus, .account-settings div.password input:focus{
+	background-color: #FFF;
 }
 
 .account-settings div.password input{
 	opacity: 0;
+	pointer-events: none;
 	transition: opacity 0.2s;
-}
-
-.account-settings div.email input:focus, .account-settings div.password input:focus{
-	background-color: #fff;
 }
 
 .account-settings div.email form.live input{
@@ -857,50 +870,48 @@ span.amount::before{
 	transition: opacity 0.2s;
 }
 
-.account-settings div.email a.update, .account-settings div.password a.update, .account-settings div.email a.cancel, .account-settings div.password a.cancel, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
+.account-settings div.email a.update.live, .account-settings div.password a.update.live, .account-settings div.email a.cancel, .account-settings div.password a.cancel, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
 	font-size: 0.875em;
 	border-radius: 5px;
 	padding: 0.3em 0em 0.3em 0em;
 	width: 4.5em;
+	height: 2.3em;
 	text-align: center;
 	color: #fff;
 	position: absolute;
+	display: block;
 	transition: color 0.2s;
+}
+
+.account-settings div.email a.update, .account-settings div.password a.update{
+	display: none;
 }
 
 .account-settings div.email a.update, .account-settings div.password a.update, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
 	border: 1px solid #0C565F;
 	background-color: #138797;
 	right: 1.1em;
+	top: 0em;
 }
 
 .account-settings div.email a.cancel, .account-settings div.password a.cancel{
 	border: 1px solid #91210F;
 	background-color: #cf2a0e;
 	right: 6.1em;
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 0.2s;
+	top: 0em;
+	display: none;
 }
 
 .account-settings div.email a.cancel.live, .account-settings div.password a.cancel.live{
-	opacity: 1;
-	pointer-events: auto;
-	transition: opacity 0.2s;
+	display: block;
 }
 
 .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
 	display: none;
-	padding: 0.4em 0em 0.4em 0em;
 }
 
 .account-settings div.email form.live button.email-submit{
 	display: block;
-	padding: 0.4em 0em 0.4em 0em;
-}
-
-.account-settings div.email a.update.off{
-	display: none;
 }
 
 .account-settings div.notifications p.notifications{

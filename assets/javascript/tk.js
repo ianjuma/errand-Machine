@@ -9,9 +9,7 @@ $(function(){
 		cTaskInput = $('.ctask-input'),
 		cTaskUrgent = $('.ctask-urgent'),
 		rateMetre = $('.ratemetre'),
-		rateZero = $('.ratezero'),
-		updateSettings = $('.update-settings'),
-		cancelSettings = $('.cancel-settings');
+		rateZero = $('.ratezero');
 
 	notMenTrigger.on('click', function(e){
 		show = e.target.parentElement.dataset.show;
@@ -80,50 +78,6 @@ $(function(){
 	rateZero.on('mouseenter click', function(e){
 		$(e.target).nextAll().removeClass('fa-star live').addClass('fa-star-o');
 		rateValue = e.target.dataset.rate;
-	});
-
-	updateSettings.on('click', function(e){
-		update = e.target.dataset.update;
-		switch(update){
-			case 'email':
-				$(e.target).nextAll().addClass('live');
-				$(e.target).siblings('.email-form').children('.ifirst').focus();
-				$(e.target).addClass('off');
-			break;
-			case 'password':
-				$(e.target).parent().addClass('live');
-				$(e.target).nextAll().addClass('live');
-				$(e.target).siblings('.input').children('.ifirst').focus();
-				$(e.target).text('Save');
-			break;
-			default:
-				$(e.target).nextAll().addClass('live');
-				$(e.target).siblings('.ifirst').focus();
-				$(e.target).text('Save');
-		}
-	});
-
-	cancelSettings.on('click', function(e){
-		cancel = e.target.dataset.cancel;
-		switch(cancel){
-			case 'email':
-				$(e.target).siblings('.email-form').children('.ifirst').blur();
-				$(e.target).siblings('.email-form').removeClass('live');
-				$(e.target).siblings('.update').removeClass('off');
-				$(e.target).removeClass('live');
-			break;
-			case 'password':
-				$(e.target).parent().removeClass('live');
-				$(e.target).siblings('.update').text('Update');
-				$(e.target).removeClass('live');
-				$(e.target).siblings('.input').children('.ifirst').blur();
-				$(e.target).siblings('.input').children().val('');
-			break;
-			default:
-				$(e.target).siblings('.ifirst').blur().removeClass('live');
-				$(e.target).siblings('.update').text('Update');
-				$(e.target).removeClass('live');
-		}
 	});
 
     
