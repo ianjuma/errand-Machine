@@ -1,70 +1,76 @@
 <h3 class="title">{{task_title}}</h3>
 <p class="desc">{{task_description}}</p>
-{{#if paid}}
-<div class="large-4 columns medium-4 columns payments">
-    <p class="title"><i class="fa fa-money"></i>Payments - <span class="currency">Kshs</span></p>
-    <ul>
-        <li class="data">Amount:<span>{{task_amount}}</span></li>
-        <li class="data">Status:<span class="eunpaid-status"><i class="fa fa-times-circle"></i>Unpaid</span></li>
-        <li class="data">Paid on:<a href="#" class="pay-button"><i class="fa fa-check-circle"></i>Pay now</a></li>
-    </ul>
-</div>
-<div class="large-4 columns medium-4 columns timings">
-    <p class="title"><i class="fa fa-clock-o"></i>Timings</p>
-    <ul>
-        <li class="data">Created:<span>{{formatDate timestamp}}</span></li>
-        <li class="data">Started:<span class="epending-status"><i class="fa fa-square-o"></i>Pending</span></li>
-        <li class="data">Completed:<span class="epending-status"><i class="fa fa-square-o"></i>Pending</span></li>
-    </ul>
-</div>
-<div class="large-4 columns medium-4 columns other">
-    <a href="#" class="large-12 columns medium-12 columns update">Update</a>
-    <a href="#" class="large-12 columns medium-12 columns delete">Delete</a>
-</div>
-{{/if}}
-{{#unless INPROGRESS}}
-<div class="large-4 columns medium-4 columns payments">
-    <p class="title"><i class="fa fa-money"></i>Payments - <span class="currency">Kshs</span></p>
-    <ul>
-        <li class="data">Amount:<span>{{task_amount}}</span></li>
-        <li class="data">Status:<span class="epaid-status"><i class="fa fa-check-circle"></i>Paid</span></li>
-        <li class="data">Paid on:<span>{{formatDate timestamp}}</span></li>
-    </ul>
-</div>
-<div class="large-4 columns medium-4 columns timings">
-    <p class="title"><i class="fa fa-clock-o"></i>Timings</p>
-    <ul>
-        <li class="data">Created:<span>{{formatDate timestamp}}</span></li>
-        <li class="data">Started:<span>{{formatDate timestamp}}</span></li>
-        <li class="data">Completed:<span class="einprogress-status"><i class="fa fa-cog fa-spin"></i>Ongoing</span></li>
-    </ul>
-</div>
-<div class="large-4 columns medium-4 columns other">
-    <i class="fa fa-cog fa-spin inprogress"></i>
-    <p class="inprogress">Ongoing</p>
-</div>   
+{{#unless hPaid}}
+    <div class="large-4 columns medium-4 columns payments">
+        <p class="title"><i class="fa fa-money"></i>Payments - <span class="currency">Kshs</span></p>
+        <ul>
+            <li class="data">Amount:<span>{{task_amount}}</span></li>
+            <li class="data">Status:<span class="eunpaid-status"><i class="fa fa-times-circle"></i>Unpaid</span></li>
+            <li class="data">Paid on:<a href="#" class="pay-button"><i class="fa fa-check-circle"></i>Pay now</a></li>
+        </ul>
+    </div>
+    <div class="large-4 columns medium-4 columns timings">
+        <p class="title"><i class="fa fa-clock-o"></i>Timings</p>
+        <ul>
+            <li class="data">Created:<span>{{formatDate creation_date}}</span></li>
+            <li class="data">Started:<span class="epending-status"><i class="fa fa-square-o"></i>Pending</span></li>
+            <li class="data">Completed:<span class="epending-status"><i class="fa fa-square-o"></i>Pending</span></li>
+        </ul>
+    </div>
+    <div class="large-4 columns medium-4 columns other">
+        <a href="#" class="large-12 columns medium-12 columns update">Update</a>
+        <a href="#" class="large-12 columns medium-12 columns delete">Delete</a>
+    </div>
 {{/unless}}
-{{#unless paid}}
-<div class="large-4 columns medium-4 columns payments">
-    <p class="title"><i class="fa fa-money"></i>Payments - <span class="currency">Kshs</span></p>
-    <ul>
-        <li class="data">Amount:<span>{{task_amount}}</span></li>
-        <li class="data">Status:<span class="epaid-status"><i class="fa fa-check-circle"></i>Paid</span></li>
-        <li class="data">Paid on:<span>{{formatDate timestamp}}</span></li>
-    </ul>
-</div>
-<div class="large-4 columns medium-4 columns timings">
-    <p class="title"><i class="fa fa-clock-o"></i>Timings</p>
-    <ul>
-        <li class="data">Created:<span>{{formatDate timestamp}}</span></li>
-        <li class="data">Started:<span>{{formatDate timestamp}}</span></li>
-        <li class="data">Completed:<span>{{formatDate timestamp}}</span></li>
-    </ul>
-</div>
-<div class="large-4 columns medium-4 columns other">
-    <p class="prompt">Rate our performance on this task; we value your feedback and use it to better our services.</p>
-    <p class="ratewrapper"><i class="ratezero fa fa-star-o" data-rate="0"></i><i class="ratemetre fa fa-star-o" data-rate="1"></i><i class="ratemetre fa fa-star-o" data-rate="2"></i><i class="ratemetre fa fa-star-o" data-rate='3'></i><i class="ratemetre fa fa-star-o" data-rate="4"></i><i class="ratemetre fa fa-star-o" data-rate="5"></i></p>
-    <a href="#" class="large-12 columns medium-12 columns delete">Delete</a>
-</div>
+{{#if hPaid}}
+    {{#if hProgress}}
+        <div class="large-4 columns medium-4 columns payments">
+            <p class="title"><i class="fa fa-money"></i>Payments - <span class="currency">Kshs</span></p>
+            <ul>
+                <li class="data">Amount:<span>{{task_amount}}</span></li>
+                <li class="data">Status:<span class="epaid-status"><i class="fa fa-check-circle"></i>Paid</span></li>
+                <li class="data">Paid on:<span>{{formatDate timestamp}}</span></li>
+            </ul>
+        </div>
+        <div class="large-4 columns medium-4 columns timings">
+            <p class="title"><i class="fa fa-clock-o"></i>Timings</p>
+            <ul>
+                <li class="data">Created:<span>{{formatDate timestamp}}</span></li>
+                <li class="data">Started:<span>{{formatDate timestamp}}</span></li>
+                <li class="data">Completed:<span>{{formatDate timestamp}}</span></li>
+            </ul>
+        </div>
+        <div class="large-4 columns medium-4 columns other">
+            <p class="prompt">Rate our performance on this task; we value your feedback and use it to better our services.</p>
+            <p class="ratewrapper"><i class="ratezero fa fa-star-o" data-rate="0"></i><i class="ratemetre fa fa-star-o" data-rate="1"></i><i class="ratemetre fa fa-star-o" data-rate="2"></i><i class="ratemetre fa fa-star-o" data-rate='3'></i><i class="ratemetre fa fa-star-o" data-rate="4"></i><i class="ratemetre fa fa-star-o" data-rate="5"></i></p>
+            <a href="#" class="large-12 columns medium-12 columns delete">Delete</a>
+        </div>
+    {{/if}}
+{{/if}}
+{{#unless hProgress}}
+    {{#if hPending}}
+
+    {{else}}
+        <div class="large-4 columns medium-4 columns payments">
+            <p class="title"><i class="fa fa-money"></i>Payments - <span class="currency">Kshs</span></p>
+            <ul>
+                <li class="data">Amount:<span>{{task_amount}}</span></li>
+                <li class="data">Status:<span class="epaid-status"><i class="fa fa-check-circle"></i>Paid</span></li>
+                <li class="data">Paid on:<span>{{formatDate timestamp}}</span></li>
+            </ul>
+        </div>
+        <div class="large-4 columns medium-4 columns timings">
+            <p class="title"><i class="fa fa-clock-o"></i>Timings</p>
+            <ul>
+                <li class="data">Created:<span>{{formatDate timestamp}}</span></li>
+                <li class="data">Started:<span>{{formatDate timestamp}}</span></li>
+                <li class="data">Completed:<span class="einprogress-status"><i class="fa fa-cog fa-spin"></i>Ongoing</span></li>
+            </ul>
+        </div>
+        <div class="large-4 columns medium-4 columns other">
+            <i class="fa fa-cog fa-spin inprogress"></i>
+            <p class="inprogress">Ongoing</p>
+        </div>
+    {{/if}}
 {{/unless}}
 <i class="fa fa-times-circle close-reveal-modal"></i>

@@ -8,49 +8,73 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper, options;
-  buffer += "\n<div class=\"large-4 columns medium-4 columns payments\">\n    <p class=\"title\"><i class=\"fa fa-money\"></i>Payments - <span class=\"currency\">Kshs</span></p>\n    <ul>\n        <li class=\"data\">Amount:<span>";
+  buffer += "\n    <div class=\"large-4 columns medium-4 columns payments\">\n        <p class=\"title\"><i class=\"fa fa-money\"></i>Payments - <span class=\"currency\">Kshs</span></p>\n        <ul>\n            <li class=\"data\">Amount:<span>";
   if (helper = helpers.task_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</span></li>\n        <li class=\"data\">Status:<span class=\"eunpaid-status\"><i class=\"fa fa-times-circle\"></i>Unpaid</span></li>\n        <li class=\"data\">Paid on:<a href=\"#\" class=\"pay-button\"><i class=\"fa fa-check-circle\"></i>Pay now</a></li>\n    </ul>\n</div>\n<div class=\"large-4 columns medium-4 columns timings\">\n    <p class=\"title\"><i class=\"fa fa-clock-o\"></i>Timings</p>\n    <ul>\n        <li class=\"data\">Created:<span>"
-    + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n        <li class=\"data\">Started:<span class=\"epending-status\"><i class=\"fa fa-square-o\"></i>Pending</span></li>\n        <li class=\"data\">Completed:<span class=\"epending-status\"><i class=\"fa fa-square-o\"></i>Pending</span></li>\n    </ul>\n</div>\n<div class=\"large-4 columns medium-4 columns other\">\n    <a href=\"#\" class=\"large-12 columns medium-12 columns update\">Update</a>\n    <a href=\"#\" class=\"large-12 columns medium-12 columns delete\">Delete</a>\n</div>\n";
+    + "</span></li>\n            <li class=\"data\">Status:<span class=\"eunpaid-status\"><i class=\"fa fa-times-circle\"></i>Unpaid</span></li>\n            <li class=\"data\">Paid on:<a href=\"#\" class=\"pay-button\"><i class=\"fa fa-check-circle\"></i>Pay now</a></li>\n        </ul>\n    </div>\n    <div class=\"large-4 columns medium-4 columns timings\">\n        <p class=\"title\"><i class=\"fa fa-clock-o\"></i>Timings</p>\n        <ul>\n            <li class=\"data\">Created:<span>"
+    + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.creation_date), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.creation_date), options)))
+    + "</span></li>\n            <li class=\"data\">Started:<span class=\"epending-status\"><i class=\"fa fa-square-o\"></i>Pending</span></li>\n            <li class=\"data\">Completed:<span class=\"epending-status\"><i class=\"fa fa-square-o\"></i>Pending</span></li>\n        </ul>\n    </div>\n    <div class=\"large-4 columns medium-4 columns other\">\n        <a href=\"#\" class=\"large-12 columns medium-12 columns update\">Update</a>\n        <a href=\"#\" class=\"large-12 columns medium-12 columns delete\">Delete</a>\n    </div>\n";
   return buffer;
   }
 
 function program3(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\n    ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.hProgress), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
+  }
+function program4(depth0,data) {
+  
   var buffer = "", stack1, helper, options;
-  buffer += "\n<div class=\"large-4 columns medium-4 columns payments\">\n    <p class=\"title\"><i class=\"fa fa-money\"></i>Payments - <span class=\"currency\">Kshs</span></p>\n    <ul>\n        <li class=\"data\">Amount:<span>";
+  buffer += "\n        <div class=\"large-4 columns medium-4 columns payments\">\n            <p class=\"title\"><i class=\"fa fa-money\"></i>Payments - <span class=\"currency\">Kshs</span></p>\n            <ul>\n                <li class=\"data\">Amount:<span>";
   if (helper = helpers.task_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</span></li>\n        <li class=\"data\">Status:<span class=\"epaid-status\"><i class=\"fa fa-check-circle\"></i>Paid</span></li>\n        <li class=\"data\">Paid on:<span>"
+    + "</span></li>\n                <li class=\"data\">Status:<span class=\"epaid-status\"><i class=\"fa fa-check-circle\"></i>Paid</span></li>\n                <li class=\"data\">Paid on:<span>"
     + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n    </ul>\n</div>\n<div class=\"large-4 columns medium-4 columns timings\">\n    <p class=\"title\"><i class=\"fa fa-clock-o\"></i>Timings</p>\n    <ul>\n        <li class=\"data\">Created:<span>"
+    + "</span></li>\n            </ul>\n        </div>\n        <div class=\"large-4 columns medium-4 columns timings\">\n            <p class=\"title\"><i class=\"fa fa-clock-o\"></i>Timings</p>\n            <ul>\n                <li class=\"data\">Created:<span>"
     + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n        <li class=\"data\">Started:<span>"
+    + "</span></li>\n                <li class=\"data\">Started:<span>"
     + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n        <li class=\"data\">Completed:<span class=\"einprogress-status\"><i class=\"fa fa-cog fa-spin\"></i>Ongoing</span></li>\n    </ul>\n</div>\n<div class=\"large-4 columns medium-4 columns other\">\n    <i class=\"fa fa-cog fa-spin inprogress\"></i>\n    <p class=\"inprogress\">Ongoing</p>\n</div>   \n";
+    + "</span></li>\n                <li class=\"data\">Completed:<span>"
+    + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
+    + "</span></li>\n            </ul>\n        </div>\n        <div class=\"large-4 columns medium-4 columns other\">\n            <p class=\"prompt\">Rate our performance on this task; we value your feedback and use it to better our services.</p>\n            <p class=\"ratewrapper\"><i class=\"ratezero fa fa-star-o\" data-rate=\"0\"></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"1\"></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"2\"></i><i class=\"ratemetre fa fa-star-o\" data-rate='3'></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"4\"></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"5\"></i></p>\n            <a href=\"#\" class=\"large-12 columns medium-12 columns delete\">Delete</a>\n        </div>\n    ";
   return buffer;
   }
 
-function program5(depth0,data) {
+function program6(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n    ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.hPending), {hash:{},inverse:self.program(9, program9, data),fn:self.program(7, program7, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
+  }
+function program7(depth0,data) {
+  
+  
+  return "\n\n    ";
+  }
+
+function program9(depth0,data) {
   
   var buffer = "", stack1, helper, options;
-  buffer += "\n<div class=\"large-4 columns medium-4 columns payments\">\n    <p class=\"title\"><i class=\"fa fa-money\"></i>Payments - <span class=\"currency\">Kshs</span></p>\n    <ul>\n        <li class=\"data\">Amount:<span>";
+  buffer += "\n        <div class=\"large-4 columns medium-4 columns payments\">\n            <p class=\"title\"><i class=\"fa fa-money\"></i>Payments - <span class=\"currency\">Kshs</span></p>\n            <ul>\n                <li class=\"data\">Amount:<span>";
   if (helper = helpers.task_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</span></li>\n        <li class=\"data\">Status:<span class=\"epaid-status\"><i class=\"fa fa-check-circle\"></i>Paid</span></li>\n        <li class=\"data\">Paid on:<span>"
+    + "</span></li>\n                <li class=\"data\">Status:<span class=\"epaid-status\"><i class=\"fa fa-check-circle\"></i>Paid</span></li>\n                <li class=\"data\">Paid on:<span>"
     + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n    </ul>\n</div>\n<div class=\"large-4 columns medium-4 columns timings\">\n    <p class=\"title\"><i class=\"fa fa-clock-o\"></i>Timings</p>\n    <ul>\n        <li class=\"data\">Created:<span>"
+    + "</span></li>\n            </ul>\n        </div>\n        <div class=\"large-4 columns medium-4 columns timings\">\n            <p class=\"title\"><i class=\"fa fa-clock-o\"></i>Timings</p>\n            <ul>\n                <li class=\"data\">Created:<span>"
     + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n        <li class=\"data\">Started:<span>"
+    + "</span></li>\n                <li class=\"data\">Started:<span>"
     + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n        <li class=\"data\">Completed:<span>"
-    + escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.timestamp), options) : helperMissing.call(depth0, "formatDate", (depth0 && depth0.timestamp), options)))
-    + "</span></li>\n    </ul>\n</div>\n<div class=\"large-4 columns medium-4 columns other\">\n    <p class=\"prompt\">Rate our performance on this task; we value your feedback and use it to better our services.</p>\n    <p class=\"ratewrapper\"><i class=\"ratezero fa fa-star-o\" data-rate=\"0\"></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"1\"></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"2\"></i><i class=\"ratemetre fa fa-star-o\" data-rate='3'></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"4\"></i><i class=\"ratemetre fa fa-star-o\" data-rate=\"5\"></i></p>\n    <a href=\"#\" class=\"large-12 columns medium-12 columns delete\">Delete</a>\n</div>\n";
+    + "</span></li>\n                <li class=\"data\">Completed:<span class=\"einprogress-status\"><i class=\"fa fa-cog fa-spin\"></i>Ongoing</span></li>\n            </ul>\n        </div>\n        <div class=\"large-4 columns medium-4 columns other\">\n            <i class=\"fa fa-cog fa-spin inprogress\"></i>\n            <p class=\"inprogress\">Ongoing</p>\n        </div>\n    ";
   return buffer;
   }
 
@@ -63,13 +87,13 @@ function program5(depth0,data) {
   else { helper = (depth0 && depth0.task_description); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
     + "</p>\n";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.unpaid), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.hPaid), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n";
-  stack1 = helpers.unless.call(depth0, (depth0 && depth0.INPROGRESS), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.hPaid), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n";
-  stack1 = helpers.unless.call(depth0, (depth0 && depth0.paid), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.hProgress), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n<i class=\"fa fa-times-circle close-reveal-modal\"></i>";
   return buffer;
@@ -82,11 +106,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n        <tr>\n            <td><span class=\"task-title\" data-reveal-id=\"tDetailModal\" data-id=\"";
+  buffer += "\n        <tr data-id=\"";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\">";
+    + "\">\n            <td><span class=\"task-title\" data-reveal-id=\"tDetailModal\">";
   if (helper = helpers.task_title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -95,13 +119,13 @@ function program1(depth0,data) {
   else { helper = (depth0 && depth0.task_description); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
     + "</td>\n            ";
-  stack1 = helpers.unless.call(depth0, (depth0 && depth0.paid), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.hPaid), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            ";
-  stack1 = helpers.unless.call(depth0, (depth0 && depth0.progress), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.hProgress), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.task)),stack1 == null || stack1 === false ? stack1 : stack1.progress), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.hProgress), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        </tr>\n        ";
   return buffer;
@@ -109,33 +133,42 @@ function program1(depth0,data) {
 function program2(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n            <td class=\"payment\"><a href=\"#\" class=\"unpaid-button\"><i class=\"fa fa-times-circle\"></i>Unpaid - <span data-amount=\"";
+  buffer += "\n                <td class=\"payment\"><a href=\"#\" class=\"unpaid-button\"><i class=\"fa fa-times-circle\"></i>Unpaid - <span data-amount=\"";
   if (helper = helpers.task_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"amount\"></span></a></td>\n            <td class=\"tprogress\"><span class=\"pending-status\"><i class=\"fa fa-square-o\"></i>Pending</span></td>\n            <td><a href=\"#\" class=\"edit-button\"><i class=\"fa fa-pencil-square-o\"></i></a><a href=\"#\" class=\"delete-button\"><i class=\"fa fa-trash-o\"></i></a></td>\n            ";
+    + "\" class=\"amount\"></span></a></td>\n                <td class=\"tprogress\"><span class=\"pending-status\"><i class=\"fa fa-square-o\"></i>Pending</span></td>\n                <td><a href=\"#\" class=\"edit-button\"><i class=\"fa fa-pencil-square-o\"></i></a><a href=\"#\" class=\"delete-button\"><i class=\"fa fa-trash-o\"></i></a></td>\n            ";
   return buffer;
   }
 
 function program4(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n            <td class=\"payment\"><span class=\"paid-button\"><i class=\"fa fa-check-circle\"></i>Paid - ";
+  buffer += "\n                <td class=\"payment\"><span class=\"paid-button\"><i class=\"fa fa-check-circle\"></i>Paid - ";
   if (helper = helpers.task_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</span></td>\n            <td class=\"tprogress\"><span class=\"complete-status\"><i class=\"fa fa-check-square-o\"></i>Complete</span></td>\n            <td><a href=\"#\" class=\"delete-button\"><i class=\"fa fa-trash-o\"></i></a></td>\n            ";
+    + "</span></td>\n                <td class=\"tprogress\"><span class=\"complete-status\"><i class=\"fa fa-check-square-o\"></i>Complete</span></td>\n                <td><a href=\"#\" class=\"delete-button\"><i class=\"fa fa-trash-o\"></i></a></td>\n            ";
   return buffer;
   }
 
 function program6(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\n                ";
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.hPending), {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n            ";
+  return buffer;
+  }
+function program7(depth0,data) {
+  
   var buffer = "", stack1, helper;
-  buffer += "\n            <td class=\"payment\"><span class=\"paid-button\"><i class=\"fa fa-check-circle\"></i>Paid - ";
+  buffer += "\n                    <td class=\"payment\"><span class=\"paid-button\"><i class=\"fa fa-check-circle\"></i>Paid - ";
   if (helper = helpers.task_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.task_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</span></td>\n            <td class=\"tprogress\"><span class=\"inprogress-status\"><i class=\"fa fa-cog fa-spin\"></i>Ongoing</span></td>\n            <td><i class=\"fa fa-cog fa-spin inprogress\"></i></td>\n            ";
+    + "</span></td>\n                    <td class=\"tprogress\"><span class=\"inprogress-status\"><i class=\"fa fa-cog fa-spin\"></i>Ongoing</span></td>\n                    <td><i class=\"fa fa-cog fa-spin inprogress\"></i></td>\n                ";
   return buffer;
   }
 

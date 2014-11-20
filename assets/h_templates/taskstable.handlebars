@@ -10,24 +10,26 @@
     </thead>
     <tbody id="tasks-table">
         {{#each task}}
-        <tr>
-            <td><span class="task-title" data-reveal-id="tDetailModal" data-id="{{id}}">{{task_title}}</span></td>
+        <tr data-id="{{id}}">
+            <td><span class="task-title" data-reveal-id="tDetailModal">{{task_title}}</span></td>
             <td>{{task_description}}</td>
-            {{#unless paid}}
-            <td class="payment"><a href="#" class="unpaid-button"><i class="fa fa-times-circle"></i>Unpaid - <span data-amount="{{task_amount}}" class="amount"></span></a></td>
-            <td class="tprogress"><span class="pending-status"><i class="fa fa-square-o"></i>Pending</span></td>
-            <td><a href="#" class="edit-button"><i class="fa fa-pencil-square-o"></i></a><a href="#" class="delete-button"><i class="fa fa-trash-o"></i></a></td>
+            {{#unless hPaid}}
+                <td class="payment"><a href="#" class="unpaid-button"><i class="fa fa-times-circle"></i>Unpaid - <span data-amount="{{task_amount}}" class="amount"></span></a></td>
+                <td class="tprogress"><span class="pending-status"><i class="fa fa-square-o"></i>Pending</span></td>
+                <td><a href="#" class="edit-button"><i class="fa fa-pencil-square-o"></i></a><a href="#" class="delete-button"><i class="fa fa-trash-o"></i></a></td>
             {{/unless}}
-            {{#unless progress}}
-            <td class="payment"><span class="paid-button"><i class="fa fa-check-circle"></i>Paid - {{task_amount}}</span></td>
-            <td class="tprogress"><span class="complete-status"><i class="fa fa-check-square-o"></i>Complete</span></td>
-            <td><a href="#" class="delete-button"><i class="fa fa-trash-o"></i></a></td>
-            {{/unless}}
-            {{#if task.progress}}
-            <td class="payment"><span class="paid-button"><i class="fa fa-check-circle"></i>Paid - {{task_amount}}</span></td>
-            <td class="tprogress"><span class="inprogress-status"><i class="fa fa-cog fa-spin"></i>Ongoing</span></td>
-            <td><i class="fa fa-cog fa-spin inprogress"></i></td>
+            {{#if hProgress}}
+                <td class="payment"><span class="paid-button"><i class="fa fa-check-circle"></i>Paid - {{task_amount}}</span></td>
+                <td class="tprogress"><span class="complete-status"><i class="fa fa-check-square-o"></i>Complete</span></td>
+                <td><a href="#" class="delete-button"><i class="fa fa-trash-o"></i></a></td>
             {{/if}}
+            {{#unless hProgress}}
+                {{#unless hPending}}
+                    <td class="payment"><span class="paid-button"><i class="fa fa-check-circle"></i>Paid - {{task_amount}}</span></td>
+                    <td class="tprogress"><span class="inprogress-status"><i class="fa fa-cog fa-spin"></i>Ongoing</span></td>
+                    <td><i class="fa fa-cog fa-spin inprogress"></i></td>
+                {{/unless}}
+            {{/unless}}
         </tr>
         {{/each}}
     </tbody>

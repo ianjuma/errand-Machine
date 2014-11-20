@@ -59,67 +59,10 @@
         <script src="/javascript/moment.js"></script>
         <script src="/javascript/handlebars.js"></script>
         <script src="/javascript/tkTemplates.js"></script>
+        <script src="/javascript/mytasks.js"></script>
         <script src="/javascript/tk.js"></script>
         <script>
             $(document).foundation();
-        </script>
-        <script>
-            $(function(){
-
-                function loadTasks(userId){
-                    url = '/api/task/getTasksByUserId/'+userId;
-                    page = $('#t-table-wrapper');
-                    tasksTable = Handlebars.templates['taskstable'];
-
-                    $.getJSON(url, function(data){
-                        console.log(data);
-                        page.html(tasksTable({'task' : data}));
-
-                        tableActions();
-
-                    });
-                }
-
-                function tableActions(){
-                    var unpaidTask = $('.unpaid-button').parent(),
-                        cTaskInput = $('.ctask-input'),
-                        cTaskUrgent = $('.ctask-urgent'),
-                        taskTitle = $('.task-title');
-
-                    unpaidTask.on('mouseenter', function(e){
-                        $(e.target.children[0].firstChild).removeClass('fa-times-circle').addClass('fa-check-circle');
-                        e.target.children[0].childNodes[1].nodeValue = 'Pay now - ';
-                    });
-
-                    unpaidTask.on('mouseleave', function(e){
-                        $(e.target.children[0].firstChild).removeClass('fa-check-circle').addClass('fa-times-circle');
-                        e.target.children[0].childNodes[1].nodeValue = 'Unpaid - ';
-                    });
-
-                    taskTitle.on('click', function(e){
-                        taskId = e.target.dataset.id;
-                        url = '/api/task/getTaskById/'+taskId;
-                        page = $('#tDetailModal');
-                        tasksDetailed = Handlebars.templates['taskdetailed'];
-
-                        $.getJSON(url, function(data){
-                            formatData(data);
-                            //page.html(tasksDetailed(hData));
-                        });
-                    });
-                }
-
-                function formatData(data){
-                    console.log(data);
-                }
-
-                Handlebars.registerHelper('formatDate', function(time){
-                    result = moment(time).fromNow();
-                    return new Handlebars.SafeString(result);
-                });
-
-                loadTasks(1);
-            });
         </script>
     </body>
 </html>
