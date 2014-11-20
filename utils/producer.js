@@ -4,7 +4,7 @@ var kue = require('kue')
   , jobs = kue.createQueue(kueConfig.kue);
 
 
-function sendwelcomeEmail (user) {
+exports.sendWelcomeEmail = function (user) {
 	(function() {
 		var job = jobs.create('email', {
 		    title: 'Welcome to Taskwetu',
@@ -19,7 +19,7 @@ function sendwelcomeEmail (user) {
 }
 
 
-function taskCreated (user) {
+exports.taskCreated = function (user) {
 	(function() {
 		var job = jobs.create('email', {
 		    title: 'Task created successfully',
@@ -35,7 +35,7 @@ function taskCreated (user) {
 }
 
 
-function passwordReset (user) {
+exports.passwordReset = function (user) {
 	(function() {
 		var job = jobs.create('email', {
 		    title: 'Password Reset',
@@ -48,6 +48,3 @@ function passwordReset (user) {
 
 	})(user);
 }
-
-
-passwordReset({ email: "wjuma@students.usiu.ac.ke", password: "root" });
