@@ -84,7 +84,6 @@ exports.getTasksByUserId = function(req, res) {
 			  'Content-Type': 'application/json',
 			});
 
-			var result = { 'tasks': result };
 			res.status(200).json(result);
 	    }
 	});
