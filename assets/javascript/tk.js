@@ -33,16 +33,6 @@ $(function(){
 		$(notMen[0]).removeClass('show');
 	});
 
-	unpaidTask.on('mouseenter', function(e){
-		$(e.target.children[0].firstChild).removeClass('fa-times-circle').addClass('fa-check-circle');
-		e.target.children[0].childNodes[1].nodeValue = 'Pay now - ';
-	});
-
-	unpaidTask.on('mouseleave', function(e){
-		$(e.target.children[0].firstChild).removeClass('fa-check-circle').addClass('fa-times-circle');
-		e.target.children[0].childNodes[1].nodeValue = 'Unpaid - ';
-	});
-
 	cTaskInput.on('focus blur',function(e){
 		$(e.target.parentElement.parentElement.children[1]).toggleClass('live');
 	});

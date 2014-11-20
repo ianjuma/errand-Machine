@@ -111,6 +111,7 @@
                         var formURL = $(form).attr('action');
                         var formMethod = $(form).attr('method');
                         var postData = $(form).serializeArray();
+                        postData.push({ name: "userId", value: "1" });
                         $.ajax({
                             url : formURL,
                             type: formMethod,
