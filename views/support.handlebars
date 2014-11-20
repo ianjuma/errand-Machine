@@ -14,7 +14,7 @@
     <body>
         <div class="full-size fixed">
             <div class="large-12 columns medium-12 columns header">
-                <a href="tasks.html" class="logo"><img src="assets/img/taskwetu.png"></a>
+                <a href="tasks.html" class="logo"><img src="/images/taskwetu.png"></a>
                 <ul class="header-ctrls show-for-medium-up">
                     <li><a class="notifications notMenTrigger" data-show="notifications"><i class="fa fa-inbox"></i></a></li>
                     <li><a class="tasks" href="tasks.html">My Tasks</a></li>
@@ -27,8 +27,8 @@
                 <div class="not-men" id="notMen">
                     <ul id="menu" class="menu">
                         <li>{{ display_name }}<i class="fa fa-times-circle notMenClose"></i></li>
-                        <li><a href="/account"><i class="fa fa-user"></i>My Account</a></li>
-                        <li><a href="/createTask"><i class="fa fa-plus-square"></i>New Task</a></li>
+                        <li><a href="/myAccount"><i class="fa fa-user"></i>My Account</a></li>
+                        <li><a href="/newTask"><i class="fa fa-plus-square"></i>New Task</a></li>
                         <li><a href="/myTasks"><i class="fa fa-tasks"></i>My Tasks</a></li>
                         <li><a href="/support"><i class="fa fa-support"></i>Support</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
@@ -37,6 +37,10 @@
                         <li>Notifications<i class="fa fa-times-circle notMenClose"></i></li>
                     </ul>
                 </div>
+                <div class="notification-d" id="notification">
+                    <i class="fa fa-times-circle notification-d-close"></i>
+                    <p class="notification"></p>
+                </div>
             </div>
         </div>
         <div class="large-12 columns medium-12 columns app-wrapper">
@@ -44,15 +48,17 @@
                 <div class="large-12 columns medium-12 columns support-wrapper">
                     <div class="large-6 columns medium-6 columns supportf-wrapper">
                         <h3>New issue or question</h3>
-                        <form class="support-form">
+                        <form class="support-form" id="support-form" action="/api/support/addTicket/" method="POST" accept-charset="utf-8" name="support-form" novalidate="novalidate">
                             <div class="row">
                                 <div class="large-12 columns medium-12 columns"> 
-                                    <input type="text" placeholder="Subject"/>
+                                    <input name="supportTitle" type="text" placeholder="Subject"/>
+                                    <label class="error" for="supportTitle"></label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="large-12 columns medium-12 columns">     
-                                    <textarea placeholder="Detail your issue or question"></textarea>
+                                    <textarea name="supportTicket" placeholder="Detail your issue or question"></textarea>
+                                    <label class="error" for="supportTicket"></label>
                                 </div>
                             </div>
                             <div class="row urgent-section">
@@ -60,13 +66,13 @@
                                     <label class="title">Is your issue critical?</label>
                                     <p class="prompt">If your issue is truly critical, indicate it and you should <span>expect a call from us in the next hour.</span></p>
                                     <div class="switch small round">
-                                        <input id="critical" type="checkbox" class="ctask-urgent" />
-                                        <label for="critical"></label>
+                                        <input name="supportUrgency" value="URGENT" id="critical" type="checkbox" class="ctask-urgent" />
+                                        <label for="critical"> </label>
                                         <i class="fa fa-check yes"></i>
                                     </div>
                                 </div>
                             </div>    
-                            <a href="#" class="large-6 columns medium-6 columns submit">Create issue</a>
+                            <button type="submit" class="large-6 columns medium-6 columns submit">Create issue</button>
                         </form>
                     </div>
                     <div class="large-6 columns medium-6 columns faq-wrapper">
@@ -138,9 +144,54 @@
             </div>
         </div>
         <script src="/javascript/foundation.min.js"></script>
+        <script src="/javascript/jquery.validate.min.js"></script>
         <script src="/javascript/tk.js"></script>
         <script>
             $(document).foundation();
+        </script>
+        <script>
+            $(function(){
+
+                var notificationd = $('.notification-d'),
+                    notificationdClose = $('.notification-d-close');
+
+                $("#support-form").validate({
+                    onkeyup: false,
+                    rules: {
+                        supportTitle: "required",
+                        supportTicket: "required"
+                    },
+                    messages: {
+                        supportTitle: "Support subject is required.",
+                        supportTicket: "Description of issue or question is required."
+                    },
+                    submitHandler: function(form){
+                        var formURL = $(form).attr('action');
+                        var formMethod = $(form).attr('method');
+                        var postData = $(form).serializeArray();
+                        $.ajax({
+                            url : formURL,
+                            type: formMethod,
+                            data: postData,
+                            success:function(data, textStatus, jqXHR)
+                            {
+                                form.reset();
+                                $(notificationd).removeClass('warning error success');
+                                $(notificationd).children('p.notification').text('Your support ticket has been successfully submited.');
+                                $(notificationd).addClass('show success');
+                                setTimeout(function(){
+                                    $(notificationd).removeClass('show');
+                                },3000);
+                            },
+                            error: function(jqXHR, textStatus, errorThrown)
+                            {
+                                //Fail
+                            }
+                        });
+                        return false;
+                    }
+                });
+            });
         </script>
     </body>
 </html>

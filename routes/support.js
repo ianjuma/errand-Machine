@@ -4,8 +4,10 @@ var Support = require('../models/support');
 exports.addTicket= function(req, res) {
 
 	var new_ticket = new Support({
-	    username: req.body.username,
-	    ticket: req.body.ticket
+	    userId: req.body.userId,
+	    title: req.body.supportTitle,
+	    ticket: req.body.supportTicket,
+	    support_urgency: req.body.supportUrgency
 	});
 
 	new_ticket.save(function(error, result) {

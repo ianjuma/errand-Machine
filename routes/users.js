@@ -1,32 +1,7 @@
-var User = require('../models/users');
+var User = require('../models/users')
+  , bcrypt = require('bcryptjs')
+  , oauthConfig = require('../config/auth');
 
-
-exports.addUser = function(req, res) {
-
-	var new_user = new User({
-    	name: req.body.name,
-    	email: req.body.email,
-    	dob: req.body.dob,
-    	profile_url: req.body.profile_url
-	});
-
-	new_user.save(function(error, result) {
-		if (result == null) {
-			res.status(400).json({ "Error": "User Already Exists" });
-		}
-	    if (error) {
-	        res.status(500).json({ error: "something blew up, we're fixing it" });
-	    }
-	    else {
-	        console.log('User Saved');
-	        res.set({
-			  'Content-Type': 'application/json',
-			});
-
-			res.status(200).json({ 'OK': 'User Created'});
-	    }
-	});
-};
 
 
 exports.getUserById = function(req, res) {
@@ -89,13 +64,10 @@ exports.deleteUserById = function(req, res) {
 };
 
 
-exports.updateUserById = function(req, res) {
+exports.updateUserEmailById = function(req, res) {
 
 	var _user = new User({
-    	name: req.body.name,
-    	dob: req.body.dob,
-    	profile_url: req.body.profile_url,
-    	email: req.body.email
+    	email: req.body.userEmail
 	});
 
 	User.get( req.params.id ).update(_user).run( function(error, result) {
@@ -106,7 +78,32 @@ exports.updateUserById = function(req, res) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		}
 		else {
-	        console.log('user updated');
+	        console.log('user email updated');
+
+	        res.set({
+			  'Content-Type': 'application/json'
+			});
+			res.status(200).json(_user);
+		}
+	});
+};
+
+
+exports.updateUserPassById = function(req, res) {
+
+	var _user = new User({
+    	password: bcrypt.hashSync(req.body.password, oauthConfig.passwordSalt.salt)
+	});
+
+	User.get( req.params.id ).update(_user).run( function(error, result) {
+		if (result == null) {
+			res.status(404).json({ "Error": "User Not Found" });
+		}
+		if (error) {
+			res.status(500).json({ "error": "something blew up, we're fixing it" });
+		}
+		else {
+	        console.log('user pass updated');
 
 	        res.set({
 			  'Content-Type': 'application/json'

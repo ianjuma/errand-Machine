@@ -5,7 +5,7 @@ var r = thinky.r;
 
 // id as user_id
 var Notification = thinky.createModel('Notifications', {
-    id: String,
+    userId: String,
     comment_ids: {
         _type: Array
     }

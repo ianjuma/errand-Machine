@@ -33,9 +33,9 @@
 }
 
 .header a.logo img{
-	width: 10em;
-	height: 3em;
-	margin-top: 0.35em;
+	width: 9.8em;
+	height: 2.8em;
+	margin-top: 0.5em;
 }
 
 .header> .header-ctrls{
@@ -171,6 +171,66 @@
 /*----------------------------------------
 	App
 ----------------------------------------*/
+
+/* In app Notifications */
+
+.notification-d{
+	width: 15em;
+	padding: 1em;
+	padding-right: 1.5em;
+	position: fixed;
+	top: 3.5em;
+	left: 0.8em;
+	font-family: OpenSans;
+	background-color: rgba(248,248,248,1);
+	border: 1px solid rgb(201,201,201);
+	box-shadow: 0 5px 10px -4px rgba(0,0,0,0.3);
+	border-top: none;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 2s, top 10s;
+}
+
+.notification-d.show{
+	opacity: 1;
+	top: 4em;
+	pointer-events: auto;
+    transition: opacity 0.2s, top 0.2s;
+}
+
+.notification-d i.notification-d-close{
+	position: absolute;
+	font-size: 1em;
+	right: 0.5em;
+	top: 0.5em;
+	cursor: pointer;
+}
+
+.notification-d p.notification{
+	margin: 0em 0em 0em 0em;
+	font-size: 0.875em;
+	font-weight: 400;
+}
+
+.notification-d.success{
+	background-color: #43ac6a;
+    border-color: #368a55;
+    color: #fff;	
+}
+
+.notification-d.warning{
+	background-color: #f08a24;
+    border-color: #cf6e0e;
+    color: #fff;	
+}
+
+.notification-d.error{
+	background-color: #f04124;
+      border-color: #cf2a0e;
+    color: #fff;	
+}
+
+/* End */
 
 .app-wrapper{
 	margin-top: 5em;
@@ -489,10 +549,14 @@ span.amount::before{
 .createf-wrapper{
 	padding: 0em;
 	padding-top: 1.5em;
+	font-family: OpenSans;
+}
+
+.supportf-wrapper{
+	font-family: OpenSans;
 }
 
 .createf-wrapper form label.title, .supportf-wrapper form label.title{
-	font-family: OpenSans;
 	font-weight: 600;
 	font-size: 1em;
 	color: #222;
@@ -500,14 +564,13 @@ span.amount::before{
 }
 
 .createf-wrapper form input, .createf-wrapper form textarea, .supportf-wrapper form input, .supportf-wrapper form textarea{
-	font-family: OpenSans;
 	font-weight: 400;
 	font-size: 0.95em;
 	box-shadow: none;
 	border: 1px solid;
 	border-color: #A8A8A8;
 	margin-top: 0em;
-	margin-bottom: 1.2em;
+	margin-bottom: 1.25em;
 	border-radius: 5px;
 	background-color: #FFFFFF;
 	transition: border-color 0.2s;
@@ -523,6 +586,15 @@ span.amount::before{
 .createf-wrapper form textarea, .supportf-wrapper form textarea{
 	min-height: 15em;
 	resize: vertical;
+}
+
+.createf-wrapper form label.error, .supportf-wrapper form label.error{
+	font-size: 0.9em;
+	color: #cf2a0e;
+	font-weight: 400;
+	margin: 0em;
+	position: relative;
+	top: -1.1em;
 }
 
 .urgent-section .switch{
@@ -576,7 +648,7 @@ span.amount::before{
 	border-bottom: 1px dotted;
 }
 
-.createf-wrapper a.submit, .supportf-wrapper a.submit{
+.createf-wrapper button.submit, .supportf-wrapper button.submit, .createf-wrapper button.submit:focus, .supportf-wrapper button.submit:focus{
 	font-family: OpenSans;
 	font-weight: 400;
 	font-size: 0.95em;
@@ -733,37 +805,37 @@ span.amount::before{
 .account-settings div.email, .account-settings div.password, .account-settings div.notifications{
 	position: relative;
 	margin-bottom: 1em;
+	border: 1px solid;
 }
 
 .account-settings div.email h2, .account-settings div.password h2, .account-settings div.notifications h2{
 	font-size: 1.2em;
 	font-weight: 700;
-	margin-bottom: 0em;
-}
-
-.account-settings div.password h2{
-	margin-bottom: 0.2em;
+	margin-bottom: 0.3em;
 }
 
 .account-settings div.password div.input{
-	height: 0em;
+	height: 2em;
+	opacity: 0;
 	overflow: hidden;
-	transition: height 0.2s ease-in-out;
+	transition: height 0.2s ease-in-out, opacity 0.2s;
 }
 
 .account-settings div.password.live div.input{
 	height: 8.5em;
-	transition: height 0.2s ease-in-out;
+	opacity: 1;
+	transition: height 0.2s ease-in-out, opacity 0.2s;
 }
 
 .account-settings div.email input, .account-settings div.password input{
 	font-size: 1em;
 	box-shadow: none;
 	border: none;
-	padding-left: 0em;
+	padding-left: 0.5em;
 	padding-right: 5em;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.3em;
 	pointer-events: none;
+	outline: none;
 }
 
 .account-settings div.password input{
@@ -775,7 +847,7 @@ span.amount::before{
 	background-color: #fff;
 }
 
-.account-settings div.email input.live{
+.account-settings div.email form.live input{
 	pointer-events: auto;
 }
 
@@ -785,19 +857,18 @@ span.amount::before{
 	transition: opacity 0.2s;
 }
 
-.account-settings div.email a.update, .account-settings div.password a.update, .account-settings div.email a.cancel, .account-settings div.password a.cancel{
+.account-settings div.email a.update, .account-settings div.password a.update, .account-settings div.email a.cancel, .account-settings div.password a.cancel, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
 	font-size: 0.875em;
 	border-radius: 5px;
-	padding: 0.2em 0em 0.3em 0em;
-	width: 4.3em;
+	padding: 0.3em 0em 0.3em 0em;
+	width: 4.5em;
 	text-align: center;
 	color: #fff;
 	position: absolute;
-	top: 0.1em;
 	transition: color 0.2s;
 }
 
-.account-settings div.email a.update, .account-settings div.password a.update{
+.account-settings div.email a.update, .account-settings div.password a.update, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
 	border: 1px solid #0C565F;
 	background-color: #138797;
 	right: 1.1em;
@@ -816,6 +887,20 @@ span.amount::before{
 	opacity: 1;
 	pointer-events: auto;
 	transition: opacity 0.2s;
+}
+
+.account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
+	display: none;
+	padding: 0.4em 0em 0.4em 0em;
+}
+
+.account-settings div.email form.live button.email-submit{
+	display: block;
+	padding: 0.4em 0em 0.4em 0em;
+}
+
+.account-settings div.email a.update.off{
+	display: none;
 }
 
 .account-settings div.notifications p.notifications{

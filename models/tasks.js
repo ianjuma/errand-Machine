@@ -21,7 +21,10 @@ var Task = thinky.createModel('Tasks', {
         default: 'UNPAID'
     },
     ratetask: String,
-    task_urgency: String,
+    task_urgency: {
+        _type: String,
+        default: 'NOTURGENT'
+    },
     creation_date: {
         _type: Date,
         default: r.now()

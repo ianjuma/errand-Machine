@@ -8,6 +8,10 @@ var Support = thinky.createModel('Support', {
     userId: String,
     title: String,
     ticket: String,
+    support_urgency: {
+        _type: String,
+        default: 'NOTURGENT'
+    },
     creation_date: {
     	_type: Date,
     	default: r.now()

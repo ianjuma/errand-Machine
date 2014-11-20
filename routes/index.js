@@ -3,7 +3,8 @@ exports.index = function(req, res) {
 		res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user });
 		console.log(req.user);
 	} else {
-		res.render('index', { title: 'Task Kwetu' });
+		res.render('mytasks', { title: 'Task Kwetu | My Tasks' });
+		//res.render('index', { title: 'Task Kwetu' });
 	}
 };
 
@@ -13,13 +14,13 @@ exports.newTask = function(req, res) {
 };
 
 
-exports.mytasks = function(req, res) {
-  res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user,  });
+exports.myTasks = function(req, res) {
+  res.render('mytasks', { title: 'Task Kwetu | My Tasks', user: req.user,  });
 };
 
 
 exports.myAccount = function(req, res) {
-  res.render('myaccount', { title: 'Task Kwetu | View Tasks', user: req.user,  });
+  res.render('myaccount', { title: 'Task Kwetu | My Account', user: req.user,  });
 };
 
 

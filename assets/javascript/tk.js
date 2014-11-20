@@ -87,8 +87,8 @@ $(function(){
 		switch(update){
 			case 'email':
 				$(e.target).nextAll().addClass('live');
-				$(e.target).siblings('.ifirst').focus();
-				$(e.target).text('Save');
+				$(e.target).siblings('.email-form').children('.ifirst').focus();
+				$(e.target).addClass('off');
 			break;
 			case 'password':
 				$(e.target).parent().addClass('live');
@@ -107,8 +107,9 @@ $(function(){
 		cancel = e.target.dataset.cancel;
 		switch(cancel){
 			case 'email':
-				$(e.target).siblings('.ifirst').blur().removeClass('live');
-				$(e.target).siblings('.update').text('Update');
+				$(e.target).siblings('.email-form').children('.ifirst').blur();
+				$(e.target).siblings('.email-form').removeClass('live');
+				$(e.target).siblings('.update').removeClass('off');
 				$(e.target).removeClass('live');
 			break;
 			case 'password':
@@ -124,5 +125,7 @@ $(function(){
 				$(e.target).removeClass('live');
 		}
 	});
+
+    
 
 });

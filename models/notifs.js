@@ -5,7 +5,7 @@ var r = thinky.r;
 
 // id as user_id
 var Notif = thinky.createModel('Notifs', {
-    id: String,
+    userId: String,
     comment: String,
     metadata: {
        creation_date: {

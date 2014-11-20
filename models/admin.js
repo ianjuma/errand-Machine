@@ -9,7 +9,6 @@ var Admin = thinky.createModel('Admins', {
     username: String,
     lname: String,
     fname: String,
-    dob: Date,
     password: String,
     date_joined: {
       _type: Date,
@@ -20,9 +19,6 @@ var Admin = thinky.createModel('Admins', {
         default: '',
         // validator: validator.isEmail,
         enforce_type: 'strict'
-    },
-    profile_url: {
-        _type: String
     }
 });
 

@@ -14,7 +14,7 @@
     <body>
         <div class="full-size fixed">
             <div class="large-12 columns medium-12 columns header">
-                <a href="tasks.html" class="logo"><img src="assets/img/taskwetu.png"></a>
+                <a href="tasks.html" class="logo"><img src="/images/taskwetu.png"></a>
                 <ul class="header-ctrls show-for-medium-up">
                     <li><a class="notifications notMenTrigger" data-show="notifications"><i class="fa fa-inbox"></i></a></li>
                     <li><a class="tasks" href="tasks.html">My Tasks</a></li>
@@ -27,8 +27,8 @@
                 <div class="not-men" id="notMen">
                     <ul id="menu" class="menu">
                         <li>{{ display_name }}<i class="fa fa-times-circle notMenClose"></i></li>
-                        <li><a href="/account"><i class="fa fa-user"></i>My Account</a></li>
-                        <li><a href="/createTask"><i class="fa fa-plus-square"></i>New Task</a></li>
+                        <li><a href="/myAccount"><i class="fa fa-user"></i>My Account</a></li>
+                        <li><a href="/newTask"><i class="fa fa-plus-square"></i>New Task</a></li>
                         <li><a href="/myTasks"><i class="fa fa-tasks"></i>My Tasks</a></li>
                         <li><a href="/support"><i class="fa fa-support"></i>Support</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
@@ -36,6 +36,10 @@
                     <ul id="notifications" class="notifications">
                         <li>Notifications<i class="fa fa-times-circle notMenClose"></i></li>
                     </ul>
+                </div>
+                <div class="notification-d" id="notification">
+                    <i class="fa fa-times-circle notification-d-close"></i>
+                    <p class="notification"></p>
                 </div>
             </div>
         </div>
@@ -51,16 +55,18 @@
                         <div class="row">
                             <div class="large-12 columns medium-12 columns email">
                                 <h2>Email</h2>
-                                <a href="#" class="update-settings update" data-update="email">Update</a>
-                                <a href="#" class="cancel-settings cancel" data-cancel="email">Cancel</a>
-                                <input class="ifirst" type="text" value="{{ email }}" />
+                                <a class="update-settings update" data-update="email">Update</a>
+                                <a class="cancel-settings cancel" data-cancel="email">Cancel</a>
+                                <form class="email-form" id="email-form" action="/api/user/updateUserEmail/" method="PUT" accept-charset="utf-8" name="email-form" novalidate="novalidate">
+                                    <button type="submit" class="email-submit">Save</button>
+                                    <input class="ifirst" name="userEmail" type="text" value="{{ email }}" placeholder="Someone@example.com"/>
+                                </form>    
                             </div>    
                         </div>
-                        {{#if nat}}
                         <div class="row">
                             <div class="large-12 columns medium-12 columns password">
                                 <h2>Password</h2>
-                                <a href="#" class="update-settings update" data-update="password">Update</a>
+                                <a href="#" class="update-settings email update" data-update="password">Update</a>
                                 <a href="#" class="cancel-settings cancel" data-cancel="password">Cancel</a>
                                 <div class="input">
                                     <input class="ifirst" type="password" value="" placeholder="Current password"/>
@@ -69,7 +75,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{/if}}
                         <div class="row">
                             <div class="large-12 columns medium-12 columns notifications">
                                 <h2>Notifications</h2>
@@ -91,9 +96,59 @@
             </div>
         </div>
         <script src="/javascript/foundation.min.js"></script>
+        <script src="/javascript/jquery.validate.min.js"></script>
         <script src="/javascript/tk.js"></script>
         <script>
             $(document).foundation();
+        </script>
+        <script>
+            $(function(){
+
+                var notificationd = $('.notification-d'),
+                    notificationdClose = $('.notification-d-close');
+
+                $("#email-form").validate({
+                    onkeyup: false,
+                    rules: {
+                        userEmail: {
+                            required: true,
+                            email: true
+                        }
+                    },
+                    messages: {
+                        userEmail: {
+                            required: 'Your email address is required.',
+                            email: 'Invalid email address.'
+                        }
+                    },
+                    submitHandler: function(form){
+                        var formURL = $(form).attr('action');
+                        var formMethod = $(form).attr('method');
+                        var postData = $(form).serializeArray();
+                        var userId = 1;
+                        console.log(postData);
+                        $.ajax({
+                            url : formURL+userId,
+                            type: formMethod,
+                            data: postData,
+                            success:function(data, textStatus, jqXHR)
+                            {
+                                $(notificationd).removeClass('warning error success');
+                                $(notificationd).children('p.notification').text('Your email has been successfully updated.');
+                                $(notificationd).addClass('show success');
+                                setTimeout(function(){
+                                    $(notificationd).removeClass('show');
+                                },3000);
+                            },
+                            error: function(jqXHR, textStatus, errorThrown)
+                            {
+                                //Fail
+                            }
+                        });
+                        return false;
+                    }
+                });
+            });
         </script>
     </body>
 </html>

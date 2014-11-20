@@ -116,28 +116,30 @@ module.exports = function(app, express) {
 	// static pages routes
 	app.get('/', index.index);
 	app.get('/login', index.login);
-	app.get('/createTask', index.newTask);
+	app.get('/newTask', index.newTask);
 	app.get('/support', index.support);
 	app.get('/login', index.login);
 	app.get('/signup', index.signup);
 	app.get('/myAccount', index.myAccount);
+	app.get('/myTasks', index.myTasks);
 
 	// users API
-	app.get('/api/user/getUserById/:id/', users.getUserById);
-	app.delete('/api/user/deleteUserById/:id/', users.deleteUserById);
-	app.put('/api/user/updateUserById/:id/', users.updateUserById);
+	app.get('/api/user/getUserById/:id', users.getUserById);
+	app.delete('/api/user/deleteUserById/:id', users.deleteUserById);
+	app.put('/api/user/updateUserEmail/:id', users.updateUserEmailById);
+	app.put('/api/user/updateUserPass/:id', users.updateUserPassById);
 
 	// tasks API
-	app.post('/api/task/addTask/', tasks.addTask);
-	app.get('/api/task/getTasks/', tasks.getTasks);
-	app.get('/api/task/getTaskById/:id/', tasks.getTaskById);
-	app.get('/api/task/getTasksByUserId/:id/', tasks.getTasksByUserId);
-	app.delete('/api/task/deleteTaskById/:id/', tasks.deleteTaskById);
-	app.put('/api/task/updateTaskById/:id/', tasks.updateTaskById);
+	app.post('/api/task/addTask', tasks.addTask);
+	app.get('/api/task/getTasks', tasks.getTasks);
+	app.get('/api/task/getTaskById/:id', tasks.getTaskById);
+	app.get('/api/task/getTasksByUserId/:id', tasks.getTasksByUserId);
+	app.delete('/api/task/deleteTaskById/:id', tasks.deleteTaskById);
+	app.put('/api/task/updateTaskById/:id', tasks.updateTaskById);
 
 	// support API
-	app.post('/api/support/addTicket/', support.addTicket);
-	app.get('/api/support/getTickets/', support.getAllTickets);
+	app.post('/api/support/addTicket', support.addTicket);
+	app.get('/api/support/getTickets', support.getAllTickets);
 
 
 	// 404 error handler

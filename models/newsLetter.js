@@ -4,7 +4,8 @@ var config = require('../config/database')
 var r = thinky.r;
 
 var NewsLetter = thinky.createModel('NewsLetter', {
-    id: String,
+    userId: String,
+    email: String,
     metadata: {
        request_date: {
         _type: Date,

@@ -33,8 +33,7 @@ passport.use(new GoogleStrategy(oauthConfig.googleAuth,
       name: profile.displayName,
       profile_url: profile._json['picture'],
       provider: profile.provider,
-      email: profile.emails[0].value,
-      gender: profile._json['gender']
+      email: profile.emails[0].value
     };
 
     UserModel.filter({ 'id': String(profile.emails[0].value) }).run(function(err, user) {
