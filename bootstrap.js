@@ -21,7 +21,8 @@ module.exports = function(app, express) {
 	var authentication = require('./routes/authentication');
 
 	var port = process.env.PORT || 8000;
-	var env  = process.env.NODE_ENV || 'development';
+	var state  = process.env.NODE_ENV || 'development';
+	var static_server = process.env.STATIC_SERVER || 'nginx';
 
 	app.use(session({
 		secret: 'session_secret',
@@ -144,10 +145,10 @@ module.exports = function(app, express) {
 
 	// 404 error handler
 	app.get('*', function(req, res) {
-	  res.render('404', 404);
+		res.render('404', 404);
 	});
 
-	if ( process.env.state == env ) {
+	if ( process.env.state == state ) {
 		// 500 error handler --> production only
 		app.use(function(error, req, res, next) {
 		    res.status(500);

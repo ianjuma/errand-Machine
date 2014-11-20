@@ -1,11 +1,12 @@
 var slug = require('slug')
+  , mailApi = require('../utils/producer')
   , Task = require('../models/tasks');
 
 
 exports.addTask= function(req, res) {
 
 	var new_task = new Task({
-		userId: req.body.idAuthor,
+		userId: req.body.userId,
 	    task_title: req.body.taskTitle,
 	    _slug: slug((req.body.taskTitle).toLowerCase()),
 	    task_description: req.body.taskDescription,
@@ -21,6 +22,8 @@ exports.addTask= function(req, res) {
 	    }
 	    else {
 	        console.log('Task Saved');
+	        // mailApi.taskCreated(req.user);
+
         	res.set({
 			  'Content-Type': 'application/json',
 			});
@@ -71,7 +74,7 @@ exports.getTasks = function(req, res) {
 
 exports.getTasksByUserId = function(req, res) {
 
-	Task.orderBy( "creation_date" ).filter({ author_id: req.params.author_id }).run(function(error, result) {
+	Task.orderBy( "creation_date" ).filter({ userId: req.params.id }).run(function(error, result) {
 	    if (error) {
 	        res.status(500).json({ error: "something blew up, we're fixing it" });
 	    }
@@ -126,6 +129,8 @@ exports.updateTaskById = function(req, res) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		} else {
 	        console.log('Task updated');
+	        // mailApi.taskUpdated(req.user);
+
 	        res.set({
 			  'Content-Type': 'application/json'
 			});
