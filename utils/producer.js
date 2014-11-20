@@ -35,6 +35,22 @@ exports.taskCreated = function (user) {
 };
 
 
+exports.taskUpdated = function (user) {
+	(function() {
+		var job = jobs.create('email', {
+		    title: 'Task updated successfully',
+		    to: user.email,
+		    body: 'Your task has been successfully updated, please visit ' + 
+		    		'the taskwetu dashboard to view your task progress, thank you!'
+		}).priority('high');
+
+		job.attempts(2).backoff( true );
+		job.save();
+
+	})(user);
+};
+
+
 exports.passwordReset = function (user) {
 	(function() {
 		var job = jobs.create('email', {

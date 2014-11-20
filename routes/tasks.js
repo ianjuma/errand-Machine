@@ -129,6 +129,8 @@ exports.updateTaskById = function(req, res) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		} else {
 	        console.log('Task updated');
+	        // mailApi.taskUpdated(req.user);
+
 	        res.set({
 			  'Content-Type': 'application/json'
 			});
