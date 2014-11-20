@@ -7,8 +7,7 @@ var r = thinky.r;
 
 var User = thinky.createModel('Users', {
     id: String,
-    lname: String,
-    fname: String,
+    name: String,
     username: String,
     password: String,
     date_joined: {
