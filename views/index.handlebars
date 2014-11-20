@@ -16,7 +16,7 @@
     <title>Task &middot; Kwetu</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/stylesheets/css/font-awesome.min2.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome/css/font-awesome.min.css">
     <link href='https:/fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https:/fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -26,10 +26,10 @@
       <script src="https:/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <link href="/stylesheets/css/bootstrap-index.css" rel="stylesheet">
-    <link href="/stylesheets/css/theme-salmonpink.css" rel="stylesheet">
-    <link href="/stylesheets/css/magnific-popup.css" rel="stylesheet">
-    <script src="/javascript/modernizr.custom.js"></script>
+    <link href="/stylesheets/landing/bootstrap-index.css" rel="stylesheet">
+    <link href="/stylesheets/landing/theme-salmonpink.css" rel="stylesheet">
+    <link href="/stylesheets/landing/magnific-popup.css" rel="stylesheet">
+    <script src="/javascript/landing/modernizr.custom.js"></script>
   </head>
 
   <body>
@@ -57,16 +57,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <h1><a class="navbar-brand scroll" href="#intro">TaskWetu</a></h1>
+              <h1><a class="navbar-brand scroll" href="#intro">Task Kwetu</a></h1>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav pull-right">
                 <li><a href="#about">About</a></li>
-                <!-- <li><a href="#featured1">Features</a></li> -->
                 <li class="hidden-sm"><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a class="hidden-sm login" href="#">Login</a></li>
-                <li><a class="signup" href="#">Sign up</a></li>
+                <li><a class="hidden-sm login" href="/login">Login</a></li>
+                <li><a class="signup" href="/signup">Sign up</a></li>
               </ul>
             </div>
           </div>
@@ -75,18 +74,17 @@
       </div>
     </div>
 
-
     <!-- Hero Banner
     ================================================== -->
     <div id="intro">
-        <div class="item background-cover" style="background: url('/images/banner1-bg.jpg')">
+        <div class="item background-cover" style="background: url('/images/landing/delivery1.jpg')">
           <div class="container">
             <div class="row">
               <div class="carousel-caption-center colour-white">
                 <h2>Away from home?</h2>
                 <h1>Have an errand to run?</h1>
                 <p>Delegate your tasks to us Today!</p>
-                <p><a class="btn btn-lg btn-primary signup" href="#" role="button">Get started</a></p>
+                <p><a class="btn btn-lg btn-primary signup" href="/signup" role="button">Get started</a></p>
               </div>
             </div>
           </div>
@@ -159,7 +157,6 @@
 
               <!-- Carousel Slides / Quotes -->
               <div class="carousel-inner">
-
                 <!-- Quote 1 -->
                 <div class="item active">
                   <blockquote>
@@ -189,7 +186,7 @@
                     </div>
                   </blockquote>
                 </div>
-
+                <!-- Quote 3 -->
                 <div class="item">
                   <blockquote>
                     <div class="row">
@@ -199,21 +196,6 @@
                       <div class="col-sm-9">
                         <p>"What a cool way to get your errands done in Kenya from the diaspora & local. Great concept #MadeInKenya #KOT"</p>
                         <small>Ann McCreath - <a href="https:/twitter.com/AnnMcCreath" target="_blank">@AnnMcCreath</a></small>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-
-                <!-- Quote 3 -->
-                <div class="item">
-                  <blockquote>
-                    <div class="row">
-                      <div class="col-sm-3 text-center">
-                        <img class="img-circle" src=""url_for('', filename='img/thumbs/thumb4.jpg') "">
-                      </div>
-                      <div class="col-sm-9">
-                        <p>"Consider It Done!"</p>
-                        <small>Lucy Thuku - <a href="https:/twitter.com/Lucythuku" target="_blank">@Lucythuku</a></small>
                       </div>
                     </div>
                   </blockquote>
@@ -245,34 +227,34 @@
           <div class="col-md-12">
             <div id="owl-example" class="owl-carousel">
               <div class="item">
-                <a href=""url_for('', filename='img/addTask.png') "" class="popup-gallery">
-                  <img src=""url_for('', filename='img/addTask.png') "" alt="Prestige Portfolio Thumbnail Image">
+                <a href="/images/landing/addTask.png" class="popup-gallery">
+                  <img src="/images/landing/addTask.png" alt="Prestige Portfolio Thumbnail Image">
                 </a>
               </div>
               <div class="item">
-                <a href=""url_for('', filename='img/profile.png') "" class="popup-gallery">
-                  <img src=""url_for('', filename='img/profile.png') "" alt="Prestige Portfolio Thumbnail Image">
+                <a href="/images/landing/profile.png" class="popup-gallery">
+                  <img src="/images/landing/profile.png" alt="Prestige Portfolio Thumbnail Image">
                 </a>
               </div>
               <div class="item">
-                <a href=""url_for('', filename='img/pay.png') "" class="popup-gallery">
-                  <img src=""url_for('', filename='img/pay.png') "" alt="Prestige Portfolio Thumbnail Image">
+                <a href="/images/landing/pay.png" class="popup-gallery">
+                  <img src="/images/landing/pay.png" alt="Prestige Portfolio Thumbnail Image">
                 </a>
               </div>
               <div class="item">
-                <a href=""url_for('', filename='img/myTasks.png') "" class="popup-gallery">
+                <a href="/images/landing/myTasks.png" class="popup-gallery">
 
-                  <img src=""url_for('', filename='img/myTasks.png') "" alt="Prestige Portfolio Thumbnail Image">
+                  <img src="/images/landing/myTasks.png" alt="Prestige Portfolio Thumbnail Image">
                 </a>
               </div>
               <div class="item">
-                <a href=""url_for('', filename='img/editTask.png') "" class="popup-gallery">
-                  <img src=""url_for('', filename='img/editTask.png') "" alt="Prestige Portfolio Thumbnail Image">
+                <a href="/images/landing/pay.png" class="popup-gallery">
+                  <img src="/images/landing/pay.png" alt="Prestige Portfolio Thumbnail Image">
                 </a>
               </div>
               <div class="item">
-                <a href=""url_for('', filename='img/addTask2.png') "" class="popup-gallery">
-                  <img src=""url_for('', filename='img/addTask2.png') "" alt="Prestige Portfolio Thumbnail Image">
+                <a href="/images/landing/addTask2.png" class="popup-gallery">
+                  <img src="/images/landing/addTask2.png" alt="Prestige Portfolio Thumbnail Image">
                 </a>
               </div>
 
@@ -307,7 +289,7 @@
                     <li>1 worker</li>
                   </ul>
                   <div class="plan-cta">
-                    <p class="plan-buy"><a class="btn signup">Select plan</a></p>
+                    <p class="plan-buy"><a href="/signup" class="btn signup">Select plan</a></p>
                  </div>
                 </div>
               </div>
@@ -324,7 +306,7 @@
                     <li>1 workers</li>
                   </ul>
                   <div class="plan-cta">
-                    <p class="plan-buy"><a class="btn signup">Select plan</a></p>
+                    <p class="plan-buy"><a href="/signup" class="btn signup">Select plan</a></p>
                  </div>
                 </div>
               </div>
@@ -340,7 +322,7 @@
                     <li>2 workers</li>
                   </ul>
                   <div class="plan-cta">
-                    <p class="plan-buy"><a class="btn signup">Select plan</a></p>
+                    <p class="plan-buy"><a href="/signup" class="btn signup">Select plan</a></p>
                  </div>
                 </div>
               </div>
@@ -357,7 +339,7 @@
         <div class="row">
           <div class="col-lg-12">
             <h2>Delegate a Task Now</h2>
-            <p><a href="#" class="btn signup" role="button">Get started</a></p>
+            <p><a href="/login" class="btn signup" role="button">Get started</a></p>
           </div>
         </div>
       </div>
@@ -410,62 +392,22 @@
 
 		</footer>
 
-    <div id="login" class="overlay overlay-content">
-
-      <button type="button" class="overlay-close">Close</button>
-      <section class="login-part">
-        <p class="login-overlay">
-          Log In
-        </p>
-        <form>
-          <input class="form-control" type="text" id="mobileNo" name="u" placeholder="Username" required="required" />
-          <input class="form-control" type="password" id="getPass" name="p" placeholder="Password" required="required" />
-          <button id="signInData" type="submit" class="btn btn-primary btn-block btn-large">Log In</button>
-          <a href="/reset/" class="forgot-pw">Forgot password? We can help!</a>
-        </form>
-       </section>
-
-    </div>
-
-    <div id="signup" class="overlay overlay-content">
-
-      <button type="button" class="overlay-close">Close</button>
-      <section class="login-part">
-        <p class="login-overlay">
-          Sign up to TasKwetu
-        </p>
-        <form>
-          <input class="form-control" type="text" name="mobileNo" id="getmobileNo" placeholder="Username" required="required" />
-          <input class="form-control" type="email" name="email" id="email" placeholder="Email" required="required" />
-          <input class="form-control" type="password" name="pw" id="pw" placeholder="Password" required="required" />
-          <input class="form-control" type="password" name="repeat-pw" id="pwtwo" placeholder="Repeat Password" required="required" />
-          <button id="loginData" type="submit" class="btn btn-primary btn-block btn-large">Get started</button>
-          <p class="disclaimer">By signing up, you agree with our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></p>
-        </form>
-       </section>
-
-    </div>
-
-    <script src="/javascript/jquery-1.10.2.min.js"></script>
-    <script src="/javascript/bootstrap.min.js"></script>
-    <script src="/javascript/classie.js"></script>
-    <script src="/javascript/cbpAnimatedHeader.min.js"></script>
-    <script src="/javascript/owl.carousel.min.js"></script>
-    <script src="/javascript/scrollReveal.js"></script>
-    <script src="/javascript/jquery.scrollTo.js" defer="defer"></script>
-    <script src="/javascript/jquery.nav.js" defer="defer"></script>
-    <script src="/javascript/imagesloaded.pkgd.min.js" defer="defer"></script>
-    <script src="/javascript/isotope.min.js" defer="defer"></script>
-    <script src="/javascript/jquery.magnific-popup.min.js" defer="defer"></script>
-    <script src="/javascript/jqBootstrapValidation.js" defer="defer"></script>
-    <script src="/javascript/custom.js"></script>
-    <script src="/javascript/app.js"></script>
+    <script src="/javascript/jquery.js"></script>
+    <script src="/javascript/landing/bootstrap.min.js"></script>
+    <script src="/javascript/landing/classie.js"></script>
+    <script src="/javascript/landing/cbpAnimatedHeader.min.js"></script>
+    <script src="/javascript/landing/owl.carousel.min.js"></script>
+    <script src="/javascript/landing/scrollReveal.js"></script>
+    <script src="/javascript/landing/jquery.scrollTo.js" defer="defer"></script>
+    <script src="/javascript/landing/jquery.nav.js" defer="defer"></script>
+    <script src="/javascript/landing/imagesloaded.pkgd.min.js" defer="defer"></script>
+    <script src="/javascript/landing/isotope.min.js" defer="defer"></script>
+    <script src="/javascript/landing/jquery.magnific-popup.min.js" defer="defer"></script>
+    <script src="/javascript/landing/custom.js"></script>
 
     <script>
       $(document).ready(function(){
         isotope();
-        signupOverlay();
-        loginOverlay();
       });
     </script>
 

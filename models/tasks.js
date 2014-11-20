@@ -34,6 +34,10 @@ var Task = thinky.createModel('Tasks', {
         _type: Date,
         default: r.now()
       },
+      started_date: {
+        _type: String,
+        default: r.now()
+      },
       completion_date: {
         _type: Date
       }

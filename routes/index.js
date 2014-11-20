@@ -3,8 +3,7 @@ exports.index = function(req, res) {
 		res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user });
 		console.log(req.user);
 	} else {
-		res.render('mytasks', { title: 'Task Kwetu | My Tasks' });
-		//res.render('index', { title: 'Task Kwetu' });
+		res.render('index', { title: 'Task Kwetu' });
 	}
 };
 
