@@ -96,15 +96,17 @@ passport.use('local-login', new LocalStrategy({
 
     UserModel.filter({ 'id' :  String(email) }).run(function(err, user) {
         // if there are any errors, return the error before anything else
-        if (err)
+        if (err) {
             return done(err);
+        }
         // if no user is found, return the message
-        if (!user)
+        if (user == '' || user == '[]' || user == undefined) {
             return done(null, false, req.flash('loginMessage', 'Sorry, wrong email.'));
-
+        }
         // if the user is found but the password is wrong
-        if (!user.validPassword( hash ))
-            return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+        if (user.password != bcrypt.hashSync(password, oauthConfig.passwordSalt.salt)) {
+          return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+        }
 
         // all is well, return successful user
         return done(null, user);
@@ -128,25 +130,24 @@ passport.use('local-signup', new LocalStrategy({
         }
         // check to see if theres already a user with that email
         else if (user != '' && user != '[]' && user != undefined) {
-            console.log("USER -> " + user);
             return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
         } else {
 
-            // if there is no user -> create the user
-            var new_user = {
-              id: email,
-              password: bcrypt.hashSync(password, oauthConfig.passwordSalt.salt),
-              profile_url: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon",
-              provider: 'local'
-            };
-            console.log(new_user);
-            UserModel.save( new_user, function(err, user) {
-              if (err) {
-                return done(err);
-              } else {
-                done(null, user);
-              }
-            });
+          // if there is no user -> create the user
+          var new_user = {
+            id: email,
+            password: bcrypt.hashSync(password, oauthConfig.passwordSalt.salt),
+            profile_url: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon",
+            provider: 'local'
+          };
+          console.log(new_user);
+          UserModel.save( new_user, function(err, user) {
+            if (err) {
+              return done(err);
+            } else {
+              done(null, user);
+            }
+          });
         }
     });
     });
