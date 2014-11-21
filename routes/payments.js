@@ -12,14 +12,11 @@ exports.ipn = function(req, res) {
 
 
 exports.makeOrder = function(req, res) {
-	var payment   = req.payment;
-	var ref_no    = req.ref_no; // ref_no -> task id
-	var item      = req.item;
-	var price     = req.price;
-	var currency  = req.currency;
+	var ref_no = req.ref_no; // ref_no -> task id
+	var email = req.email;
 
-	var customer = new PesaPal.Customer(req.email);
-	var order = new PesaPal.Order(ref_no, customer, item, price, currency, "MERCHANT");
+	var customer = new PesaPal.Customer(email);
+	var order = new PesaPal.Order(ref_no, customer, "Task", "700", "KES", "MERCHANT");
 
 	// Redirect user to PesaPal
 	var url = PesaPal.getPaymentURL(order, "https://taskwetu.com/ouathCallBack");
