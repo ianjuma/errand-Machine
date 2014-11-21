@@ -38,7 +38,11 @@ $(function(){
 	});
 
 	cTaskUrgent.on('change', function(e){
-		$(e.target.parentElement.previousElementSibling).toggleClass('live');
+		if(cTaskUrgent[0].checked){
+			$(e.target.parentElement.previousElementSibling).addClass('live');
+		}else{
+			$(e.target.parentElement.previousElementSibling).removeClass('live');
+		}
 	});
 
 	var rateValue = 0;

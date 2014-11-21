@@ -8,7 +8,7 @@ $(function(){
         tasksTable = Handlebars.templates['taskstable'];
 
         $.getJSON(url, function(data){
-            if(data){
+            if(data.length > 0){
                 noTasks.removeClass('live');
                 hData = formatData2(data);
                 page.html(tasksTable({'task' : hData}));
