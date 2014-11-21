@@ -19,28 +19,35 @@
         </div>
         <div class="large-12 columns medium-12 columns page-wrapper">
             <div class="large-9 large-centered columns medium-9 medium-centered columns login-wrapper">
-                <h1>TasKwetu</h1>
-                <i class="fa fa-file-text-o icon"></i>
-                <div class="large-5 columns medium-5 columns social">
-                    <p class="title">Get started with facebook or google plus.</p>
-                    <a href="/auth/facebook" class="signin-button facebook"><i class="fa fa-facebook-square"></i>Facebook</a>
-                    <a href="/auth/google" class="signin-button google"><i class="fa fa-google-plus-square"></i>Google</a>
-                    <p class="prompt">We do not post to your social media accounts without your permission.</p>
+                <div class="large-12 columns medium-12 columns" id="">
+                    <h1>TasKwetu</h1>
+                    <i class="fa fa-file-text-o icon"></i>
+                    <div class="large-5 columns medium-5 columns social">
+                        <p class="title">Get started with facebook or google plus.</p>
+                        <a href="/auth/facebook" class="signin-button facebook"><i class="fa fa-facebook-square"></i>Facebook</a>
+                        <a href="/auth/google" class="signin-button google"><i class="fa fa-google-plus-square"></i>Google</a>
+                        <p class="prompt">We do not post to your social media accounts without your permission.</p>
+                    </div>
+                    <div class="large-5 columns medium-5 columns">
+                        <p class="title">Get started with your email address.</p>
+                        <form class="signup-form" id="signup-form" action="/api/user/addUser" method="POST" accept-charset="utf-8" name="signup-form" novalidate="novalidate">
+                            <input type="text" class="login-input" name="fullName" placeholder="Enter Full name" />
+                            <label class="error" for="fullName"></label>
+                            <input type="text" class="login-input" id="user_email" name="email" placeholder="Your email" />
+                            <label class="error" for="email" id="email"></label>
+                            <input type="password" class="login-input" name="password" placeholder="Create a password" />
+                            <label class="error" for="password"></label>
+                            <input id="t_p" type="checkbox" value="AGREED" class="t_p" name="terms"><label for="t_p" class="t_p"><a href="#" class="t_p">I agree to the terms and policies.</a></label>
+                            <label class="error t_p" for="t_p"></label>
+                            <button type="submit" class="submit">Sign Up</button>
+                        </form>
+                        <p class="prompt">Already have an account? <a href="/login">Log in here.</a></p>
+                    </div>
                 </div>
-                <div class="large-5 columns medium-5 columns">
-                    <p class="title">Get started with your email address.</p>
-                    <form class="signup-form" id="signup-form" action="/loc-signup" method="POST" accept-charset="utf-8" name="signup-form" novalidate="novalidate">
-                        <input type="text" class="login-input" name="fullName" placeholder="Enter Full name" />
-                        <label class="error" for="fullName"></label>
-                        <input type="text" class="login-input" name="email" placeholder="Your email" />
-                        <label class="error" for="email"></label>
-                        <input type="password" id="user_password" class="login-input" name="password" placeholder="Create a password" />
-                        <label class="error" for="password"></label>
-                        <input id="t_p" type="checkbox" class="t_p" name="t_p"><label for="t_p" class="t_p"><a href="#" class="t_p">I agree to the terms and policies.</a></label>
-                        <label class="error t_p" for="t_p"></label>
-                        <button type="submit" class="submit">Sign Up</button>
-                    </form>
-                    <p class="prompt">Already have an account? <a href="/login">Log in here.</a></p>
+                <div class="large-6 large-centered columns medium-6 medium-6 columns preset">
+                    <h1>Taskwetu</h1>
+                    <i class="fa fa-check icon success"></i>
+                    <p class="success">Your account was created succesfully, a verification link has been sent to your email, kindly follow the link to complete the signup process.</p>
                 </div>
             </div>
         </div>
@@ -55,7 +62,10 @@
                 $("#signup-form").validate({
                     onkeyup: false,
                     rules: {
-                        fullName: "required",
+                        fullName: {
+                            required: true,
+                            minlength: 3
+                        },
                         email: {
                             required: true,
                             email: true
@@ -64,10 +74,13 @@
                             required: true,
                             minlength: 5
                         },
-                        t_p: "required"
+                        terms: "required"
                     },
                     messages: {
-                        fullName: "Your names are required.",
+                        fullName: {
+                            required: "Your names are required.",
+                            minlength: "Names must be at least 3 characters long."
+                        },
                         email: {
                             required: "Your email is required.",
                             email: "Inavlid email address."
@@ -76,7 +89,7 @@
                             required: "Your password is required.",
                             minlength: "Password must be at least 5 characters long." 
                         },
-                        t_p: "Agree to our terms and policies."
+                        terms: "Agree to our terms and policies."
                     },
                     submitHandler: function(form){
                         var formURL = $(form).attr('action');
@@ -88,7 +101,7 @@
                             data: postData,
                             success:function(data, textStatus, jqXHR)
                             {
-                                //Success
+                                console.log(data);
                             },
                             error: function(jqXHR, textStatus, errorThrown)
                             {

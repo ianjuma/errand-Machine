@@ -387,14 +387,7 @@ span.amount::before{
 	content: attr(data-amount);
 }
 
-.edit-button i, .delete-button i{
-	position: relative;
-	z-index: 900;
-}
-
 a.edit-button{
-	position: relative;
-	z-index: 1000;
 	color: #222;
 }
 
@@ -403,8 +396,6 @@ a.edit-button:hover{
 }
 
 a.delete-button{
-	position: relative;
-	z-index: 1000;
 	margin-left: 0.5em;
 	color: #222;
 }
@@ -1029,6 +1020,7 @@ a.delete-button:hover{
 .login-wrapper{
 	padding: 0em;
 	font-family: OpenSans;
+	padding-top: 1.5em;
 }
 
 .login-wrapper h1{
@@ -1038,7 +1030,7 @@ a.delete-button:hover{
 	text-align: center;
 }
 
-.login-wrapper p.title{
+.login-wrapper p.title, .login-wrapper .preset p.title{
 	font-size: 1.1em;
 	margin-bottom: 0.5em;
 	font-weight: 600;
@@ -1048,14 +1040,17 @@ a.delete-button:hover{
 	font-size: 0.95em;
 }
 
+.login-wrapper .preset p.success{
+	font-size: 1em;
+	text-align: center;
+}
+
 .login-wrapper i.icon{
 	font-size: 2.5em;
 	margin-bottom: 0.5em;
 	display: block;
 	text-align: center;
 }
-
-
 
 .login-wrapper .social a{
 	font-size: 1em;
@@ -1086,7 +1081,7 @@ a.delete-button:hover{
 	border-color: rgb(129,41,29);
 }
 
-.login-wrapper form input{
+.login-wrapper input{
 	font-weight: 400;
 	font-size: 1em;
 	height: 2.7em;
@@ -1100,14 +1095,14 @@ a.delete-button:hover{
 	transition: border-color 0.2s;
 }
 
-.login-wrapper form input:focus{
+.login-wrapper input:focus{
 	box-shadow: none;
 	background-color: #FDFDFD;
 	border-color: #138797;
 	transition: border-color 0.2s;
 }
 
-.login-wrapper form button, .login-wrapper form button:focus{
+.login-wrapper button, .login-wrapper button:focus{
 	font-weight: 400;
 	outline: none;
 	font-size: 1em;
@@ -1120,7 +1115,7 @@ a.delete-button:hover{
 	padding: 0.5em 1.2em 0.5em 1.2em;	
 }
 
-.login-wrapper form a.forgot-password:link, .login-wrapper form a.forgot-password:visited{
+.login-wrapper a.forgot-password:link, .login-wrapper a.forgot-password:visited{
 	font-size: 0.875em;
 	margin-left: 0.5em;
 	border-bottom: 1px dotted;
@@ -1128,12 +1123,12 @@ a.delete-button:hover{
 	transition: color 0.2s;
 }
 
-.login-wrapper form a.forgot-password:hover, .login-wrapper form a.forgot-password:active{
+.login-wrapper a.forgot-password:hover, .login-wrapper a.forgot-password:active{
 	color: #138797;
 	transition: color 0.2s;
 }
 
-.login-wrapper form label.error{
+.login-wrapper label.error{
 	font-size: 0.875em;
 	color: #cf2a0e;
 	font-weight: 400;
@@ -1143,11 +1138,11 @@ a.delete-button:hover{
 	top: -0.8em;
 }
 
-.login-wrapper form label.error.t_p{
+.login-wrapper label.error.t_p{
 	top: -0.65em;
 }
 
-.login-wrapper form input.t_p{
+.login-wrapper input.t_p{
 	margin: 0em;
 	padding: 0em;
 	height: auto;
@@ -1155,7 +1150,7 @@ a.delete-button:hover{
 	margin-right: 0.5em;
 }
 
-.login-wrapper form label.t_p{
+.login-wrapper label.t_p{
 	font-size: 0.875em;
 	padding: 0em;
 	margin: 0em;
@@ -1163,12 +1158,12 @@ a.delete-button:hover{
 	top: -0.05em;
 }
 
-.login-wrapper form label.t_p a:link, .login-wrapper form label.t_p a:visited{
+.login-wrapper label.t_p a:link, .login-wrapper label.t_p a:visited{
 	color: #222;
 	transition: color 0.2s;
 }
 
-.login-wrapper form label.t_p a:hover, .login-wrapper form label.t_p a:active{
+.login-wrapper label.t_p a:hover, .login-wrapper label.t_p a:active{
 	color: #138797;
 	transition: color 0.2s;
 }
@@ -1197,6 +1192,5 @@ a.delete-button:hover{
 .preset-wrapper p.incentive span{
 	border-bottom: 1px dotted;
 }
-
 
 /* end */

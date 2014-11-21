@@ -25,10 +25,10 @@
             <label class="title">Is your task urgent?</label>
             <p class="prompt">Urgent tasks are priced at an extra <span>15% of the final task cost.</span></p>
             <div class="switch small round">
-                {{#if isUrgent}}
+                {{#if task_urgency}}
                     <input name="taskUrgency" value="URGENT" id="urgent" type="checkbox" class="ctask-urgent" checked/>
                 {{else}}
-                    <input name="taskUrgency" value="URGENT" id="urgent" type="checkbox" class="ctask-urgent" checked/>
+                    <input name="taskUrgency" value="URGENT" id="urgent" type="checkbox" class="ctask-urgent"/>
                 {{/if}}
                 <label for="urgent"></label>
                 <i class="fa fa-check yes"></i>

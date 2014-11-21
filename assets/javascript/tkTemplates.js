@@ -189,6 +189,12 @@ function program1(depth0,data) {
   return "\n                    <input name=\"taskUrgency\" value=\"URGENT\" id=\"urgent\" type=\"checkbox\" class=\"ctask-urgent\" checked/>\n                ";
   }
 
+function program3(depth0,data) {
+  
+  
+  return "\n                    <input name=\"taskUrgency\" value=\"URGENT\" id=\"urgent\" type=\"checkbox\" class=\"ctask-urgent\"/>\n                ";
+  }
+
   buffer += "<h3>Update task</h3>\n<form class=\"create-task-form\" id=\"update-task-form\" action=\"/api/task/updateTaskById/\" method=\"PUT\" accept-charset=\"utf-8\" name=\"update-task-form\" novalidate=\"novalidate\" data-userid=\"";
   if (helper = helpers.userId) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.userId); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
@@ -206,7 +212,7 @@ function program1(depth0,data) {
   else { helper = (depth0 && depth0.task_description); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
     + "</textarea>\n            <label class=\"error\" for=\"taskDescription\"></label>\n        </div>\n        <div class=\"large-5 large-pull-1 columns medium-5 medium-pull-1 columns show-for-medium-up tinfo-div\">\n            <i class=\"fa fa-support\"></i>\n            <p>Be as detailed as possible with your task description; consider providing a task due date and a contact person.</p>\n        </div>\n    </div>\n    <div class=\"row urgent-section\">\n        <div class=\"large-6 columns medium-6 columns\">    \n            <label class=\"title\">Is your task urgent?</label>\n            <p class=\"prompt\">Urgent tasks are priced at an extra <span>15% of the final task cost.</span></p>\n            <div class=\"switch small round\">\n                ";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.isUrgent), {hash:{},inverse:self.program(1, program1, data),fn:self.program(1, program1, data),data:data});
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.task_urgency), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n                <label for=\"urgent\"></label>\n                <i class=\"fa fa-check yes\"></i>\n            </div>\n        </div>\n    </div>\n    <button type=\"submit\" class=\"large-3 columns medium-3 columns submit\">Update task</button>\n</form>";
   return buffer;

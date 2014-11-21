@@ -58,8 +58,9 @@ $(function(){
             taskUpdate = Handlebars.templates['taskupdate'];
 
             $.getJSON(url, function(data){
+                console.log(data);
                 page.html(taskUpdate(data));
-                updateActions(url);
+                updateActions();
             });
         });
 
