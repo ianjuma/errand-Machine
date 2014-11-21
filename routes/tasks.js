@@ -114,11 +114,11 @@ exports.updateTaskById = function(req, res) {
 
 	var _task = new Task({
 	    userId: req.body.userId,
-	    task_description: req.body.task_description,
-		task_title: req.body.title,
-	    _slug: slug((req.body.title).toLowerCase()),
-	    ratetask: req.body.ratetask,
-	    task_urgency: req.body.task_urgency
+	    task_description: req.body.taskDescription,
+		task_title: req.body.taskTitle,
+	    _slug: slug((req.body.taskTitle).toLowerCase()),
+	    ratetask: req.body.rateTask,
+	    task_urgency: req.body.taskUrgency
 	});
 
 	Task.get( req.params.id ).update(_task).run(function(error, result) {
