@@ -119,7 +119,6 @@ module.exports = function(app, express) {
 	app.get('/login', index.login);
 	app.get('/newTask', index.newTask);
 	app.get('/support', index.support);
-	app.get('/login', index.login);
 	app.get('/signup', index.signup);
 	app.get('/myAccount', index.myAccount);
 	app.get('/myTasks', index.myTasks);
