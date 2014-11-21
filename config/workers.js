@@ -5,7 +5,7 @@ module.exports = {
 	    port: 6379,
 	    host: 'localhost',
 	    auth: '',
-	    db: 'taskwetu',
+	    db: 1,
 	    options: {
 	    }
 	  },
