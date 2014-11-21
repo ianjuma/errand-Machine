@@ -1171,5 +1171,19 @@ span.amount::before{
 	transition: color 0.2s;
 }
 
+.preset-wrapper p.title2{
+	font-size: 1.4em;
+	font-weight: 600;
+	text-align: center;
+}
+
+.preset-wrapper p.incentive{
+	text-align: center;
+}
+
+.preset-wrapper p.incentive span{
+	border-bottom: 1px dotted;
+}
+
 
 /* end */
