@@ -4,7 +4,6 @@ var User = require('../models/users')
   , oauthConfig = require('../config/auth');
 
 
-
 exports.getUserById = function(req, res) {
 	
 	User.get( req.params.id ).run(function(error, result) {

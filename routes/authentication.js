@@ -85,27 +85,29 @@ passport.use(new FacebookStrategy(oauthConfig.facebookAuth,
 ));
 
 
+/*
 passport.use('local-login', new LocalStrategy({
   usernameField : 'email',
   passwordField : 'password',
   passReqToCallback : true
 },
-  function(req, email, password, done) {
+  function(req, username, password, done) {
+    //var hash = bcrypt.hashSync(password, oauthConfig.passwordSalt.salt);
 
-    var hash = bcrypt.hashSync(password, oauthConfig.passwordSalt.salt);
-
-    UserModel.filter({ 'id' :  String(email) }).run(function(err, user) {
+    UserModel.filter({ 'id' :  String(username) }).run(function(err, user) {
         // if there are any errors, return the error before anything else
         if (err) {
             return done(err);
         }
         // if no user is found, return the message
         if (user == '' || user == '[]' || user == undefined) {
-            return done(null, false, req.flash('loginMessage', 'Sorry, wrong email.'));
+            console.log('User NOT found');
+            return done(null, false, { message: 'Incorrect email' });
         }
         // if the user is found but the password is wrong
         if (user.password != bcrypt.hashSync(password, oauthConfig.passwordSalt.salt)) {
-          return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+            console.log('Pass Wrong');
+            return done(null, false, { message: 'Incorrect Password.' });
         }
 
         // all is well, return successful user
@@ -115,27 +117,25 @@ passport.use('local-login', new LocalStrategy({
 
 
 passport.use('local-signup', new LocalStrategy({
-    // local strategy uses username and password, override with email
     usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true // pass back the entire request to the callback
 },
-  function(req, email, password, done) {
-    // User.findOne wont fire unless data is sent back
+  function(req, username, password, done) {
     process.nextTick(function() {
     // find a user whose email is the same as the forms email
-    UserModel.filter({ 'id' :  String(email) }).run(function(err, user) {
+    UserModel.filter({ 'id' :  String(username) }).run(function(err, user) {
         if (err) {
             return done(err);
         }
         // check to see if theres already a user with that email
         else if (user != '' && user != '[]' && user != undefined) {
-            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+            return done(null, false, { message: 'Account Already Exists' });
         } else {
 
           // if there is no user -> create the user
           var new_user = {
-            id: email,
+            id: username,
             password: bcrypt.hashSync(password, oauthConfig.passwordSalt.salt),
             profile_url: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon",
             provider: 'local'
@@ -145,7 +145,43 @@ passport.use('local-signup', new LocalStrategy({
             if (err) {
               return done(err);
             } else {
-              done(null, user);
+              return done(null, user);
+            }
+          });
+        }
+    });
+    });
+}));
+*/
+
+passport.use(new LocalStrategy({
+    usernameField : 'email',
+    passwordField : 'password',
+    passReqToCallback : true // pass back the entire request to the callback
+},
+  function(req, username, password, done) {
+    process.nextTick(function() {
+    // find a user whose email is the same as the forms email
+    UserModel.filter({ 'id' :  String(username) }).run(function(err, user) {
+        if (err) { return done(err); }
+        // check to see if theres already a user with that email
+        if (user != '' && user != '[]' && user != undefined) {
+            return done(null, user);
+        } else {
+
+          // if there is no user -> create the user
+          var new_user = {
+            id: username,
+            password: bcrypt.hashSync(password, oauthConfig.passwordSalt.salt),
+            profile_url: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon",
+            provider: 'local'
+          };
+          console.log(new_user);
+          UserModel.save( new_user, function(err, user) {
+            if (err) {
+              return done(err);
+            } else {
+              return done(null, user);
             }
           });
         }

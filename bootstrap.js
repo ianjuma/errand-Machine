@@ -84,15 +84,16 @@ module.exports = function(app, express) {
 	    successReturnToOrRedirect: '/', failureRedirect: '/login' })
 	);
 
-	app.post('/loc-login', passportSession.passport.authenticate('local-login',
-	  { failureRedirect: '/login',
-	    failureFlash: 'Invalid username or password',
-	    successRedirect: '/' }), function(req, res) {
-	      res.redirect('/');
-	});
+	app.post('/loc-login',
+		passportSession.passport.authenticate('local', {
+		failureRedirect: '/login', failureFlash: true }),
+		function(req, res) {
+			res.redirect('/');
+  		}
+  	);
 
 	// process the signup form
-    app.post('/loc-signup', passportSession.passport.authenticate('local-signup', {
+    app.post('/loc-signup', passportSession.passport.authenticate('local', {
         successRedirect : '/',
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
@@ -130,6 +131,7 @@ module.exports = function(app, express) {
 	app.put('/api/user/updateUserEmail/:id', users.updateUserEmailById);
 	app.put('/api/user/updateUserPass/:id', users.updateUserPassById);
 	app.post('/api/user/passReset/', users.passReset);
+	app.post('/api/user/addUser', index.addUser);
 
 
 	// tasks API
