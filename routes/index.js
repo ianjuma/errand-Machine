@@ -77,10 +77,10 @@ exports.support = function(req, res) {
 
 
 exports.login = function(req, res) {
-  res.render('login', { title: 'Task Kwetu | Login' });
+  res.render('login', { title: 'Task Kwetu | Login', message: req.flash('error') });
 };
 
 
 exports.signup = function(req, res) {
-  res.render('signup', { title: 'Task Kwetu | Signup' });
+  res.render('signup', { title: 'Task Kwetu | Signup', message: req.flash('error') });
 };
