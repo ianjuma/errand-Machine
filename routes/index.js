@@ -59,7 +59,7 @@ exports.addUser = function(req, res) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		}
 		if (result != null || result != [] || result != '') {
-			res.status(404).json({ "Error": "Email already registered" });
+			res.status(400).json({ "Error": "Email already registered" });
 		}
 		else {
 			var new_user = new User({
