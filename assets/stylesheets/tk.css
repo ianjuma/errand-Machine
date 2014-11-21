@@ -1112,6 +1112,7 @@ a.delete-button:hover{
 	color: #fff;
 	text-align: center;
 	margin-bottom: 0.6em;
+	display: block;
 	padding: 0.5em 1.2em 0.5em 1.2em;	
 }
 

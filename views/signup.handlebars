@@ -18,8 +18,8 @@
             </div>
         </div>
         <div class="large-12 columns medium-12 columns page-wrapper">
-            <div class="large-9 large-centered columns medium-9 medium-centered columns login-wrapper">
-                <div class="large-12 columns medium-12 columns" id="">
+            <div class="large-10 large-centered columns medium-10 medium-centered columns login-wrapper">
+                <div class="large-12 columns medium-12 columns" id="signupDiv">
                     <h1>TasKwetu</h1>
                     <i class="fa fa-file-text-o icon"></i>
                     <div class="large-5 columns medium-5 columns social">
@@ -34,17 +34,17 @@
                             <input type="text" class="login-input" name="fullName" placeholder="Enter Full name" />
                             <label class="error" for="fullName"></label>
                             <input type="text" class="login-input" id="user_email" name="email" placeholder="Your email" />
-                            <label class="error" for="email" id="email"></label>
+                            <label class="error" for="email" id="email-label"></label>
                             <input type="password" class="login-input" name="password" placeholder="Create a password" />
                             <label class="error" for="password"></label>
                             <input id="t_p" type="checkbox" value="AGREED" class="t_p" name="terms"><label for="t_p" class="t_p"><a href="#" class="t_p">I agree to the terms and policies.</a></label>
-                            <label class="error t_p" for="t_p"></label>
+                            <label class="error t_p" for="terms"></label>
                             <button type="submit" class="submit">Sign Up</button>
                         </form>
                         <p class="prompt">Already have an account? <a href="/login">Log in here.</a></p>
                     </div>
                 </div>
-                <div class="large-6 large-centered columns medium-6 medium-6 columns preset">
+                <div class="large-6 large-centered columns medium-6 medium-6 columns preset" id="successDiv" style="display:none;">
                     <h1>Taskwetu</h1>
                     <i class="fa fa-check icon success"></i>
                     <p class="success">Your account was created succesfully, a verification link has been sent to your email, kindly follow the link to complete the signup process.</p>
@@ -101,11 +101,21 @@
                             data: postData,
                             success:function(data, textStatus, jqXHR)
                             {
-                                console.log(data);
+                                if(data.status == 200){
+                                    $('#signupDiv').hide();
+                                    $('#successDiv').show();
+                                }else{
+                                    console.log(data);
+                                }
                             },
-                            error: function(jqXHR, textStatus, errorThrown)
+                            error: function(data, jqXHR, textStatus, errorThrown)
                             {
-                                //Fail
+                                if(data.status == 400){
+                                    element = $('#email-label')[0];
+                                    $(element).text('Sorry, this email is already registered.').show();
+                                }else{
+                                    console.log(data);
+                                }
                             }
                         });
                         return false;
