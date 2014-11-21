@@ -17,7 +17,8 @@ $(function(){
             var formURL = $(form).attr('action');
             var formMethod = $(form).attr('method');
             var postData = $(form).serializeArray();
-            postData.push({ name: "userId", value: "1" });
+            var userId = $(form).attr('data-userid');
+            postData.push({ name: "userId", value: userId });
             $.ajax({
                 url : formURL,
                 type: formMethod,

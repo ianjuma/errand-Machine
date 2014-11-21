@@ -172,7 +172,7 @@ function program7(depth0,data) {
   return buffer;
   }
 
-  buffer += "<table class=\"tasks-table show-for-medium-up\">\n    <thead>\n        <tr>\n            <th width=\"300\">Task</th>\n            <th width=\"350\">Description</th>\n            <th width=\"200\">Payment - <span class=\"currency\">Kshs</span></th>\n            <th width=\"200\">Progress</th>\n            <th width=\"100\"></th>\n        </tr>\n    </thead>\n    <tbody id=\"tasks-table\">\n        ";
+  buffer += "<h3>Your ordered tasks</h3>\n<table class=\"tasks-table show-for-medium-up\">\n    <thead>\n        <tr>\n            <th width=\"300\">Task</th>\n            <th width=\"350\">Description</th>\n            <th width=\"200\">Payment - <span class=\"currency\">Kshs</span></th>\n            <th width=\"200\">Progress</th>\n            <th width=\"100\"></th>\n        </tr>\n    </thead>\n    <tbody id=\"tasks-table\">\n        ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.task), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </tbody>\n</table>";

@@ -39,7 +39,6 @@
                     </ul>
                 </div>
                 <div class="notification-d" id="notification">
-                    <i class="fa fa-times-circle notification-d-close"></i>
                     <p class="notification"></p>
                 </div>
             </div>
@@ -48,7 +47,8 @@
             <div class="row">
                 <div class="large-12 columns medium-12 columns create-tasks-wrapper">
                     <div class="large-12 columns medium-12 columns createf-wrapper">
-                        <form class="create-task-form" id="create-task-form" action="/api/task/addTask/" method="POST" accept-charset="utf-8" name="create-task-form" novalidate="novalidate">
+                        <h3>What would you like us to do?</h3>
+                        <form class="create-task-form" id="create-task-form" action="/api/task/addTask/" method="POST" accept-charset="utf-8" name="create-task-form" novalidate="novalidate" data-userid="{{ user.id }}">
                             <div class="row">
                                 <div class="large-6 columns medium-6 columns"> 
                                     <input name="taskTitle" type="text" class="task-title ctask-input" placeholder="Name your task"/>
