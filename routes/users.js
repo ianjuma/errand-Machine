@@ -89,6 +89,28 @@ exports.updateUserEmailById = function(req, res) {
 };
 
 
+exports.passReset = function(req, res) {
+	var email = req.body.email;
+
+	User.get( req.params.id ).update(_user).run( function(error, result) {
+		if (result == null) {
+			res.status(404).json({ "Error": "User Not Found" });
+		}
+		if (error) {
+			res.status(500).json({ "error": "something blew up, we're fixing it" });
+		}
+		else {
+	        console.log('user pass updated');
+
+	        res.set({
+			  'Content-Type': 'application/json'
+			});
+			res.status(200).json(_user);
+		}
+	});
+};
+
+
 exports.updateUserPassById = function(req, res) {
 
 	var _user = new User({

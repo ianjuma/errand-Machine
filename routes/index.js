@@ -11,6 +11,11 @@ exports.index = function(req, res) {
 };
 
 
+exports.forgotPass = function(req, res) {
+  res.render('fpassword', { title: 'Task Kwetu | Password Reset' });
+};
+
+
 exports.newTask = function(req, res) {
   res.render('newtask', { title: 'Task Kwetu | Create Task', user: req.user });
 };

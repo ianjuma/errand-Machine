@@ -122,12 +122,15 @@ module.exports = function(app, express) {
 	app.get('/signup', index.signup);
 	app.get('/myAccount', index.myAccount);
 	app.get('/myTasks', index.myTasks);
+	app.get('/passwordReset', index.forgotPass);
 
 	// users API
 	app.get('/api/user/getUserById/:id', users.getUserById);
 	app.delete('/api/user/deleteUserById/:id', users.deleteUserById);
 	app.put('/api/user/updateUserEmail/:id', users.updateUserEmailById);
 	app.put('/api/user/updateUserPass/:id', users.updateUserPassById);
+	app.post('/api/user/passReset/', users.passReset);
+
 
 	// tasks API
 	app.post('/api/task/addTask', tasks.addTask);
