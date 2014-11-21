@@ -6,61 +6,105 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title }}</title>
         <link rel="stylesheet" href="/stylesheets/foundation.min.css">
-        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
-        <link rel="stylesheet" href="/stylesheets/io.css">
-        <script src="/javascript/jquery.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/tk.css">
+        <script src="/javascript/jquery.js"></script>
         <script src="/javascript/modernizr.js"></script>
     </head>
     <body>
-        <div id="ioWrapper" class="io-wrapper">
-            <div class="io-canvas">
-                <div id="ioMenu" class="io-menu">
-                    <a href="/" class="logo-text">taskwetu</a>
-                    <ul class="menu">
-                        <li><a href="/about">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Discover</a></li>
-                    </ul>
+        <div class="full-size fixed">
+            <div class="large-12 columns medium-12 columns header">
+                <a href="/" class="logo"><img src="/images/taskwetu.png"></a>
+            </div>
+        </div>
+        <div class="large-12 columns medium-12 columns page-wrapper">
+            <div class="large-9 large-centered columns medium-9 medium-centered columns login-wrapper">
+                <h1>Task Kwetu</h1>
+                <i class="fa fa-file-text-o icon"></i>
+                <div class="large-5 columns medium-5 columns social">
+                    <p class="title">Get started with facebook or google plus.</p>
+                    <a href="/auth/facebook" class="signin-button facebook"><i class="fa fa-facebook-square"></i>Facebook</a>
+                    <a href="/auth/google" class="signin-button google"><i class="fa fa-google-plus-square"></i>Google</a>
+                    <p class="prompt">We do not post to your social media accounts without your permission.</p>
                 </div>
-                <div class="full-size">
-                    <div class="large-12 columns medium-12 columns header header-l">
-                        <i id="menuTrigger" class="fa fa-bars menu-switch show-for-small-only"></i>
-                        <a href="/" class="logo-text">taskwetu</a>
-                        <ul class="menu show-for-medium-up">
-                            <li><a href="/about">About</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Discover</a></li>
-                        </ul>
-                    </div>
-                </div>    
-                <div class="full-size login-wrapper">
-                    <div class="row">
-                        <div class="large-5 large-centered columns medium-5 medium-centered columns login-div">
-                            <h3>taskwetu</h3>
-                            <p class="signin">Sign up with</p>
-                            <a href="/auth/facebook" class="signin-button facebook"><i class="fa fa-facebook-square"></i>Facebook</a>
-                            <a href="/auth/google" class="signin-button google"><i class="fa fa-google-plus-square"></i>Google</a>
-                            <p class="clause">We <b>do not</b> post to your Facebook, Google or Twitter accounts without your permission.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="full-size footer">
-                    <div class="row">
-                        <div class="large-12 columns medium-12 columns info-wrapper">
-                            <a href="/about" class="footer-link">About</a>
-                            <a href="#" class="footer-link">Privacy &amp; Terms</a>
-                            <a href="#" class="footer-link">Contact</a>
-                            <a href="#" class="footer-link">Blog</a>
-                        </div>
-                    </div>
+                <div class="large-5 columns medium-5 columns">
+                    <p class="title">Get started with your email address.</p>
+                    <form class="signup-form" id="signup-form" action="/signup" method="POST" accept-charset="utf-8" name="signup-form" novalidate="novalidate">
+                        <input type="text" class="login-input" name="email" placeholder="Enter email" />
+                        <label class="error" for="email"></label>
+                        <input type="password" id="user_password" class="login-input" name="password" placeholder="Enter password" />
+                        <label class="error" for="password"></label>
+                        <input type="password" class="login-input" name="confpassword" placeholder="Confirm password" />
+                        <label class="error" for="confpassword"></label>
+                        <input id="t_p" type="checkbox" class="t_p" name="t_p"><label for="t_p" class="t_p"><a href="#" class="t_p">I agree to the terms and policies.</a></label>
+                        <label class="error t_p" for="t_p"></label>
+                        <button type="submit" class="submit">Sign Up</button>
+                    </form>
+                    <p class="prompt">Already have an account? <a href="/login">Log in here.</a></p>
                 </div>
             </div>
         </div>
         <script src="/javascript/foundation.min.js"></script>
-        <script src="/javascript/classie.js"></script>
-        <script src="/javascript/io.js"></script>
+        <script src="/javascript/jquery.validate.min.js"></script>
+        <script src="/javascript/tk.js"></script>
         <script>
             $(document).foundation();
-        </script>       
+        </script>
+        <script>
+            $(function(){
+                $("#signup-form").validate({
+                    onkeyup: false,
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                        confpassword: {
+                            required: true,
+                            equalTo: "#user_password"
+                        },
+                        t_p: "required"
+                    },
+                    messages: {
+                        email: {
+                            required: "Your email is required.",
+                            email: "Inavlid email address."
+                        },
+                        password: {
+                            required: "Your password is required.",
+                            minlength: "Password must be at least 5 characters long." 
+                        },
+                        confpassword: {
+                            required: "Your password confirmation is required.",
+                            equalTo: "Passwords do not match."
+                        },
+                        t_p: "Agree to our terms and policies."
+                    },
+                    submitHandler: function(form){
+                        var formURL = $(form).attr('action');
+                        var formMethod = $(form).attr('method');
+                        var postData = $(form).serializeArray();
+                        $.ajax({
+                            url: formURL,
+                            type: formMethod,
+                            data: postData,
+                            success:function(data, textStatus, jqXHR)
+                            {
+                                //Success
+                            },
+                            error: function(jqXHR, textStatus, errorThrown)
+                            {
+                                //Fail
+                            }
+                        });
+                        return false;
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

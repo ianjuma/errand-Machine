@@ -573,6 +573,7 @@ span.amount::before{
 	margin-bottom: 1.25em;
 	border-radius: 5px;
 	background-color: #FFFFFF;
+	padding-bottom: 0.8em;
 	transition: border-color 0.2s;
 }
 
@@ -658,6 +659,7 @@ span.amount::before{
 	color: #fff;
 	display: block;
 	text-align: center;
+	outline: none;
 	padding: 0.5em 0em 0.6em 0em;
 }
 
@@ -958,3 +960,172 @@ span.amount::before{
 /*----------------------------------------
 	End
 ----------------------------------------*/
+
+/* Login/Signup page */
+
+.page-wrapper{
+	margin-top: 5em;
+	margin-bottom: 5em;
+	padding: 0em;
+}
+
+.login-wrapper{
+	padding: 0em;
+	font-family: OpenSans;
+}
+
+.login-wrapper h1{
+	font-size: 1.8em;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+}
+
+.login-wrapper p.title{
+	font-size: 1.1em;
+	margin-bottom: 0.5em;
+	font-weight: 600;
+}
+
+.login-wrapper p.prompt{
+	font-size: 0.95em;
+}
+
+.login-wrapper i.icon{
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+	display: block;
+	text-align: center;
+}
+
+
+
+.login-wrapper .social a{
+	font-size: 1em;
+	display: block;
+	height: 2.7em;
+	margin-bottom: 1em;
+	color: rgb(251, 252, 252);
+	border: 1px solid;
+	border-radius: 5px;
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	padding-top: 0.48em;
+}
+
+.login-wrapper .social a i{
+	font-size: 1.3em;
+	margin-right: 0.5em;
+}
+
+.login-wrapper .social a.facebook{
+	background-color: rgb(59,89,152);
+	border-color: rgb(27,48,90);
+}
+
+.login-wrapper .social a.google{
+	background-color: rgb(211,63,42);
+	border-color: rgb(129,41,29);
+}
+
+.login-wrapper form input{
+	font-weight: 400;
+	font-size: 1em;
+	height: 2.7em;
+	box-shadow: none;
+	border: 1px solid;
+	border-color: #A8A8A8;
+	margin-top: 0em;
+	margin-bottom: 1em;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	transition: border-color 0.2s;
+}
+
+.login-wrapper form input:focus{
+	box-shadow: none;
+	background-color: #FDFDFD;
+	border-color: #138797;
+	transition: border-color 0.2s;
+}
+
+.login-wrapper form button, .login-wrapper form button:focus{
+	font-weight: 400;
+	outline: none;
+	font-size: 1em;
+	border: 1px solid #0C565F;
+	border-radius: 5px;
+	background-color: #138797;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 0.6em;
+	padding: 0.5em 1.2em 0.5em 1.2em;	
+}
+
+.login-wrapper form a.forgot-password:link, .login-wrapper form a.forgot-password:visited{
+	font-size: 0.875em;
+	margin-left: 0.5em;
+	border-bottom: 1px dotted;
+	color: #222;
+	transition: color 0.2s;
+}
+
+.login-wrapper form a.forgot-password:hover, .login-wrapper form a.forgot-password:active{
+	color: #138797;
+	transition: color 0.2s;
+}
+
+.login-wrapper form label.error{
+	font-size: 0.875em;
+	color: #cf2a0e;
+	font-weight: 400;
+	margin: 0em;
+	padding: 0em;
+	position: relative;
+	top: -0.8em;
+}
+
+.login-wrapper form label.error.t_p{
+	top: -0.65em;
+}
+
+.login-wrapper form input.t_p{
+	margin: 0em;
+	padding: 0em;
+	height: auto;
+	margin-bottom: 1em;
+	margin-right: 0.5em;
+}
+
+.login-wrapper form label.t_p{
+	font-size: 0.875em;
+	padding: 0em;
+	margin: 0em;
+	position: relative;
+	top: -0.05em;
+}
+
+.login-wrapper form label.t_p a:link, .login-wrapper form label.t_p a:visited{
+	color: #222;
+	transition: color 0.2s;
+}
+
+.login-wrapper form label.t_p a:hover, .login-wrapper form label.t_p a:active{
+	color: #138797;
+	transition: color 0.2s;
+}
+
+.login-wrapper p a:link, .login-wrapper p a:visited{
+	color: #222;
+	border-bottom: 1px dotted;
+	transition: color 0.2s;
+}
+
+.login-wrapper p a:hover, .login-wrapper p a:active{
+	color: #138797;
+	transition: color 0.2s;
+}
+
+
+/* end */
