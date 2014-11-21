@@ -132,7 +132,7 @@ module.exports = function(app, express) {
 	app.delete('/api/user/deleteUserById/:id', users.deleteUserById);
 	app.put('/api/user/updateUserEmail/:id', users.updateUserEmailById);
 	app.put('/api/user/updateUserPass/:id', users.updateUserPassById);
-	app.post('/api/user/passReset/', users.passReset);
+	app.post('/api/user/passReset', users.passReset);
 	app.post('/api/user/addUser', index.addUser);
 
 

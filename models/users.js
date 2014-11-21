@@ -10,6 +10,7 @@ var User = thinky.createModel('Users', {
     name: String,
     username: String,
     password: String,
+    terms: String,
     date_joined: {
       _type: Date,
       default: r.now()
