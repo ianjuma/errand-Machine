@@ -64,7 +64,7 @@ $(function(){
             var formURL = $(form).attr('action');
             var formMethod = $(form).attr('method');
             var postData = $(form).serializeArray();
-            var userId = 1;
+            var userId = $(form).attr('data-userid');
             $.ajax({
                 url : formURL+userId,
                 type: formMethod,
