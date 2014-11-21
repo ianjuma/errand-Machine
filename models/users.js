@@ -22,7 +22,7 @@ var User = thinky.createModel('Users', {
     },
     profile_url: {
         _type: String,
-        default: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon"
+        //default: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon"
     },
     provider: String
 });
