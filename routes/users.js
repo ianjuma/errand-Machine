@@ -1,5 +1,6 @@
 var User = require('../models/users')
   , bcrypt = require('bcryptjs')
+  , mailApi = require('../utils/producer')
   , oauthConfig = require('../config/auth');
 
 
@@ -90,9 +91,8 @@ exports.updateUserEmailById = function(req, res) {
 
 
 exports.passReset = function(req, res) {
-	var email = req.body.email;
 
-	User.get( req.params.id ).update(_user).run( function(error, result) {
+	User.filter({ 'email': req.body.email }).run( function(error, result) {
 		if (result == null) {
 			res.status(404).json({ "Error": "User Not Found" });
 		}
@@ -100,12 +100,16 @@ exports.passReset = function(req, res) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		}
 		else {
-	        console.log('user pass updated');
+			var info = {
+				email: req.body.email,
+				password: mailApi.random(8)
+			};
+			mailApi.passwordReset(info);
 
 	        res.set({
 			  'Content-Type': 'application/json'
 			});
-			res.status(200).json(_user);
+			res.status(200).json({'OK': 'Email Sent'});
 		}
 	});
 };

@@ -1,4 +1,4 @@
-module.exports = function(app, express) {
+fmodule.exports = function(app, express) {
 	var session = require('express-session');
 	var flash = require('connect-flash');
 	var RedisStore = require('connect-redis')(session);
