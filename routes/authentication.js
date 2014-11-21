@@ -119,28 +119,33 @@ passport.use('local-signup', new LocalStrategy({
     passReqToCallback : true // pass back the entire request to the callback
 },
   function(req, email, password, done) {
-
     // User.findOne wont fire unless data is sent back
     process.nextTick(function() {
     // find a user whose email is the same as the forms email
     UserModel.filter({ 'id' :  String(email) }).run(function(err, user) {
-        console.log('AT LOCAL' + email + user);
-        if (err)
+        if (err) {
             return done(err);
+        }
         // check to see if theres already a user with that email
-        if (user) {
+        else if (user != '' && user != '[]' && user != undefined) {
+            console.log("USER -> " + user);
             return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
         } else {
+
             // if there is no user -> create the user
-            var new_user = new UserModel({
-              email: email,
+            var new_user = {
+              id: email,
               password: bcrypt.hashSync(password, oauthConfig.passwordSalt.salt),
+              profile_url: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon",
               provider: 'local'
-            });
-            new_user.save(function(err) {
-                if (err)
-                    throw err;
-                return done(null, new_user);
+            };
+            console.log(new_user);
+            UserModel.save( new_user, function(err, user) {
+              if (err) {
+                return done(err);
+              } else {
+                done(null, user);
+              }
             });
         }
     });
