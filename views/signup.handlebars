@@ -19,7 +19,7 @@
         </div>
         <div class="large-12 columns medium-12 columns page-wrapper">
             <div class="large-9 large-centered columns medium-9 medium-centered columns login-wrapper">
-                <h1>Task Kwetu</h1>
+                <h1>TasKwetu</h1>
                 <i class="fa fa-file-text-o icon"></i>
                 <div class="large-5 columns medium-5 columns social">
                     <p class="title">Get started with facebook or google plus.</p>
@@ -30,12 +30,12 @@
                 <div class="large-5 columns medium-5 columns">
                     <p class="title">Get started with your email address.</p>
                     <form class="signup-form" id="signup-form" action="/loc-signup" method="POST" accept-charset="utf-8" name="signup-form" novalidate="novalidate">
-                        <input type="text" class="login-input" name="email" placeholder="Enter email" />
+                        <input type="text" class="login-input" name="fullName" placeholder="Enter Full name" />
+                        <label class="error" for="fullName"></label>
+                        <input type="text" class="login-input" name="email" placeholder="Your email" />
                         <label class="error" for="email"></label>
-                        <input type="password" id="user_password" class="login-input" name="password" placeholder="Enter password" />
+                        <input type="password" id="user_password" class="login-input" name="password" placeholder="Create a password" />
                         <label class="error" for="password"></label>
-                        <input type="password" class="login-input" name="confpassword" placeholder="Confirm password" />
-                        <label class="error" for="confpassword"></label>
                         <input id="t_p" type="checkbox" class="t_p" name="t_p"><label for="t_p" class="t_p"><a href="#" class="t_p">I agree to the terms and policies.</a></label>
                         <label class="error t_p" for="t_p"></label>
                         <button type="submit" class="submit">Sign Up</button>
@@ -55,6 +55,7 @@
                 $("#signup-form").validate({
                     onkeyup: false,
                     rules: {
+                        fullName: "required",
                         email: {
                             required: true,
                             email: true
@@ -63,13 +64,10 @@
                             required: true,
                             minlength: 5
                         },
-                        confpassword: {
-                            required: true,
-                            equalTo: "#user_password"
-                        },
                         t_p: "required"
                     },
                     messages: {
+                        fullName: "Your names are required.",
                         email: {
                             required: "Your email is required.",
                             email: "Inavlid email address."
@@ -77,10 +75,6 @@
                         password: {
                             required: "Your password is required.",
                             minlength: "Password must be at least 5 characters long." 
-                        },
-                        confpassword: {
-                            required: "Your password confirmation is required.",
-                            equalTo: "Passwords do not match."
                         },
                         t_p: "Agree to our terms and policies."
                     },

@@ -1,7 +1,10 @@
 $(function(){
 
     var notificationd = $('.notification-d'),
-        notificationdClose = $('.notification-d-close');
+        notificationdClose = $('.notification-d-close'),
+        cTaskInput = $('.ctask-input'),
+        cTaskUrgent = $('.ctask-urgent')
+    ;
 
     $("#create-task-form").validate({
         onkeyup: false,
@@ -41,4 +44,17 @@ $(function(){
             return false;
         }
     });
+
+    cTaskInput.on('focus blur',function(e){
+        $(e.target.parentElement.parentElement.children[1]).toggleClass('live');
+    });
+
+    cTaskUrgent.on('change', function(e){
+        if(cTaskUrgent[0].checked){
+            $(e.target.parentElement.previousElementSibling).addClass('live');
+        }else{
+            $(e.target.parentElement.previousElementSibling).removeClass('live');
+        }
+    });
+
 });

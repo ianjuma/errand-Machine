@@ -1,7 +1,10 @@
 $(function(){
 
     var notificationd = $('.notification-d'),
-        notificationdClose = $('.notification-d-close');
+        notificationdClose = $('.notification-d-close'),
+        cTaskInput = $('.ctask-input'),
+        cTaskUrgent = $('.ctask-urgent')
+    ;
 
     $("#support-form").validate({
         onkeyup: false,
@@ -39,4 +42,13 @@ $(function(){
             return false;
         }
     });
+    
+    cTaskUrgent.on('change', function(e){
+        if(cTaskUrgent[0].checked){
+            $(e.target.parentElement.previousElementSibling).addClass('live');
+        }else{
+            $(e.target.parentElement.previousElementSibling).removeClass('live');
+        }
+    });
+
 });

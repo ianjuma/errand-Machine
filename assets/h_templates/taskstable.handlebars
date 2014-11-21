@@ -17,12 +17,12 @@
             {{#unless hPaid}}
                 <td class="payment"><a href="#" class="unpaid-button"><i class="fa fa-times-circle"></i>Unpaid - <span data-amount="{{task_amount}}" class="amount"></span></a></td>
                 <td class="tprogress"><span class="pending-status"><i class="fa fa-square-o"></i>Pending</span></td>
-                <td><a href="#" class="edit-button"><i class="fa fa-pencil-square-o"></i></a><a href="#" class="delete-button"><i class="fa fa-trash-o"></i></a></td>
+                <td><a class="edit-button task-edit"><i class="fa fa-pencil-square-o"></i></a><a class="delete-button task-delete"><i class="fa fa-trash-o"></i></a></td>
             {{/unless}}
             {{#if hProgress}}
                 <td class="payment"><span class="paid-button"><i class="fa fa-check-circle"></i>Paid - {{task_amount}}</span></td>
                 <td class="tprogress"><span class="complete-status"><i class="fa fa-check-square-o"></i>Complete</span></td>
-                <td><a href="#" class="delete-button"><i class="fa fa-trash-o"></i></a></td>
+                <td><a class="delete-button task-delete"><i class="fa fa-trash-o"></i></a></td>
             {{/if}}
             {{#unless hProgress}}
                 {{#unless hPending}}

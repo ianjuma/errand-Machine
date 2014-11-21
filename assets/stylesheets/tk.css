@@ -387,20 +387,29 @@ span.amount::before{
 	content: attr(data-amount);
 }
 
-.edit-button:link, .edit-button:visited{
-	color: #222;
-	margin-right: 0.5em;
+.edit-button i, .delete-button i{
+	position: relative;
+	z-index: 900;
 }
 
-.edit-button:hover, .edit-button:active{
+a.edit-button{
+	position: relative;
+	z-index: 1000;
+	color: #222;
+}
+
+a.edit-button:hover{
 	color: #007095;
 }
 
-.delete-button:link, .delete-button:visited{
+a.delete-button{
+	position: relative;
+	z-index: 1000;
+	margin-left: 0.5em;
 	color: #222;
 }
 
-.delete-button:hover, .delete-button:active{
+a.delete-button:hover{
 	color: #cf2a0e;
 }
 
@@ -599,14 +608,18 @@ span.amount::before{
 	font-family: OpenSans;
 }
 
-.createf-wrapper form label.title, .supportf-wrapper form label.title{
+.t-table-wrapper{
+	font-family: OpenSans;
+}
+
+.createf-wrapper form label.title, .supportf-wrapper form label.title, .t-table-wrapper form label.title{
 	font-weight: 600;
 	font-size: 1em;
 	color: #222;
 	cursor: default;
 }
 
-.createf-wrapper form input, .createf-wrapper form textarea, .supportf-wrapper form input, .supportf-wrapper form textarea{
+.createf-wrapper form input, .createf-wrapper form textarea, .supportf-wrapper form input, .supportf-wrapper form textarea, .t-table-wrapper form input, .t-table-wrapper form textarea{
 	font-weight: 400;
 	font-size: 0.95em;
 	box-shadow: none;
@@ -620,19 +633,19 @@ span.amount::before{
 	transition: border-color 0.2s;
 }
 
-.createf-wrapper form input:focus, .createf-wrapper form textarea:focus, .supportf-wrapper form input:focus, .supportf-wrapper form textarea:focus{
+.createf-wrapper form input:focus, .createf-wrapper form textarea:focus, .supportf-wrapper form input:focus, .supportf-wrapper form textarea:focus, .t-table-wrapper form input:focus, .t-table-wrapper form textarea:focus{
 	box-shadow: none;
 	background-color: #FDFDFD;
 	border-color: #138797;
 	transition: border-color 0.2s;
 }
 
-.createf-wrapper form textarea, .supportf-wrapper form textarea{
+.createf-wrapper form textarea, .supportf-wrapper form textarea, .t-table-wrapper form textarea{
 	min-height: 15em;
 	resize: vertical;
 }
 
-.createf-wrapper form label.error, .supportf-wrapper form label.error{
+.createf-wrapper form label.error, .supportf-wrapper form label.error, .t-table-wrapper form label.error{
 	font-size: 0.9em;
 	color: #cf2a0e;
 	font-weight: 400;
@@ -692,7 +705,7 @@ span.amount::before{
 	border-bottom: 1px dotted;
 }
 
-.createf-wrapper button.submit, .supportf-wrapper button.submit, .createf-wrapper button.submit:focus, .supportf-wrapper button.submit:focus{
+.createf-wrapper button.submit, .supportf-wrapper button.submit, .createf-wrapper button.submit:focus, .supportf-wrapper button.submit:focus, .t-table-wrapper button.submit, .t-table-wrapper button.submit:focus{
 	font-family: OpenSans;
 	font-weight: 400;
 	font-size: 0.95em;

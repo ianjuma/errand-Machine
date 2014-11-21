@@ -47,11 +47,11 @@
             <div class="row">
                 <div class="large-12 columns medium-12 columns create-tasks-wrapper">
                     <div class="large-12 columns medium-12 columns createf-wrapper">
-                        <h3>What would you like us to do?</h3>
+                        <h3>What would you like done?</h3>
                         <form class="create-task-form" id="create-task-form" action="/api/task/addTask/" method="POST" accept-charset="utf-8" name="create-task-form" novalidate="novalidate" data-userid="{{ user.id }}">
                             <div class="row">
                                 <div class="large-6 columns medium-6 columns"> 
-                                    <input name="taskTitle" type="text" class="task-title ctask-input" placeholder="Name your task"/>
+                                    <input name="taskTitle" type="text" class="task-title ctask-input" placeholder="Name your task" autocomplete="off"/>
                                     <label class="error" for="taskTitle"></label>
                                 </div>
                                 <div class="large-5 large-pull-1 columns medium-5 medium-pull-1 columns show-for-medium-up tinfo-div">

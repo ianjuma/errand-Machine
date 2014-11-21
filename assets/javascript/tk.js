@@ -6,8 +6,6 @@ $(function(){
 		notMenTrigger = $('.notMenTrigger'),
 		notMenClose = $('.notMenClose'),
 		unpaidTask = $('.unpaid-button').parent(),
-		cTaskInput = $('.ctask-input'),
-		cTaskUrgent = $('.ctask-urgent'),
 		rateMetre = $('.ratemetre'),
 		rateZero = $('.ratezero');
 
@@ -31,18 +29,6 @@ $(function(){
 
 	notMenClose.on('click', function(e){
 		$(notMen[0]).removeClass('show');
-	});
-
-	cTaskInput.on('focus blur',function(e){
-		$(e.target.parentElement.parentElement.children[1]).toggleClass('live');
-	});
-
-	cTaskUrgent.on('change', function(e){
-		if(cTaskUrgent[0].checked){
-			$(e.target.parentElement.previousElementSibling).addClass('live');
-		}else{
-			$(e.target.parentElement.previousElementSibling).removeClass('live');
-		}
 	});
 
 	var rateValue = 0;

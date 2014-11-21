@@ -12,7 +12,6 @@ $(function(){
                 noTasks.removeClass('live');
                 hData = formatData2(data);
                 page.html(tasksTable({'task' : hData}));
-
                 tableActions();
             }else{
                 noTasks.addClass('live');
@@ -22,10 +21,13 @@ $(function(){
     }
 
     function tableActions(){
+
         var unpaidTask = $('.unpaid-button').parent(),
-            cTaskInput = $('.ctask-input'),
-            cTaskUrgent = $('.ctask-urgent'),
-            taskTitle = $('.task-title');
+            taskTitle = $('.task-title'),
+            taskEdit = $('.task-edit'),
+            notificationd = $('.notification-d'),
+            notificationdClose = $('.notification-d-close')
+        ;
 
         unpaidTask.on('mouseenter', function(e){
             $(e.target.children[0].firstChild).removeClass('fa-times-circle').addClass('fa-check-circle');
@@ -38,17 +40,91 @@ $(function(){
         });
 
         taskTitle.on('click', function(e){
-            taskId = e.target.parentElement.parentElement.dataset.id
+            taskId = e.target.parentElement.parentElement.dataset.id;
             url = '/api/task/getTaskById/'+taskId;
             page = $('#tDetailModal');
-            tasksDetailed = Handlebars.templates['taskdetailed'];
+            taskDetailed = Handlebars.templates['taskdetailed'];
 
             $.getJSON(url, function(data){
                 hData = formatData(data);
-                console.log(hData);
-                page.html(tasksDetailed(hData));
+                page.html(taskDetailed(hData));
             });
         });
+
+        taskEdit.on('click', function(e){
+            taskId = e.target.parentElement.parentElement.parentElement.dataset.id;
+            url = '/api/task/getTaskById/'+taskId;
+            page = $('#t-table-wrapper');
+            taskUpdate = Handlebars.templates['taskupdate'];
+
+            $.getJSON(url, function(data){
+                page.html(taskUpdate(data));
+                updateActions(url);
+            });
+        });
+
+        function updateActions(){
+            var cTaskInput = $('.ctask-input'),
+                cTaskUrgent = $('.ctask-urgent');
+
+            if(cTaskUrgent[0].checked){
+                $(cTaskUrgent[0].parentElement.previousElementSibling).addClass('live');
+            }else{
+                $(cTaskUrgent[0].parentElement.previousElementSibling).removeClass('live');
+            }
+
+            $("#update-task-form").validate({
+                onkeyup: false,
+                rules: {
+                    taskTitle: "required",
+                    taskDescription: "required"
+                },
+                messages: {
+                    taskTitle: "Task title is required.",
+                    taskDescription: "Task description is required."
+                },
+                submitHandler: function(form){
+                    var formURL = $(form).attr('action');
+                    var formMethod = $(form).attr('method');
+                    var postData = $(form).serializeArray();
+                    var userId = $(form).attr('data-userid');
+                    var taskId = $(form).attr('data-taskid');
+                    postData.push({ name: "userId", value: userId });
+                    $.ajax({
+                        url : formURL+taskId,
+                        type: formMethod,
+                        data: postData,
+                        success:function(data, textStatus, jqXHR)
+                        {
+                            loadTasks();
+                            $(notificationd).removeClass('warning error success');
+                            $(notificationd).children('p.notification').text('Your task has been successfully updated.');
+                            $(notificationd).addClass('show success');
+                            setTimeout(function(){
+                                $(notificationd).removeClass('show');
+                            },3000);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown)
+                        {
+                            //Fail
+                        }
+                    });
+                    return false;
+                }
+            });
+
+            cTaskInput.on('focus blur',function(e){
+                $(e.target.parentElement.parentElement.children[1]).toggleClass('live');
+            });
+
+            cTaskUrgent.on('change', function(e){
+                if(cTaskUrgent[0].checked){
+                    $(e.target.parentElement.previousElementSibling).addClass('live');
+                }else{
+                    $(e.target.parentElement.previousElementSibling).removeClass('live');
+                }
+            });
+        }
     }
 
     function formatData(data){
