@@ -92,12 +92,14 @@ module.exports = function(app, express) {
   		}
   	);
 
+	/*
 	// process the signup form
     app.post('/loc-signup', passportSession.passport.authenticate('local', {
         successRedirect : '/',
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
+	*/
 
 	app.get('/logout',
 	  function(req, res) {
@@ -118,9 +120,9 @@ module.exports = function(app, express) {
 	// static pages routes
 	app.get('/', index.index);
 	app.get('/login', index.login);
+	app.get('/signup', index.signup);
 	app.get('/newTask', index.newTask);
 	app.get('/support', index.support);
-	app.get('/signup', index.signup);
 	app.get('/myAccount', index.myAccount);
 	app.get('/myTasks', index.myTasks);
 	app.get('/passwordReset', index.forgotPass);
