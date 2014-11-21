@@ -102,7 +102,7 @@ exports.passReset = function(req, res) {
 		else {
 			var info = {
 				email: req.body.email,
-				password: mailApi.random(8)
+				password: mailApi.RandomString(8)
 			};
 			mailApi.passwordReset(info);
 

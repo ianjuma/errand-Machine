@@ -67,9 +67,8 @@ exports.passwordReset = function (user) {
 };
 
 
-exports.random = function (howMany, chars) {
-    chars = chars 
-        || "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+exports.RandomString = function (howMany) {
+    chars = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
     var rnd = crypto.randomBytes(howMany)
         , value = new Array(howMany)
         , len = chars.length;
@@ -79,4 +78,4 @@ exports.random = function (howMany, chars) {
     };
 
     return value.join('');
-}
+};
