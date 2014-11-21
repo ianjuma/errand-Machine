@@ -179,7 +179,7 @@
 	padding: 1em;
 	padding-right: 1.5em;
 	position: fixed;
-	top: 3.5em;
+	top: 4em;
 	left: 0.8em;
 	font-family: OpenSans;
 	background-color: rgba(248,248,248,1);
@@ -188,14 +188,13 @@
 	border-top: none;
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity 2s, top 10s;
+	transition: opacity 2s;
 }
 
 .notification-d.show{
 	opacity: 1;
-	top: 4em;
 	pointer-events: auto;
-    transition: opacity 0.2s, top 0.2s;
+    transition: opacity 0.2s;
 }
 
 .notification-d i.notification-d-close{
@@ -239,6 +238,50 @@
 }
 
 /*--- My tasks wrapper ---*/
+
+.no-tasks{
+	padding-top: 2.5em;
+	font-family: OpenSans;
+	display: none;
+}
+
+.no-tasks.live{
+	display: block;
+}
+
+.no-tasks i{
+	font-size: 5em;
+	display: block;
+	text-align: center;
+}
+
+.no-tasks p.title{
+	font-size: 2em;
+	font-weight: 700;
+	text-align: center;
+}
+
+.no-tasks p.incentive{
+	font-size: 1.5em;
+	font-weight: 600;
+	text-align: center;
+	position: relative;
+	top: -0.5em;
+	margin-bottom: 0.8em;
+}
+
+.no-tasks a.new-task:link, .no-tasks a.new-task:visited{
+	font-weight: 400;
+	font-size: 0.95em;
+	border: 1px solid #0C565F;
+	border-radius: 5px;
+	background-color: #138797;
+	color: #fff;
+	display: block;
+	text-align: center;
+	outline: none;
+	padding: 0.5em 0em 0.6em 0em;
+}
 
 .t-table-wrapper{
 	padding: 0em;
@@ -692,6 +735,7 @@ span.amount::before{
 
 .support-wrapper{
 	padding: 0em;
+	padding-top: 1.5em;
 }
 
 .faq-wrapper h3, .supportf-wrapper h3, .createf-wrapper h3, .t-table-wrapper h3{

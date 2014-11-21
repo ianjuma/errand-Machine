@@ -40,7 +40,7 @@ $(function(){
                 $(e.target).siblings('.input').children().val('');
             break;
             default:
-                 $(e.target).removeClass('live').siblings().removeClass('live').siblings('.email-form').children('.ifirst').blur();    
+                $(e.target).removeClass('live').siblings().removeClass('live').siblings('.email-form').children('.ifirst').blur();    
                 $(e.target).siblings('.email-form').children('.ifirst').val(emailForm.attr('data-email'));
         }
     });

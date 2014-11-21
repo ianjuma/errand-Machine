@@ -1,16 +1,22 @@
 $(function(){
 
-    function loadTasks(userId){
+    function loadTasks(){
+        userId = $('#tasks-wrapper').attr('data-userid');
         url = '/api/task/getTasksByUserId/'+userId;
         page = $('#t-table-wrapper');
+        noTasks = $('#no-tasks');
         tasksTable = Handlebars.templates['taskstable'];
 
         $.getJSON(url, function(data){
-            hData = formatData2(data);
-            console.log(hData);
-            page.html(tasksTable({'task' : hData}));
+            if(data){
+                noTasks.removeClass('live');
+                hData = formatData2(data);
+                page.html(tasksTable({'task' : hData}));
 
-            tableActions();
+                tableActions();
+            }else{
+                noTasks.addClass('live');
+            }
 
         });
     }
@@ -103,7 +109,6 @@ $(function(){
 
             description = data[i].task_description;
             count = description.split(" ").length;
-            console.log(count);
             if(count > 15){
                 shortDescription = description.slice(0,50);
                 data[i].task_description = shortDescription+'...';
@@ -117,5 +122,5 @@ $(function(){
         return new Handlebars.SafeString(result);
     });
 
-    loadTasks(1);
+    loadTasks();
 });
