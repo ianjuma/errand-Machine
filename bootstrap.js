@@ -131,6 +131,7 @@ module.exports = function(app, express) {
 	app.put('/api/user/updateUserEmail/:id', users.updateUserEmailById);
 	app.put('/api/user/updateUserPass/:id', users.updateUserPassById);
 	app.post('/api/user/passReset/', users.passReset);
+	app.post('/api/user/addUser', index.addUser);
 
 
 	// tasks API

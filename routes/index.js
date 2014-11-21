@@ -49,7 +49,43 @@ exports.myTasks = function(req, res) {
 			} else { result.provider = true; }
 			res.render('mytasks', { title: 'Task Kwetu | My Tasks', user: req.user, result: result });
 		}
-	});	
+	});
+};
+
+
+exports.addUser = function(req, res) {
+	User.get( req.body.email ).run(function(error, result) {
+		if (error) {
+			res.status(500).json({ "error": "something blew up, we're fixing it" });
+		}
+		if (result != null || result != [] || result != '') {
+			res.status(404).json({ "Error": "Email already registered" });
+		}
+		else {
+			var new_user = new User({
+				id: req.body.email,
+			    email: req.body.email,
+			    password: req.body.password,
+			    name: req.body.fullName,
+			    provider: 'local',
+			    profile_url: "http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon"
+			});
+			new_user.save(function(error, result) {
+			    if (error) {
+			        res.status(500).json({ error: "something blew up, we're fixing it" });
+			    }
+			    else {
+			        console.log('User Saved');
+			        // mailApi.taskCreated(req.user);
+
+		        	res.set({
+					  'Content-Type': 'application/json',
+					});
+					res.status(200).json({ 'OK': 'User Created'});
+			    }
+			});
+		}
+	});
 };
 
 
