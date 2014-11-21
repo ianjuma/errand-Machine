@@ -3,8 +3,22 @@ var User = require('../models/users');
 
 exports.index = function(req, res) {
 	if (req.isAuthenticated()) {
-		res.render('mytasks', { title: 'Task Kwetu | View Tasks', user: req.user });
-		console.log(req.user);
+
+		User.get( req.user.id ).run(function(error, result) {
+			if (result == null) {
+				res.status(404).json({ "Error": "User Not Found" });
+			}
+			if (error) {
+				res.status(500).json({ "error": "something blew up, we're fixing it" });
+			}
+			else {
+				if (result.provider == 'local') {
+					result.provider = false;
+				} else { result.provider = true; }
+				res.render('mytasks', { title: 'Task Kwetu | My Tasks', user: req.user, result: result });
+			}
+		});
+
 	} else {
 		res.render('index', { title: 'Task Kwetu' });
 	}
