@@ -54,11 +54,13 @@ exports.myTasks = function(req, res) {
 
 
 exports.addUser = function(req, res) {
-	User.get( req.body.email ).run(function(error, result) {
+
+	User.orderBy( "date_joined" ).filter({ email: req.body.email }).run(function(error, result) {
 		if (error) {
 			res.status(500).json({ "error": "something blew up, we're fixing it" });
 		}
-		if (result != null || result != [] || result != '') {
+		if (result.length > 0) {
+			console.log(result);
 			res.status(400).json({ "Error": "Email already registered" });
 		}
 		else {

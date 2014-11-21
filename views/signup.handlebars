@@ -101,7 +101,7 @@
                             data: postData,
                             success:function(data, textStatus, jqXHR)
                             {
-                                if(data.status == 200){
+                                if(data.OK == "User Created"){
                                     $('#signupDiv').hide();
                                     $('#successDiv').show();
                                 }else{
