@@ -17,7 +17,20 @@ exports.newTask = function(req, res) {
 
 
 exports.myTasks = function(req, res) {
-  res.render('mytasks', { title: 'Task Kwetu | My Tasks', user: req.user,  });
+	User.get( req.user.id ).run(function(error, result) {
+		if (result == null) {
+			res.status(404).json({ "Error": "User Not Found" });
+		}
+		if (error) {
+			res.status(500).json({ "error": "something blew up, we're fixing it" });
+		}
+		else {
+			if (result.provider == 'local') {
+				result.provider = false;
+			} else { result.provider = true; }
+			res.render('mytasks', { title: 'Task Kwetu | My Tasks', user: req.user, result: result });
+		}
+	});	
 };
 
 
@@ -33,7 +46,6 @@ exports.myAccount = function(req, res) {
 			if (result.provider == 'local') {
 				result.provider = false;
 			} else { result.provider = true; }
-			console.log(result);
 			res.render('myaccount', { title: 'Task Kwetu | My Account', user: req.user, result: result });
 		}
 	});

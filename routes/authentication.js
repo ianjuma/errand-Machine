@@ -94,7 +94,7 @@ passport.use('local-login', new LocalStrategy({
 
     var hash = bcrypt.hashSync(password, oauthConfig.passwordSalt.salt);
 
-    UserModel.filter({ 'id' :  String(email) }, function(err, user) {
+    UserModel.filter({ 'id' :  String(email) }).run(function(err, user) {
         // if there are any errors, return the error before anything else
         if (err)
             return done(err);
@@ -122,9 +122,9 @@ passport.use('local-signup', new LocalStrategy({
 
     // User.findOne wont fire unless data is sent back
     process.nextTick(function() {
-
     // find a user whose email is the same as the forms email
-    UserModel.filter({ 'id' :  String(email) }, function(err, user) {
+    UserModel.filter({ 'id' :  String(email) }).run(function(err, user) {
+        console.log('AT LOCAL' + email + user);
         if (err)
             return done(err);
         // check to see if theres already a user with that email
