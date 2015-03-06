@@ -1,14 +1,14 @@
 from fabric.api import *
 
 env.user = 'root'
-env.hosts = ['178.62.248.203']
+env.hosts = [<ip_to_host>]
 
 
 def setup_server():
     run('pty=False')
-    with cd('/tmp/TaskWetu'):
-        run('git clone https://github.com/ianjuma/taskwetu.git')
-        with cd('/tmp/TaskWetu/taskwetu'):
+    with cd('/tmp/errand'):
+        run('git clone https://github.com/ianjuma/errand.git')
+        with cd('/tmp/errand/errand'):
             run('git checkout tags/%s' % (version,))
             result = run('pip install -r requirements.txt')
             if result.failed:
@@ -16,7 +16,7 @@ def setup_server():
 
 
 def backUp():
-    run('rethinkdb-dump -a taskwetu_db**//')
+    run('rethinkdb-dump -a pass_to_host')
 
 
 def installDeps():
@@ -26,7 +26,7 @@ def installDeps():
 
 def mvStatic():
     run('rm -rf /www/data/static')
-    run('mv /tmp/TaskWetu/taskwetu/app/static /www/data/')
+    run('mv /tmp/errand/errand/app/static /www/data/')
 
 
 def prepare_deploy():

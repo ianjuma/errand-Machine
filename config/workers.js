@@ -12,7 +12,7 @@ module.exports = {
      disableSearch: true
 	},
 	sendgrid: {
-		api_user: 'IanJuma',
-		api_key: 'obamanation2015'
+		api_user: '',
+		api_key: ''
 	}
 };

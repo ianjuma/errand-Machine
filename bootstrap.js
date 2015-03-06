@@ -44,7 +44,7 @@ module.exports = function(app, express) {
 	app.set('view engine', 'handlebars');
 
 	// setup the logger and only log errors
-	var accessLogStream = fs.createWriteStream(__dirname + 'taskwetu.log', 
+	var accessLogStream = fs.createWriteStream(__dirname + 'errandMachine.log', 
 		{ flags: 'a' });
 	app.use(logger('combined', { stream: accessLogStream,
 	    skip: function (req, res) { return res.statusCode < 400 } }));

@@ -8,9 +8,9 @@ var kue = require('kue')
 exports.sendWelcomeEmail = function (user) {
 	(function() {
 		var job = jobs.create('email', {
-		    title: 'Welcome to Taskwetu',
+		    title: 'Welcome to errand',
 		    to: user.email,
-		    body: "Welcome to taskwetu, visit our site at www.taskwetu.com"
+		    body: "Welcome to errand, visit our site at www.errand.com"
 		}).priority('high');
 
 		job.attempts(2).backoff( true );
@@ -26,7 +26,7 @@ exports.taskCreated = function (user) {
 		    title: 'Task created successfully',
 		    to: user.email,
 		    body: 'Your task has been successfully created, please visit ' + 
-		    		'the taskwetu dashboard to view your task progress, thank you!'
+		    		'the errand dashboard to view your task progress, thank you!'
 		}).priority('high');
 
 		job.attempts(2).backoff( true );
@@ -42,7 +42,7 @@ exports.taskUpdated = function (user) {
 		    title: 'Task updated successfully',
 		    to: user.email,
 		    body: 'Your task has been successfully updated, please visit ' + 
-		    		'the taskwetu dashboard to view your task progress, thank you!'
+		    		'the errand dashboard to view your task progress, thank you!'
 		}).priority('high');
 
 		job.attempts(2).backoff( true );

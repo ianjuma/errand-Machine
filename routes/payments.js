@@ -19,7 +19,7 @@ exports.makeOrder = function(req, res) {
 	var order = new PesaPal.Order(ref_no, customer, "Task", "700", "KES", "MERCHANT");
 
 	// Redirect user to PesaPal
-	var url = PesaPal.getPaymentURL(order, "https://taskwetu.com/ouathCallBack");
+	var url = PesaPal.getPaymentURL(order, "https://errand.com/ouathCallBack");
 
 	res.render('payment', { title: 'Task Kwetu | Payment', user: req.user, iframe: url });
 };

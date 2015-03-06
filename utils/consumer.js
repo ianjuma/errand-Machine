@@ -11,7 +11,7 @@ jobs.process('email', function(job, done) {
 
 	sendgrid.send({
 	  to:       job.data.to,
-	  from:     'no-reply@taskwetu.com',
+	  from:     'no-reply@errand.com',
 	  subject:  job.data.title,
 	  text:     job.data.body
 	}, function(err, json) {
