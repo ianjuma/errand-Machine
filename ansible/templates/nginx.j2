@@ -31,7 +31,7 @@ http {
   server {
     listen       443;
 
-    server_name  www.inkoverflow.com;
+    server_name  www.errandMachine.com;
     access_log   /var/log/nginx/access.log  main;
     root         html;
 
@@ -55,7 +55,7 @@ http {
     server_name  {{ server_name }};
     access_log   {{ access_log }}  main;
 
-    rewrite ^/(.*) https://www.inkoverflow.com/$1 permanent;
+    rewrite ^/(.*) https://www.errandMachine.com/$1 permanent;
   }
 
   # reverse proxy
