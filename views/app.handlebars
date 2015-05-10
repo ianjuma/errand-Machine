@@ -1,0 +1,78 @@
+<!doctype html>
+<html ng-app="errandRunner">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/stylesheets/foundation.min.css">
+        <link rel="stylesheet" href="/stylesheets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/tk.css">
+        <script src="/javascript/jquery.js"></script>
+        <script src="/javascript/modernizr.js"></script>
+    </head>
+    <body>
+        <div class="full-size fixed">
+            <div class="large-12 columns medium-12 columns header">
+                <a href="/" class="logo"><img src="/images/errandMachine.png"></a>
+                <ul class="header-ctrls show-for-medium-up">
+                    <li><a class="notifications notMenTrigger" data-show="notifications"><i class="fa fa-inbox"></i></a></li>
+                    <li><a class="tasks" href="/myTasks">My Tasks</a></li>
+                    <li><a class="profile-img notMenTrigger" data-show="menu"><img src="{{ user.profile_url }}"></a></li>
+                </ul>
+                <ul class="header-ctrls show-for-small-only">
+                    <li><a class="notifications notMenTrigger" data-show="notifications"><i class="fa fa-inbox"></i></a></li>
+                    <li><a class="profile-img notMenTrigger" data-show="menu"><img src="{{ user.profile_url }}"></a></li>
+                </ul>
+                <div class="not-men" id="notMen">
+                    <ul id="menu" class="menu">
+                        <li>{{ user.name }}<i class="fa fa-times-circle notMenClose"></i></li>
+                        <li><a data-match-route="/$" href="/"><i class="fa fa-tasks"></i>My Tasks</a></li>
+                        <li><a data-match-route="/new" href="/new"><i class="fa fa-plus-square"></i>New Task</a></li>
+                        <li><a data-match-route="/profile" href="/profile"><i class="fa fa-user"></i>My Account</a></li>
+                        <li><a data-match-route="/payment" href="/payment"><i class="fa fa-money"></i>Payment</a></li>
+                        <li><a data-match-route="/support" href="/support"><i class="fa fa-support"></i>Support</a></li>
+                        <li><a href="mailto:feedback@errandMachine.com?subject=FEEDBACK"><i class="fa fa-bullhorn"></i>Feedback</a></li>
+                        <li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    </ul>
+                    <ul id="notifications" class="notifications">
+                        <li>Notifications<i class="fa fa-times-circle notMenClose"></i></li>
+                    </ul>
+                </div>
+                <div class="notification-d" id="notification">
+                    <p class="notification"></p>
+                </div>
+            </div>
+        </div>
+
+        <div ng-view class="large-12 columns medium-12 columns app-wrapper">
+            <!-- view binds here -->
+        </div>
+
+        <script src="/javascript/foundation.min.js"></script>
+        <script src="/javascript/jquery.validate.min.js"></script>
+        <script src="/javascript/newtask.js"></script>
+        <script src="/javascript/tk.js"></script>
+        <script src="static/vendor/angular.js"></script>
+        <script src="static/vendor/angular-strap.js"></script>
+        <script src="static/vendor/angular-strap.tpl.js"></script>
+        <script src="static/vendor/angular-messages.js"></script>
+        <script src="static/vendor/angular-resource.js"></script>
+        <script src="static/vendor/angular-route.js"></script>
+        <script src="static/vendor/angular-animate.js"></script>
+        <script src="static/vendor/moment.min.js"></script>
+
+        <script src="static/app.js"></script>
+        <script src="static/controllers/payment.js"></script>
+        <script src="static/controllers/support.js"></script>
+        <script src="static/controllers/task.js"></script>
+        <script src="static/controllers/user.js"></script>
+        <script src="static/services/user.js"></script>
+        <script src="static/services/task.js"></script>
+        <script src="static/services/support.js"></script>
+        <script src="static/services/payment.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+    </body>
+</html>

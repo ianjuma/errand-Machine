@@ -8,6 +8,9 @@ pids
 *.seed
 bin
 
+.idea
+*.iml
+
 # zed editor metadata
 .zedstate
 
