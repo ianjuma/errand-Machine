@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="large-12 columns medium-12 columns support-wrapper">
+        <div class="large-6 columns medium-6 columns supportf-wrapper">
+            <h3>New issue or question</h3>
+            <form class="support-form" id="support-form" action="/api/support/addTicket/" method="POST" accept-charset="utf-8" name="support-form" novalidate="novalidate">
+                <div class="row">
+                    <div class="large-12 columns medium-12 columns">
+                        <input name="supportTitle" type="text" placeholder="Subject"autocomplete="off"/>
+                        <label class="error" for="supportTitle"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns medium-12 columns">
+                        <textarea name="supportTicket" placeholder="Detail your issue or question"></textarea>
+                        <label class="error" for="supportTicket"></label>
+                    </div>
+                </div>
+                <div class="row urgent-section">
+                    <div class="large-12 columns medium-12 columns">
+                        <label class="title">Is your issue critical?</label>
+                        <p class="prompt">If your issue is truly critical, indicate it and you should <span>expect a call from us in the next hour.</span></p>
+                        <div class="switch small round">
+                            <input name="supportUrgency" value="URGENT" id="critical" type="checkbox" class="ctask-urgent" />
+                            <label for="critical"> </label>
+                            <i class="fa fa-check yes"></i>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="large-6 columns medium-6 columns submit">Create issue</button>
+            </form>
+        </div>
+        <div class="large-6 columns medium-6 columns faq-wrapper">
+            <h3>FAQ's</h3>
+            <dl class="accordion" data-accordion="">
+                <dd class="accordion-navigation">
+                    <a href="#faq1">How do I get started?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq1" class="content">
+                        You complete a client profile that helps us understand your specific needs, preferences, and services desired. For more details visit “How errandMachine works.”
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq2">What are your office hours?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq2" class="content">
+                        Our office hours are Monday – Friday, 8:00 a.m. to 5:00 p.m. Other hours may be available upon request.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq3">Are your services available on the weekends?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq3" class="content">
+                        Yes, for an additional fee, our services may be available on the weekend.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq4">Are you bonded and insured?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq4" class="content">
+                        Yes.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq5">What services or errands don't you do?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq5" class="content">
+                        Kindly note that errandMachine Limited is a Halal oriented business. We do not engage in any illegal activities, basic domestic services or services which may endanger an employee or representative of errandMachine Limited.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq6">How are items purchased on my behalf paid for?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq6" class="content">
+                        Payment will be expected at time of service for any expenses incurred.  You may also set up a retainer for such expenses if you are not available at the time of the service.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq7">How do you protect my privacy (medical, financial, credit card etc.)?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq7" class="content">
+                        All paper files are kept secure with restricted access.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq8">Do you accept credit cards for payment?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq8" class="content">
+                        Yes, we accept Visa and MasterCard.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq9">Do you accept cheques for payment?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq9" class="content">
+                        Yes, we accept cheques. Returned checks will be assessed a $20 returned check fee.
+                    </div>
+                </dd>
+                <dd class="accordion-navigation">
+                    <a href="#faq10">What other Modes of payment can be used?<i class="fa fa-angle-down"></i></a>
+                    <div id="faq10" class="content">
+                        We accept M-pesa (business number) and Paypal.
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
