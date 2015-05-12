@@ -1,9 +1,9 @@
 <div class="row">
     <div class="large-12 columns medium-12 columns my-account-wrapper">
         <div class="large-5 large-centered columns medium-5 medium-centered columns profile-image">
-            <p class="img"><img src="{{ user.profile_url }}"></p>
-            <p class="display-name">{{ user.name }}</p>
-            <p class="username">{{ user.username }}</p>
+            <p class="img"><img src="{{ User.profile_url }}"></p>
+            <p class="display-name">{{ User.name }}</p>
+            <p class="username">{{ User.username }}</p>
         </div>
         <div class="large-7 large-centered columns medium-7 medium-centered columns account-settings">
             <div class="row">
@@ -11,9 +11,9 @@
                     <h2>Email</h2>
                     <a class="update-settings update live" data-update="email">Update</a>
                     <a class="cancel-settings cancel" data-cancel="email">Cancel</a>
-                    <form class="email-form" id="email-form" action="/api/user/updateUserEmail/" method="PUT" accept-charset="utf-8" name="email-form" novalidate="novalidate" data-email="{{ result.email }}" data-userid="{{ result.id }}">
+                    <form class="email-form" id="email-form" method="PUT" accept-charset="utf-8" name="email-form" novalidate="novalidate">
                         <button type="submit" class="email-submit">Save</button>
-                        <input class="ifirst" name="userEmail" type="text" value="" placeholder="someone@example.com" autocomplete="off" id="emailInput" />
+                        <input class="ifirst" id="userEmail" name="userEmail" type="text" value="" placeholder="{{User.email}}" autocomplete="off" id="emailInput" />
                         <label class="error" for="userEmail"></label>
                     </form>
                 </div>
@@ -23,7 +23,7 @@
                     <h2>Notifications</h2>
                     <p class="notifications">Check this option to receive notification emails from errandMachine.</p>
                     <div class="switch settings tiny round active">
-                        <input id="critical" type="checkbox" class="ctask-urgent" />
+                        <input value="{{user.provider}}" id="critical" type="checkbox" class="ctask-urgent" />
                         <label for="critical"></label>
                         <i class="fa fa-check yes"></i>
                     </div>

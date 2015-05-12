@@ -58,6 +58,21 @@ module.exports = function(app, express) {
   app.use(express.static(path.join(__dirname, 'assets')));
   app.use(flash());
 
+  var checkRequest = {
+    // ensure request is application/json
+    ensureJSON : function ensureJSON(req, res, next) {
+      if ( ! req.is('application/json') ) {
+        res.status(400).json({ 'Error': 'Bad Request' });
+      } return next();
+    },
+    ensureAuthenticated : function ensureAuthenticated(req, res, next) {
+      if (req.isAuthenticated()) {
+        return next();
+      } res.redirect('/login');
+    }
+  };
+
+
   // middleware to use for all requests
   app.all('*', function(req, res, next) {
     console.log('request being processed');
@@ -91,35 +106,25 @@ module.exports = function(app, express) {
   app.get('/', index.index);
   app.get('/login', index.login);
   app.get('/signup', index.signup);
-  /*
-   app.get('/newTask', index.newTask);
-   app.get('/support', index.support);
-   app.get('/myAccount', index.myAccount);
-   app.get('/myTasks', index.myTasks);
-   */
-
   app.get('/passwordReset', index.forgotPass);
 
   // users API
-  app.get('/api/user/getUserById/:id', users.getUserById);
-  app.delete('/api/user/deleteUserById/:id', users.deleteUserById);
-  app.put('/api/user/updateUserEmail/:id', users.updateUserEmailById);
-  app.put('/api/user/updateUserPass/:id', users.updateUserPassById);
-  app.post('/api/user/passReset', users.passReset);
-  app.post('/api/user/addUser', index.addUser);
+  app.post('/api/user', checkRequest.ensureAuthenticated, users.addUser);
+  app.get('/api/user', checkRequest.ensureAuthenticated, users.getUserById);
+  app.delete('/api/user/:id', checkRequest.ensureAuthenticated, users.deleteUserById);
+  app.put('/api/user/:id', checkRequest.ensureAuthenticated, users.updateUserById);
 
 
   // tasks API
-  app.post('/api/task/addTask', tasks.addTask);
-  app.get('/api/task/getTasks', tasks.getTasks);
-  app.get('/api/task/getTaskById/:id', tasks.getTaskById);
-  app.get('/api/task/getTasksByUserId/:id', tasks.getTasksByUserId);
-  app.delete('/api/task/deleteTaskById/:id', tasks.deleteTaskById);
-  app.put('/api/task/updateTaskById/:id', tasks.updateTaskById);
+  app.post('/api/task', checkRequest.ensureAuthenticated, tasks.addTask);
+  app.get('/api/task', checkRequest.ensureAuthenticated, tasks.getTasksByUserId);
+  app.get('/api/task/:id', checkRequest.ensureAuthenticated, tasks.getTaskById);
+  app.delete('/api/task/:id', checkRequest.ensureAuthenticated, tasks.deleteTaskById);
+  app.put('/api/task/:id', checkRequest.ensureAuthenticated, tasks.updateTaskById);
 
   // support API
-  app.post('/api/support/addTicket', support.addTicket);
-  app.get('/api/support/getTickets', support.getAllTickets);
+  app.post('/api/support', checkRequest.ensureAuthenticated, support.addTicket);
+  app.get('/api/support', checkRequest.ensureAuthenticated, support.getAllTickets);
 
 
   // 404 error handler
@@ -129,7 +134,7 @@ module.exports = function(app, express) {
 
   if ( process.env.state == state ) {
     // 500 error handler --> production only
-    app.use(function(error, req, res, next) {
+    app.use(function(error, req, res) {
       res.status(500);
       res.render('500', { title:'500: Internal Server Error', error: error });
     });
@@ -137,22 +142,7 @@ module.exports = function(app, express) {
     app.set('trust proxy', 'loopback');
   }
 
-
-  var checkRequest = {
-    // ensure request is application/json
-    ensureJSON : function ensureJSON(req, res, next) {
-      if ( ! req.is('application/json') ) {
-        res.status(400).json({ 'Error': 'Bad Request' });
-      } return next();
-    },
-    ensureAuthenticated : function ensureAuthenticated(req, res, next) {
-      if (req.isAuthenticated()) {
-        return next();
-      } res.redirect('/login');
-    }
-  }
-
   module.exports = app;
   app.listen(port);
   console.log('Magic happens on port ' + port);
-}
+};

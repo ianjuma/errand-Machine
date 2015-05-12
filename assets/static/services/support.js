@@ -2,8 +2,8 @@ angular.module('errandRunner')
   .factory('Support', function($http) {
     return {
       addTicket: function(Ticket) {
-        return $http.post('/api/support', { UserId: User.id, urgency: Ticket.urgency,
-          problem: Ticket.problem });
+        return $http.post('/api/support', { title: Ticket.title, ticket: Ticket.ticket,
+          support_urgency: Ticket.support_urgency });
       },
       getTicket: function(_id) {
         return $http.get('/api/support', _id);

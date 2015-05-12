@@ -1,5 +1,5 @@
 angular.module('errandRunner')
-  .controller('UserController', function($scope, $alert, User) {
+  .controller('UserController', function($scope, User) {
     //.$promise
     $scope.addUser = function() {
       User.save({ name: $scope.name, age: $scope.age, id: $scope.id })
@@ -9,24 +9,26 @@ angular.module('errandRunner')
           $scope.age = result.age;
           $scope.id = result.id;
           $scope.addForm.$setPristine();
-          $alert({
-            content: 'Request is being processed.',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 4
-          });
         })
         .catch(function(response) {
           $scope.name = '';
           $scope.age = '';
           $scope.id = '';
           $scope.addForm.$setPristine();
-          $alert({
-            content: response.data.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 4
-          });
         });
     };
+
+    // TODO: scope this as well: as done above
+    User.getUser()
+      .then(function(result) {
+        console.log(result);
+        $scope.User = result.data;
+      })
+      .catch(function(response) {
+        console.log(response);
+        $scope.email = '';
+        $scope.name = '';
+        $scope.terms = '';
+        $scope.profile_url = '';
+      });
   });

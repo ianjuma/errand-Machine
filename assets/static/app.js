@@ -5,7 +5,7 @@ angular.module('errandRunner', ['ngResource', 'ngMessages', 'ngRoute', 'ngAnimat
     $routeProvider
       .when('/', {
         templateUrl: 'static/views/mytasks.html',
-        controller: 'TaskController'
+        controller: 'GetTasksController'
       })
       .when('/new', {
         templateUrl: 'static/views/newtask.html',

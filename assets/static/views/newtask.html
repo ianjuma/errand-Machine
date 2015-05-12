@@ -2,10 +2,10 @@
     <div class="large-12 columns medium-12 columns create-tasks-wrapper">
         <div class="large-12 columns medium-12 columns createf-wrapper">
             <h3>What would you like done?</h3>
-            <form class="create-task-form" id="create-task-form" action="/api/task/addTask/" method="POST" accept-charset="utf-8" name="create-task-form" novalidate="novalidate" data-userid="{{ user.id }}">
+            <form class="create-task-form" id="create-task-form" method="POST" ng-submit="addTask()" accept-charset="utf-8" name="create-task-form" novalidate="novalidate">
                 <div class="row">
                     <div class="large-6 columns medium-6 columns">
-                        <input name="taskTitle" type="text" class="task-title ctask-input" placeholder="Name your task" autocomplete="off"/>
+                        <input id="taskTitle" name="taskTitle" type="text" ng-model="taskTitle" class="task-title ctask-input" placeholder="Name your task" autocomplete="off" required autofocus/>
                         <label class="error" for="taskTitle"></label>
                     </div>
                     <div class="large-5 large-pull-1 columns medium-5 medium-pull-1 columns show-for-medium-up tinfo-div">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <div class="large-6 columns medium-6 columns">
-                        <textarea name="taskDescription" placeholder="Tell us what you would like done" class="ctask-input"></textarea>
+                        <textarea id="taskDescription" name="taskDescription" ng-model="taskDescription" placeholder="Tell us what you would like done" class="ctask-input" required autofocus></textarea>
                         <label class="error" for="taskDescription"></label>
                     </div>
                     <div class="large-5 large-pull-1 columns medium-5 medium-pull-1 columns show-for-medium-up tinfo-div">
@@ -28,7 +28,7 @@
                         <label class="title">Is your task urgent?</label>
                         <p class="prompt">Urgent tasks are priced at an extra <span>15% of the final task cost.</span></p>
                         <div class="switch small round">
-                            <input name="taskUrgency" value="URGENT" id="urgent" type="checkbox" class="ctask-urgent" />
+                            <input name="taskUrgency" ng-model="taskUrgency" value="URGENT" id="urgent" type="checkbox" class="ctask-urgent" required autofocus/>
                             <label for="urgent"></label>
                             <i class="fa fa-check yes"></i>
                         </div>

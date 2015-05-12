@@ -2,8 +2,8 @@ angular.module('errandRunner')
   .factory('Task', function($http) {
     return {
       addTask: function(Task) {
-        return $http.post('/api/task', { name: Task.name, desc: Task.desc,
-          dueDate: Task.dueDate, location: Task.location });
+        return $http.post('/api/task', { taskTitle: Task.taskTitle, taskDescription: Task.taskDescription,
+          taskUrgency: Task.taskUrgency });
       },
       updateTask: function(_id) {
         return $http.put('/api/task', _id);

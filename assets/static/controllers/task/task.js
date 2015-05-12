@@ -1,32 +1,24 @@
 angular.module('errandRunner')
-  .controller('TaskController', function($scope, $alert, User) {
+  .controller('TaskController', function($scope, Task) {
     //.$promise
-    $scope.addUser = function() {
-      User.save({ name: $scope.name, age: $scope.age, id: $scope.id })
-        .then(function(result) {
+
+    $scope.addTask = function() {
+      Task.addTask({
+        taskTitle: $scope.taskTitle, taskDescription: $scope.taskDescription,
+        taskUrgency: $scope.taskUrgency
+      })
+        .then(function (result) {
           console.log(result);
-          $scope.name = result.name;
-          $scope.age = result.age;
-          $scope.id = result.id;
-          $scope.addForm.$setPristine();
-          $alert({
-            content: 'Request is being processed.',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 4
-          });
+          $scope.taskTitle = result.taskTitle;
+          $scope.taskDescription = result.taskDescription;
+          $scope.taskUrgency = result.taskUrgency;
         })
-        .catch(function(response) {
-          $scope.name = '';
-          $scope.age = '';
-          $scope.id = '';
-          $scope.addForm.$setPristine();
-          $alert({
-            content: response.data.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 4
-          });
+        .catch(function (response) {
+          console.log(response);
+          $scope.taskTitle = '';
+          $scope.taskDescription = '';
+          $scope.taskUrgency = '';
         });
     };
+
   });

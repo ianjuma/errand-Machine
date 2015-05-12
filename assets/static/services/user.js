@@ -1,8 +1,9 @@
 angular.module('errandRunner')
   .factory('User', function($http) {
     return {
-      getUser: function(_id) {
-        return $http.get('/api/user', _id);
+      // TODO: clean getUser - dirty - on routers as well :(
+      getUser: function() {
+        return $http.get('/api/user');
       },
       updateUser: function(_id) {
         return $http.put('/api/user', _id);

@@ -2,16 +2,16 @@
     <div class="large-12 columns medium-12 columns support-wrapper">
         <div class="large-6 columns medium-6 columns supportf-wrapper">
             <h3>New issue or question</h3>
-            <form class="support-form" id="support-form" action="/api/support/addTicket/" method="POST" accept-charset="utf-8" name="support-form" novalidate="novalidate">
+            <form class="support-form" id="support-form" method="POST" ng-submit="addTicket()" accept-charset="utf-8" name="support-form" novalidate="novalidate">
                 <div class="row">
                     <div class="large-12 columns medium-12 columns">
-                        <input name="supportTitle" type="text" placeholder="Subject"autocomplete="off"/>
+                        <input id="supportTitle" name="supportTitle" ng-model="title" type="text" placeholder="Subject"autocomplete="off"/>
                         <label class="error" for="supportTitle"></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="large-12 columns medium-12 columns">
-                        <textarea name="supportTicket" placeholder="Detail your issue or question"></textarea>
+                        <textarea id="supportTicket" ng-model="ticket" name="supportTicket" placeholder="Detail your issue or question"></textarea>
                         <label class="error" for="supportTicket"></label>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                         <label class="title">Is your issue critical?</label>
                         <p class="prompt">If your issue is truly critical, indicate it and you should <span>expect a call from us in the next hour.</span></p>
                         <div class="switch small round">
-                            <input name="supportUrgency" value="URGENT" id="critical" type="checkbox" class="ctask-urgent" />
+                            <input name="supportUrgency" ng-model="support_urgency" value="URGENT" id="critical" type="checkbox" class="ctask-urgent" />
                             <label for="critical"> </label>
                             <i class="fa fa-check yes"></i>
                         </div>

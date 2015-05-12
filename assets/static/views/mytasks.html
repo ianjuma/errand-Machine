@@ -1,5 +1,5 @@
 <div class="row">
-    <div id="tasks-wrapper" class="large-12 columns medium-12 columns my-tasks-wrapper" data-userid="{{ result.id }}" >
+    <div id="tasks-wrapper" class="large-12 columns medium-12 columns my-tasks-wrapper" >
         <div id="no-tasks" class="large-6 large-centered columns medium-6 medium-centered columns no-tasks">
             <i class="fa fa-tasks"></i>
             <p class="title">You have no ordered tasks</p>
@@ -7,10 +7,11 @@
             <a href="/new" class="new-task">New task</a>
         </div>
         <div id="tDetailModal" class="reveal-modal large expand-view" data-reveal>
-
         </div>
         <div class="large-12 columns medium-12 columns t-table-wrapper" id="t-table-wrapper">
-
+            <li ng-repeat="task in Task">
+                {{task.task_title | lowercase }} - {{task.task_description}} - {{task.task_urgency | lowercase}}
+            </li>
         </div>
     </div>
 </div>
