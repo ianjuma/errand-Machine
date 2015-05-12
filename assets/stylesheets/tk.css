@@ -27,142 +27,142 @@
 ----------------------------------------*/
 
 .header{
-	height: 4em;
-	background: rgba(248,248,248,0.9);
-	border-bottom: 1px solid rgb(223,223,223);
+    height: 4em;
+    background: rgba(248,248,248,0.9);
+    border-bottom: 1px solid rgb(223,223,223);
 }
 
 .header a.logo img{
-	width: 9.6em;
-	height: 2.6em;
-	margin-top: 0.6em;
+    width: 9.6em;
+    height: 2.6em;
+    margin-top: 0.6em;
 }
 
 .header> .header-ctrls{
-	float: right;
-	list-style: none;
-	padding: 0em;
-	margin: 0.4em 0em 0em 0em;
+    float: right;
+    list-style: none;
+    padding: 0em;
+    margin: 0.4em 0em 0em 0em;
 }
 
 .header-ctrls> li{
-	display: inline-block;
-	margin-right: 0.7em;
+    display: inline-block;
+    margin-right: 0.7em;
 }
 
 .header-ctrls> li:last-child{
-	margin-right: 0em;
-	position: relative;
-	top: -0.05em;
+    margin-right: 0em;
+    position: relative;
+    top: -0.05em;
 }
 
 .header-ctrls> li a img{
-	height: 3.1em;
-	width: 3.1em;
-	border-radius: 3.1em;
+    height: 3.1em;
+    width: 3.1em;
+    border-radius: 3.1em;
 }
 
 .header-ctrls> li a.tasks{
-	font-family: OpenSans;
-	font-size: 0.95em;
-	font-weight: 400;
-	border-radius: 5px;
-	border: 1px solid #0C565F;
-	background-color: #138797;
-	color: #fff;
-	padding: 0.4em 0.4em 0.5em 0.4em;
+    font-family: OpenSans;
+    font-size: 0.95em;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px solid #0C565F;
+    background-color: #138797;
+    color: #fff;
+    padding: 0.4em 0.4em 0.5em 0.4em;
 }
 
 .header-ctrls> li a.notifications{
-	font-size: 1.25em;
-	color: #999999;
-	position: relative;
-	top: 0.1em;
+    font-size: 1.25em;
+    color: #999999;
+    position: relative;
+    top: 0.1em;
 }
 
 .header-ctrls> li a.notifications.live{
-	color: #138797;
+    color: #138797;
 }
 
 /* Notifications and Menu */
 
 .not-men{
-	min-height: 13.5em;
-	width: 15em;
-	position: fixed;
-	top: 3.5em;
-	right: 0.8em;
-	background-color: rgba(248,248,248,1);
-	border: 1px solid rgb(201,201,201);
-	border-top: none;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	box-shadow: 0 5px 10px -4px rgba(0,0,0,0.3);
-	overflow: hidden;
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 0.2s, top 0.2s;
+    min-height: 13.5em;
+    width: 15em;
+    position: fixed;
+    top: 3.5em;
+    right: 0.8em;
+    background-color: rgba(248,248,248,1);
+    border: 1px solid rgb(201,201,201);
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 5px 10px -4px rgba(0,0,0,0.3);
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, top 0.2s;
 }
 
 .not-men.show{
-	opacity: 1;
-	top: 4em;
-	pointer-events: auto;
+    opacity: 1;
+    top: 4em;
+    pointer-events: auto;
     transition: opacity 0.2s, top 0.2s;
 }
 
 .not-men .menu, .not-men .notifications{
-	list-style: none;
-	padding: 0em;
-	margin: 0em;
-	position: relative;
-	display: none;
-	font-family: OpenSans;
+    list-style: none;
+    padding: 0em;
+    margin: 0em;
+    position: relative;
+    display: none;
+    font-family: OpenSans;
 }
 
 .menu li:first-child, .notifications li:first-child{
-	padding: 0.5em 0em 0.5em 0.6em;
-	font-weight: 600;
-	color: #222;
-	cursor: default;
-	background: rgba(248,248,248,1);
-	border-bottom: 1px solid rgb(201,201,201);
+    padding: 0.5em 0em 0.5em 0.6em;
+    font-weight: 600;
+    color: #222;
+    cursor: default;
+    background: rgba(248,248,248,1);
+    border-bottom: 1px solid rgb(201,201,201);
 }
 
 .menu li:first-child i, .notifications li:first-child i{
-	position: absolute;
-	font-size: 1em;
-	right: 0.7em;
-	top: 0.8em;
-	cursor: pointer;
+    position: absolute;
+    font-size: 1em;
+    right: 0.7em;
+    top: 0.8em;
+    cursor: pointer;
 }
 
 .menu li a:link, .menu li a:visited{
-	font-size: 0.95em;
-	font-weight: 400;
-	display: block;
-	padding: 0.3em 0em 0.4em 0.6em;
-	background: transparent;
-	color: #222;
-	box-shadow: inset 0 -1px rgb(223,223,223);
-	transition: background 0.2s, box-shadow 0.2s;
+    font-size: 0.95em;
+    font-weight: 400;
+    display: block;
+    padding: 0.3em 0em 0.4em 0.6em;
+    background: transparent;
+    color: #222;
+    box-shadow: inset 0 -1px rgb(223,223,223);
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 .menu li a:hover, .menu li a:active{
-	background: rgba(0,0,0,0.1);
-	box-shadow: none;
-	transition: background 0.2s, box-shadow 0.2s;
+    background: rgba(0,0,0,0.1);
+    box-shadow: none;
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 .menu li:last-child a{
-	box-shadow: none;
+    box-shadow: none;
 }
 
 .menu li a i{
-	margin-right: 0.6em;
+    margin-right: 0.6em;
 }
 
-/* end */ 
+/* end */
 
 /*----------------------------------------
 	End
@@ -175,410 +175,410 @@
 /* In app Notifications */
 
 .notification-d{
-	width: 15em;
-	padding: 1em;
-	padding-right: 1.5em;
-	position: fixed;
-	top: 4em;
-	left: 0.8em;
-	font-family: OpenSans;
-	background-color: rgba(248,248,248,1);
-	border: 1px solid rgb(201,201,201);
-	box-shadow: 0 5px 10px -4px rgba(0,0,0,0.3);
-	border-top: none;
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 2s;
+    width: 15em;
+    padding: 1em;
+    padding-right: 1.5em;
+    position: fixed;
+    top: 4em;
+    left: 0.8em;
+    font-family: OpenSans;
+    background-color: rgba(248,248,248,1);
+    border: 1px solid rgb(201,201,201);
+    box-shadow: 0 5px 10px -4px rgba(0,0,0,0.3);
+    border-top: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s;
 }
 
 .notification-d.show{
-	opacity: 1;
-	pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
     transition: opacity 0.2s;
 }
 
 .notification-d i.notification-d-close{
-	position: absolute;
-	font-size: 1em;
-	right: 0.5em;
-	top: 0.5em;
-	cursor: pointer;
+    position: absolute;
+    font-size: 1em;
+    right: 0.5em;
+    top: 0.5em;
+    cursor: pointer;
 }
 
 .notification-d p.notification{
-	margin: 0em 0em 0em 0em;
-	font-size: 0.875em;
-	font-weight: 400;
+    margin: 0em 0em 0em 0em;
+    font-size: 0.875em;
+    font-weight: 400;
 }
 
 .notification-d.success{
-	background-color: #43ac6a;
+    background-color: #43ac6a;
     border-color: #368a55;
-    color: #fff;	
+    color: #fff;
 }
 
 .notification-d.warning{
-	background-color: #f08a24;
+    background-color: #f08a24;
     border-color: #cf6e0e;
-    color: #fff;	
+    color: #fff;
 }
 
 .notification-d.error{
-	background-color: #f04124;
-      border-color: #cf2a0e;
-    color: #fff;	
+    background-color: #f04124;
+    border-color: #cf2a0e;
+    color: #fff;
 }
 
 /* End */
 
 .app-wrapper{
-	margin-top: 5em;
-	margin-bottom: 5em;
-	padding: 0em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    padding: 0em;
 }
 
 /*--- My tasks wrapper ---*/
 
 .no-tasks{
-	padding-top: 2.5em;
-	font-family: OpenSans;
-	display: none;
+    padding-top: 2.5em;
+    font-family: OpenSans;
+    display: none;
 }
 
 .no-tasks.live{
-	display: block;
+    display: block;
 }
 
 .no-tasks i{
-	font-size: 5em;
-	display: block;
-	text-align: center;
+    font-size: 5em;
+    display: block;
+    text-align: center;
 }
 
 .no-tasks p.title{
-	font-size: 2em;
-	font-weight: 700;
-	text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
 }
 
 .no-tasks p.incentive{
-	font-size: 1.5em;
-	font-weight: 600;
-	text-align: center;
-	position: relative;
-	top: -0.5em;
-	margin-bottom: 0.8em;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    top: -0.5em;
+    margin-bottom: 0.8em;
 }
 
 .no-tasks a.new-task:link, .no-tasks a.new-task:visited{
-	font-weight: 400;
-	font-size: 0.95em;
-	border: 1px solid #0C565F;
-	border-radius: 5px;
-	background-color: #138797;
-	color: #fff;
-	display: block;
-	text-align: center;
-	outline: none;
-	padding: 0.5em 0em 0.6em 0em;
+    font-weight: 400;
+    font-size: 0.95em;
+    border: 1px solid #0C565F;
+    border-radius: 5px;
+    background-color: #138797;
+    color: #fff;
+    display: block;
+    text-align: center;
+    outline: none;
+    padding: 0.5em 0em 0.6em 0em;
 }
 
 .t-table-wrapper{
-	padding: 0em;
-	padding-top: 1.5em;
+    padding: 0em;
+    padding-top: 1.5em;
 }
 
 /* Tasks table */
 
 .tasks-table{
-	font-family: OpenSans;
-	border-collapse: separate;
-	border-spacing: 0px;
-	border: none;
-	border-bottom: 3px solid #394864;
+    font-family: OpenSans;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border: none;
+    border-bottom: 3px solid #394864;
 }
 
 .tasks-table th{
-	font-size: 1.2em;
-	font-weight: 700;
-	color: #fff;
-	text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
-	padding-top: 0.8em;
-	padding-bottom: 0.8em;
-	background-image: linear-gradient(#394864, #2A3447);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    background-image: linear-gradient(#394864, #2A3447);
 }
 
 .tasks-table th:first-child{
-	border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .tasks-table th:last-child{
-	border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .tasks-table th .currency{
-	font-size: 0.85em;
+    font-size: 0.85em;
 }
 
 .tasks-table tr:nth-of-type(odd){
-	background-color: #FCFCFC;
+    background-color: #FCFCFC;
 }
 
 .tasks-table tr:nth-of-type(even){
-	background-color: #ECECEC;
+    background-color: #ECECEC;
 }
 
 .tasks-table td{
-	border: none;
-	border-right: 1px solid #CACACA;
-	font-size: 0.93em;
+    border: none;
+    border-right: 1px solid #CACACA;
+    font-size: 0.93em;
 }
 
 .tasks-table td:first-child span{
-	font-weight: 700;
-	cursor: pointer;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .tasks-table td:first-child{
-	border-left: 1px solid #CACACA;
+    border-left: 1px solid #CACACA;
 }
 
 .tasks-table td:last-child{
-	border-right: 1px solid #CACACA;
-	text-align: center;
-	font-size: 1em;
+    border-right: 1px solid #CACACA;
+    text-align: center;
+    font-size: 1em;
 }
 
 .paid-button i, .unpaid-button i, .pending-status i, .inprogress-status i, .complete-status i{
-	margin-right: 0.3em;
+    margin-right: 0.3em;
 }
 
 .paid-button, .complete-status{
-	color: #368a55;
+    color: #368a55;
 }
 
 .inprogress-status, i.inprogress{
-	color: #366F8A;
+    color: #366F8A;
 }
 
 .pending-status, .unpaid-button{
-	color: #cf6e0e;
+    color: #cf6e0e;
 }
 
 .paid-button, .unpaid-button, .pending-status, .inprogress-status, .complete-status{
-	padding: 0.3em 0.4em 0.4em 0.4em;
+    padding: 0.3em 0.4em 0.4em 0.4em;
 }
 
 .unpaid-button:link, .unpaid-button:visited{
-	background-color: #f08a24;
-	border: 1px solid;
-	border-color: #cf6e0e;
-	border-radius: 5px;
-	color: #fff;
+    background-color: #f08a24;
+    border: 1px solid;
+    border-color: #cf6e0e;
+    border-radius: 5px;
+    color: #fff;
 }
 
 .unpaid-button:hover, .unpaid-button:active{
-	background-color: #43ac6a;
-	border-color: #368a55;
-	color: #fff;
+    background-color: #43ac6a;
+    border-color: #368a55;
+    color: #fff;
 }
 
 span.amount::before{
-	content: attr(data-amount);
+    content: attr(data-amount);
 }
 
 a.edit-button{
-	color: #222;
+    color: #222;
 }
 
 a.edit-button:hover{
-	color: #007095;
+    color: #007095;
 }
 
 a.delete-button{
-	margin-left: 0.5em;
-	color: #222;
+    margin-left: 0.5em;
+    color: #222;
 }
 
 a.delete-button:hover{
-	color: #cf2a0e;
+    color: #cf2a0e;
 }
 
 /*. Expand task mode .*/
 
 .expand-view{
-	font-family: OpenSans;
+    font-family: OpenSans;
 }
 
 .expand-view h3.title{
-	font-weight: 700;
-	font-size: 1.6em;
+    font-weight: 700;
+    font-size: 1.6em;
 }
 
 .expand-view p.desc{
-	font-weight: 400;
-	font-size: 1em;
+    font-weight: 400;
+    font-size: 1em;
 }
 
 .expand-view i.close-reveal-modal{
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .expand-view .timings, .expand-view .payments, .expand-view .other{
-	padding: 0em;
-	padding-bottom: 0.8em;
+    padding: 0em;
+    padding-bottom: 0.8em;
 }
 
 .timings ul, .payments ul{
-	list-style: none;
-	padding: 0em;
-	margin: 0em;
+    list-style: none;
+    padding: 0em;
+    margin: 0em;
 }
 
 .timings p.title, .payments p.title{
-	font-weight: 700;
-	font-size: 1em;
-	margin-bottom: 0.4em;
+    font-weight: 700;
+    font-size: 1em;
+    margin-bottom: 0.4em;
 }
 
 .payments p.title span.currency{
-	font-size: 0.875em;
+    font-size: 0.875em;
 }
 
 .timings p.title i, .payments p.title i{
-	margin-right: 0.3em;
+    margin-right: 0.3em;
 }
 
 .timings ul li.data, .payments ul li.data{
-	font-size: 0.9em;
-	font-weight: 700;
+    font-size: 0.9em;
+    font-weight: 700;
 }
 
 .timings ul li.data span, .payments ul li.data span{
-	font-weight: 600;
+    font-weight: 600;
 }
 
 .payments ul li a.pay-button{
-	border-bottom: 1px dotted #368a55;
-	font-size: 0.95em;
-	color: #43ac6a;
-	border-radius: 5px;
-	font-weight: normal;
+    border-bottom: 1px dotted #368a55;
+    font-size: 0.95em;
+    color: #43ac6a;
+    border-radius: 5px;
+    font-weight: normal;
 }
 
 .payments ul li a.pay-button i, .eunpaid-status i, .epending-status i, .epaid-status i, .einprogress-status i{
-	margin-right: 0.3em;
+    margin-right: 0.3em;
 }
 
 .epaid-status{
-	color: #368a55;
+    color: #368a55;
 }
 
 .eunpaid-status, .epending-status{
-	color: #cf6e0e;
+    color: #cf6e0e;
 }
 
 .einprogress-status{
-	color: #366F8A;
+    color: #366F8A;
 }
 
 /*.. spacings, justify text ..*/
 
 .timings ul li:nth-child(1) span{
-	margin-left: 2.05em;
+    margin-left: 2.05em;
 }
 
 .timings ul li:nth-child(2) span{
-	margin-left: 2.33em;
+    margin-left: 2.33em;
 }
 
 .timings ul li:nth-child(3) span{
-	margin-left: 0.6em;
+    margin-left: 0.6em;
 }
 
 .payments ul li:nth-child(1) span{
-	margin-left: 0.7em;
+    margin-left: 0.7em;
 }
 
 .payments ul li:nth-child(2) span{
-	margin-left: 1.29em;
+    margin-left: 1.29em;
 }
 
 .payments ul li:nth-child(3) span, .payments ul li:nth-child(3) a{
-	margin-left: 0.8em;
+    margin-left: 0.8em;
 }
 
 /*.. end ..*/
 
 .other p.prompt{
-	font-size: 0.95em;
-	margin-bottom: 0.2em;
-	font-weight: 400;
+    font-size: 0.95em;
+    margin-bottom: 0.2em;
+    font-weight: 400;
 }
 
 .other p.ratewrapper{
-	font-size: 1.2em;
-	text-align: center;
-	margin-bottom: 0.3em;
-	position: relative;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 0.3em;
+    position: relative;
 }
 
 .other p.ratewrapper i{
-	padding-right: 0.3em;
-	cursor: pointer;
+    padding-right: 0.3em;
+    cursor: pointer;
 }
 
 .other p.ratewrapper i.ratezero{
-	position: absolute;
-	left: 3em;
-	top: 0.3em;
-	opacity: 0;
-	cursor: pointer;
+    position: absolute;
+    left: 3em;
+    top: 0.3em;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .other p.ratewrapper i:last-child{
-	padding-right: 0em;
+    padding-right: 0em;
 }
 
 .other p.ratewrapper i.live{
-	color: #FFD700;
-	text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+    color: #FFD700;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 .other i.inprogress{
-	font-size: 2em;
-	text-align: center;
-	display: block;
-	margin-bottom: 0.1em;
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    margin-bottom: 0.1em;
 }
 
 .other p.inprogress{
-	font-size: 1.5em;
-	text-align: center;
-	font-weight: 700;
-	color: #366F8A;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    color: #366F8A;
 }
 
 .other a.update, .other a.delete{
-	display: block;
-	text-align: center;
-	padding: 0.4em 0.6em 0.4em 0.6em;
-	font-size: 0.95em;
-	color: #fff;
-	border: 1px solid;
-	border-radius: 5px;
-	background: #913232;	
+    display: block;
+    text-align: center;
+    padding: 0.4em 0.6em 0.4em 0.6em;
+    font-size: 0.95em;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 5px;
+    background: #913232;
 }
 
 .other a.update{
-	background-color: #007095;
-	border-color: #084A5F;
-	margin-bottom: 0.8em;
+    background-color: #007095;
+    border-color: #084A5F;
+    margin-bottom: 0.8em;
 }
 
 .other a.delete{
-	background-color: #cf2a0e;
-	border-color: #91210F;
+    background-color: #cf2a0e;
+    border-color: #91210F;
 }
 
 /*. end .*/
@@ -590,147 +590,147 @@ a.delete-button:hover{
 /*--- Create tasks wrapper ---*/
 
 .createf-wrapper{
-	padding: 0em;
-	padding-top: 1.5em;
-	font-family: OpenSans;
+    padding: 0em;
+    padding-top: 1.5em;
+    font-family: OpenSans;
 }
 
 .supportf-wrapper{
-	font-family: OpenSans;
+    font-family: OpenSans;
 }
 
 .t-table-wrapper{
-	font-family: OpenSans;
+    font-family: OpenSans;
 }
 
 .createf-wrapper form label.title, .supportf-wrapper form label.title, .t-table-wrapper form label.title{
-	font-weight: 600;
-	font-size: 1em;
-	color: #222;
-	cursor: default;
+    font-weight: 600;
+    font-size: 1em;
+    color: #222;
+    cursor: default;
 }
 
 .createf-wrapper form input, .createf-wrapper form textarea, .supportf-wrapper form input, .supportf-wrapper form textarea, .t-table-wrapper form input, .t-table-wrapper form textarea{
-	font-weight: 400;
-	font-size: 0.95em;
-	box-shadow: none;
-	border: 1px solid;
-	border-color: #A8A8A8;
-	margin-top: 0em;
-	margin-bottom: 1.25em;
-	border-radius: 5px;
-	background-color: #FFFFFF;
-	padding-bottom: 0.8em;
-	transition: border-color 0.2s;
+    font-weight: 400;
+    font-size: 0.95em;
+    box-shadow: none;
+    border: 1px solid;
+    border-color: #A8A8A8;
+    margin-top: 0em;
+    margin-bottom: 1.25em;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding-bottom: 0.8em;
+    transition: border-color 0.2s;
 }
 
 .createf-wrapper form input:focus, .createf-wrapper form textarea:focus, .supportf-wrapper form input:focus, .supportf-wrapper form textarea:focus, .t-table-wrapper form input:focus, .t-table-wrapper form textarea:focus{
-	box-shadow: none;
-	background-color: #FDFDFD;
-	border-color: #138797;
-	transition: border-color 0.2s;
+    box-shadow: none;
+    background-color: #FDFDFD;
+    border-color: #138797;
+    transition: border-color 0.2s;
 }
 
 .createf-wrapper form textarea, .supportf-wrapper form textarea, .t-table-wrapper form textarea{
-	min-height: 15em;
-	resize: vertical;
+    min-height: 15em;
+    resize: vertical;
 }
 
 .createf-wrapper form label.error, .supportf-wrapper form label.error, .t-table-wrapper form label.error{
-	font-size: 0.9em;
-	color: #cf2a0e;
-	font-weight: 400;
-	margin: 0em;
-	position: relative;
-	top: -1.1em;
+    font-size: 0.9em;
+    color: #cf2a0e;
+    font-weight: 400;
+    margin: 0em;
+    position: relative;
+    top: -1.1em;
 }
 
 .urgent-section .switch{
-	margin-top: 0.2em;
-	margin-bottom: 0.3em;
-	position: relative;
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
+    position: relative;
 }
 
 .switch label{
-	background: #cf2a0e;
+    background: #cf2a0e;
 }
 
 .switch label:after{
-	box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
 }
 
 .switch input:checked+label{
-	background-color: green;
+    background-color: green;
 }
 
 .switch i{
-	position: absolute;
-	font-size: 0.875em;
-	top: 0.5em;
-	z-index: 1;
-	pointer-events: none;
+    position: absolute;
+    font-size: 0.875em;
+    top: 0.5em;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .switch i.yes{
-	left: 0.5em;
-	color: #fff;
+    left: 0.5em;
+    color: #fff;
 }
 
 .urgent-section p.prompt{
-	font-family: OpenSans;
-	font-weight: 400;
-	font-size: 0.875em;
-	color: #A8A8A8;
-	cursor: default;
-	margin-top: 0.1em;
-	margin-bottom: 0.5em;
-	transition: color 0.2s;
+    font-family: OpenSans;
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #A8A8A8;
+    cursor: default;
+    margin-top: 0.1em;
+    margin-bottom: 0.5em;
+    transition: color 0.2s;
 }
 
 .urgent-section p.prompt.live{
-	color: #222;
-	transition: color 0.2s;
+    color: #222;
+    transition: color 0.2s;
 }
 
 .urgent-section p.prompt span{
-	border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
 }
 
 .createf-wrapper button.submit, .supportf-wrapper button.submit, .createf-wrapper button.submit:focus, .supportf-wrapper button.submit:focus, .t-table-wrapper button.submit, .t-table-wrapper button.submit:focus{
-	font-family: OpenSans;
-	font-weight: 400;
-	font-size: 0.95em;
-	border: 1px solid #0C565F;
-	border-radius: 5px;
-	background-color: #138797;
-	color: #fff;
-	display: block;
-	text-align: center;
-	outline: none;
-	padding: 0.5em 0em 0.6em 0em;
+    font-family: OpenSans;
+    font-weight: 400;
+    font-size: 0.95em;
+    border: 1px solid #0C565F;
+    border-radius: 5px;
+    background-color: #138797;
+    color: #fff;
+    display: block;
+    text-align: center;
+    outline: none;
+    padding: 0.5em 0em 0.6em 0em;
 }
 
 .tinfo-div{
-	position: relative;
-	color: #A8A8A8;
-	transition: color 0.2s;
+    position: relative;
+    color: #A8A8A8;
+    transition: color 0.2s;
 }
 
 .tinfo-div.live{
-	color: #222;
-	transition: color 0.2s;
+    color: #222;
+    transition: color 0.2s;
 }
 
 .tinfo-div i{
-	position: absolute;
-	font-size: 2em;
+    position: absolute;
+    font-size: 2em;
 }
 
 .tinfo-div p{
-	font-family: OpenSans;
-	font-weight: 400;
-	margin-left: 3.5em;
-	font-size: 0.95em;
+    font-family: OpenSans;
+    font-weight: 400;
+    margin-left: 3.5em;
+    font-size: 0.95em;
 }
 
 /*--- End ---*/
@@ -738,75 +738,75 @@ a.delete-button:hover{
 /*--- Support wrapper ---*/
 
 .support-wrapper{
-	padding: 0em;
-	padding-top: 1.5em;
+    padding: 0em;
+    padding-top: 1.5em;
 }
 
 .faq-wrapper h3, .supportf-wrapper h3, .createf-wrapper h3, .t-table-wrapper h3{
-	font-family: OpenSans;
-	text-transform: uppercase;
-	font-size: 1.2em;
-	font-weight: 700;
-	color: #222;
-	cursor: default;
-	margin: 0em;
-	margin-bottom: 0.5em;
+    font-family: OpenSans;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #222;
+    cursor: default;
+    margin: 0em;
+    margin-bottom: 0.5em;
 }
 
 .supportf-wrapper{
-	margin-bottom: 3em;
+    margin-bottom: 3em;
 }
 
 .accordion .accordion-navigation>a, .accordion dd>a{
-	font-family: OpenSans;
-	font-size: 0.95em;
-	font-weight: 600;
-	background-color: rgba(19,135,151,0.15);
-	border: 1px solid;
-	border-color: rgba(19,135,151,0.2);
-	box-shadow: 1px 1px 1px rgba(201,201,201,0.5);
-	margin-bottom: 0.5em;
-	position: relative;
-	padding: 0.7em;
-	padding-right: 3em;
-	color: #4d4d4d;
-	transition: background-color 0.2s;
+    font-family: OpenSans;
+    font-size: 0.95em;
+    font-weight: 600;
+    background-color: rgba(19,135,151,0.15);
+    border: 1px solid;
+    border-color: rgba(19,135,151,0.2);
+    box-shadow: 1px 1px 1px rgba(201,201,201,0.5);
+    margin-bottom: 0.5em;
+    position: relative;
+    padding: 0.7em;
+    padding-right: 3em;
+    color: #4d4d4d;
+    transition: background-color 0.2s;
 }
 
 .accordion .accordion-navigation>a:hover{
-	background-color: rgba(19,135,151,0.25);
-	border-color: rgba(19,135,151,0.3);
-	transition: background-color 0.2s, border-color 0.2s;
+    background-color: rgba(19,135,151,0.25);
+    border-color: rgba(19,135,151,0.3);
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
 .accordion .accordion-navigation.active>a{
-	background-color: rgba(19,135,151,0.25);
-	border-color: rgba(19,135,151,0.3);
+    background-color: rgba(19,135,151,0.25);
+    border-color: rgba(19,135,151,0.3);
 }
 
 .accordion .accordion-navigation>a i{
-	position: absolute;
-	right: 1em;
-	top: 50%;
-	margin-top: -0.75em;
-	height: 1.5em;
-	width: 1.5em;
-	text-align: center;
-	border: 1px solid;
-	border-color: #4d4d4d;
-	border-radius: 1.5em;
-	padding-top: 0.2em;
-	padding-left: 0.05em;
-	color: #4d4d4d;
-	transition: color 0.2s, border-color 0.2s;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    margin-top: -0.75em;
+    height: 1.5em;
+    width: 1.5em;
+    text-align: center;
+    border: 1px solid;
+    border-color: #4d4d4d;
+    border-radius: 1.5em;
+    padding-top: 0.2em;
+    padding-left: 0.05em;
+    color: #4d4d4d;
+    transition: color 0.2s, border-color 0.2s;
 }
 
 .accordion .accordion-navigation>.content{
-	padding-top: 0.1em;
-	padding-bottom: 0.6em;
-	font-family: OpenSans;
-	font-size: 0.95em;
-	font-weight: 400;
+    padding-top: 0.1em;
+    padding-bottom: 0.6em;
+    font-family: OpenSans;
+    font-size: 0.95em;
+    font-weight: 400;
 }
 
 /*--- End ---*/
@@ -814,38 +814,38 @@ a.delete-button:hover{
 /*--- My account wrapper ---*/
 
 .my-account-wrapper{
-	padding: 0em;
-	padding-top: 1.5em;
-	font-family: OpenSans;
+    padding: 0em;
+    padding-top: 1.5em;
+    font-family: OpenSans;
 }
 
 /* Profile Image */
 
 .my-account-wrapper> .profile-image{
-	text-align: center;
-	margin-bottom: 2em;
+    text-align: center;
+    margin-bottom: 2em;
 }
 
 .profile-image p.img img{
-	height: 5.5em;
-	width: 5.5em;
-	border-radius: 5.5em;
+    height: 5.5em;
+    width: 5.5em;
+    border-radius: 5.5em;
 }
 
 .profile-image p.img{
-	margin-bottom: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .profile-image p.display-name{
-	font-size: 1.5em;
-	font-weight: 600;
-	margin-bottom: 0em;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0em;
 }
 
 .profile-image p.username{
-	font-size: 0.95em;
-	font-weight: 400;
-	margin: 0em;
+    font-size: 0.95em;
+    font-weight: 400;
+    margin: 0em;
 }
 
 /* End */
@@ -853,152 +853,152 @@ a.delete-button:hover{
 /* Account settings */
 
 .account-settings div.email, .account-settings div.password, .account-settings div.notifications{
-	position: relative;
-	margin-bottom: 1em;
+    position: relative;
+    margin-bottom: 1em;
 }
 
 .account-settings div.email h2, .account-settings div.password h2, .account-settings div.notifications h2{
-	font-size: 1.2em;
-	font-weight: 700;
-	margin-bottom: 0.3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 0.3em;
 }
 
 .account-settings div.password div.input{
-	height: 2em;
-	opacity: 0;
-	overflow: hidden;
-	transition: height 0.2s ease-in-out, opacity 0.2s;
+    height: 2em;
+    opacity: 0;
+    overflow: hidden;
+    transition: height 0.2s ease-in-out, opacity 0.2s;
 }
 
 .account-settings div.password.live div.input{
-	height: 8.5em;
-	opacity: 1;
-	transition: height 0.2s ease-in-out, opacity 0.2s;
+    height: 8.5em;
+    opacity: 1;
+    transition: height 0.2s ease-in-out, opacity 0.2s;
 }
 
 .account-settings div.email input, .account-settings div.password input{
-	font-size: 1em;
-	box-shadow: none;
-	border: none;
-	border-radius: 5px;
-	padding-left: 0.5em;
-	padding-right: 5em;
-	margin-bottom: 0.3em;
-	pointer-events: none;
-	outline: none;
-	background-color: #FFF;
+    font-size: 1em;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    padding-left: 0.5em;
+    padding-right: 5em;
+    margin-bottom: 0.3em;
+    pointer-events: none;
+    outline: none;
+    background-color: #FFF;
 }
 
 .account-settings div.email label.error{
-	font-size: 0.875em;
-	color: #cf2a0e;
-	font-weight: 400;
-	margin: 0em;
-	padding: 0em;
-	position: relative;
-	top: -0.5em;
-	left: 0.55em;	
+    font-size: 0.875em;
+    color: #cf2a0e;
+    font-weight: 400;
+    margin: 0em;
+    padding: 0em;
+    position: relative;
+    top: -0.5em;
+    left: 0.55em;
 }
 
 .account-settings div.email input:focus, .account-settings div.password input:focus{
-	background-color: #FFF;
+    background-color: #FFF;
 }
 
 .account-settings div.password input{
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 0.2s;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
 }
 
 .account-settings div.email form.live input{
-	pointer-events: auto;
+    pointer-events: auto;
 }
 
 .account-settings div.password div.input.live input{
-	pointer-events: auto;
-	opacity: 1;
-	transition: opacity 0.2s;
+    pointer-events: auto;
+    opacity: 1;
+    transition: opacity 0.2s;
 }
 
 .account-settings div.email a.update.live, .account-settings div.password a.update.live, .account-settings div.email a.cancel, .account-settings div.password a.cancel, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
-	font-size: 0.875em;
-	border-radius: 5px;
-	padding: 0.3em 0em 0.3em 0em;
-	width: 4.5em;
-	height: 2.3em;
-	text-align: center;
-	color: #fff;
-	position: absolute;
-	display: block;
-	transition: color 0.2s;
+    font-size: 0.875em;
+    border-radius: 5px;
+    padding: 0.3em 0em 0.3em 0em;
+    width: 4.5em;
+    height: 2.3em;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    display: block;
+    transition: color 0.2s;
 }
 
 .account-settings div.email a.update, .account-settings div.password a.update{
-	display: none;
+    display: none;
 }
 
 .account-settings div.email a.update, .account-settings div.password a.update, .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
-	border: 1px solid #0C565F;
-	background-color: #138797;
-	right: 1.1em;
-	top: 0em;
+    border: 1px solid #0C565F;
+    background-color: #138797;
+    right: 1.1em;
+    top: 0em;
 }
 
 .account-settings div.email a.cancel, .account-settings div.password a.cancel{
-	border: 1px solid #91210F;
-	background-color: #cf2a0e;
-	right: 6.1em;
-	top: 0em;
-	display: none;
+    border: 1px solid #91210F;
+    background-color: #cf2a0e;
+    right: 6.1em;
+    top: 0em;
+    display: none;
 }
 
 .account-settings div.email a.cancel.live, .account-settings div.password a.cancel.live{
-	display: block;
+    display: block;
 }
 
 .account-settings div.email button.email-submit, .account-settings div.password button.password-submit{
-	display: none;
+    display: none;
 }
 
 .account-settings div.email form.live button.email-submit{
-	display: block;
+    display: block;
 }
 
 .account-settings div.notifications p.notifications{
-	font-size: 0.95em;
-	padding-right: 5em;
-	margin-bottom: 0em; 
+    font-size: 0.95em;
+    padding-right: 5em;
+    margin-bottom: 0em;
 }
 
 .account-settings div.notifications div.switch{
-	position: absolute;
-	right: 1.1em;
-	top: 2.2em;
+    position: absolute;
+    right: 1.1em;
+    top: 2.2em;
 }
 
 .switch.settings i{
-	position: absolute;
-	font-size: 0.85em;
-	top: 0.4em;
-	z-index: 1;
-	pointer-events: none;
+    position: absolute;
+    font-size: 0.85em;
+    top: 0.4em;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .switch.settings i.yes{
-	left: 0.5em;
-	color: #fff;
+    left: 0.5em;
+    color: #fff;
 }
 
 .account-settings div.delete{
-	margin-top: 1em;
+    margin-top: 1em;
 }
 
 .account-settings div.delete p.about-delete{
-	font-size: 0.875em;
+    font-size: 0.875em;
 }
 
 .account-settings div.delete p.about-delete a{
-	color: #cf2a0e;
+    color: #cf2a0e;
 }
 
 /* End */
@@ -1012,186 +1012,186 @@ a.delete-button:hover{
 /* Login/Signup page */
 
 .page-wrapper{
-	margin-top: 5em;
-	margin-bottom: 5em;
-	padding: 0em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    padding: 0em;
 }
 
 .login-wrapper{
-	padding: 0em;
-	font-family: OpenSans;
-	padding-top: 1.5em;
+    padding: 0em;
+    font-family: OpenSans;
+    padding-top: 1.5em;
 }
 
 .login-wrapper h1{
-	font-size: 1.8em;
-	text-transform: uppercase;
-	font-weight: 700;
-	text-align: center;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
 }
 
 .login-wrapper p.title, .login-wrapper .preset p.title{
-	font-size: 1.1em;
-	margin-bottom: 0.5em;
-	font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
 }
 
 .login-wrapper p.prompt{
-	font-size: 0.95em;
+    font-size: 0.95em;
 }
 
 .login-wrapper .preset p.success{
-	font-size: 1em;
-	text-align: center;
+    font-size: 1em;
+    text-align: center;
 }
 
 .login-wrapper i.icon{
-	font-size: 2.5em;
-	margin-bottom: 0.5em;
-	display: block;
-	text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    display: block;
+    text-align: center;
 }
 
 .login-wrapper .social a{
-	font-size: 1em;
-	display: block;
-	height: 2.7em;
-	margin-bottom: 1em;
-	color: rgb(251, 252, 252);
-	border: 1px solid;
-	border-radius: 5px;
-	position: relative;
-	text-align: center;
-	overflow: hidden;
-	padding-top: 0.48em;
+    font-size: 1em;
+    display: block;
+    height: 2.7em;
+    margin-bottom: 1em;
+    color: rgb(251, 252, 252);
+    border: 1px solid;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 0.48em;
 }
 
 .login-wrapper .social a i{
-	font-size: 1.3em;
-	margin-right: 0.5em;
+    font-size: 1.3em;
+    margin-right: 0.5em;
 }
 
 .login-wrapper .social a.facebook{
-	background-color: rgb(59,89,152);
-	border-color: rgb(27,48,90);
+    background-color: rgb(59,89,152);
+    border-color: rgb(27,48,90);
 }
 
 .login-wrapper .social a.google{
-	background-color: rgb(211,63,42);
-	border-color: rgb(129,41,29);
+    background-color: rgb(211,63,42);
+    border-color: rgb(129,41,29);
 }
 
 .login-wrapper input{
-	font-weight: 400;
-	font-size: 1em;
-	height: 2.7em;
-	box-shadow: none;
-	border: 1px solid;
-	border-color: #A8A8A8;
-	margin-top: 0em;
-	margin-bottom: 1em;
-	border-radius: 5px;
-	background-color: #FFFFFF;
-	transition: border-color 0.2s;
+    font-weight: 400;
+    font-size: 1em;
+    height: 2.7em;
+    box-shadow: none;
+    border: 1px solid;
+    border-color: #A8A8A8;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    transition: border-color 0.2s;
 }
 
 .login-wrapper input:focus{
-	box-shadow: none;
-	background-color: #FDFDFD;
-	border-color: #138797;
-	transition: border-color 0.2s;
+    box-shadow: none;
+    background-color: #FDFDFD;
+    border-color: #138797;
+    transition: border-color 0.2s;
 }
 
 .login-wrapper button, .login-wrapper button:focus{
-	font-weight: 400;
-	outline: none;
-	font-size: 1em;
-	border: 1px solid #0C565F;
-	border-radius: 5px;
-	background-color: #138797;
-	color: #fff;
-	text-align: center;
-	margin-bottom: 0.6em;
-	display: block;
-	padding: 0.5em 1.2em 0.5em 1.2em;	
+    font-weight: 400;
+    outline: none;
+    font-size: 1em;
+    border: 1px solid #0C565F;
+    border-radius: 5px;
+    background-color: #138797;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0.6em;
+    display: block;
+    padding: 0.5em 1.2em 0.5em 1.2em;
 }
 
 .login-wrapper a.forgot-password:link, .login-wrapper a.forgot-password:visited{
-	font-size: 0.875em;
-	margin-left: 0.5em;
-	border-bottom: 1px dotted;
-	color: #222;
-	transition: color 0.2s;
+    font-size: 0.875em;
+    margin-left: 0.5em;
+    border-bottom: 1px dotted;
+    color: #222;
+    transition: color 0.2s;
 }
 
 .login-wrapper a.forgot-password:hover, .login-wrapper a.forgot-password:active{
-	color: #138797;
-	transition: color 0.2s;
+    color: #138797;
+    transition: color 0.2s;
 }
 
 .login-wrapper label.error{
-	font-size: 0.875em;
-	color: #cf2a0e;
-	font-weight: 400;
-	margin: 0em;
-	padding: 0em;
-	position: relative;
-	top: -0.8em;
+    font-size: 0.875em;
+    color: #cf2a0e;
+    font-weight: 400;
+    margin: 0em;
+    padding: 0em;
+    position: relative;
+    top: -0.8em;
 }
 
 .login-wrapper label.error.t_p{
-	top: -0.65em;
+    top: -0.65em;
 }
 
 .login-wrapper input.t_p{
-	margin: 0em;
-	padding: 0em;
-	height: auto;
-	margin-bottom: 1em;
-	margin-right: 0.5em;
+    margin: 0em;
+    padding: 0em;
+    height: auto;
+    margin-bottom: 1em;
+    margin-right: 0.5em;
 }
 
 .login-wrapper label.t_p{
-	font-size: 0.875em;
-	padding: 0em;
-	margin: 0em;
-	position: relative;
-	top: -0.05em;
+    font-size: 0.875em;
+    padding: 0em;
+    margin: 0em;
+    position: relative;
+    top: -0.05em;
 }
 
 .login-wrapper label.t_p a:link, .login-wrapper label.t_p a:visited{
-	color: #222;
-	transition: color 0.2s;
+    color: #222;
+    transition: color 0.2s;
 }
 
 .login-wrapper label.t_p a:hover, .login-wrapper label.t_p a:active{
-	color: #138797;
-	transition: color 0.2s;
+    color: #138797;
+    transition: color 0.2s;
 }
 
 .login-wrapper p a:link, .login-wrapper p a:visited{
-	color: #222;
-	border-bottom: 1px dotted;
-	transition: color 0.2s;
+    color: #222;
+    border-bottom: 1px dotted;
+    transition: color 0.2s;
 }
 
 .login-wrapper p a:hover, .login-wrapper p a:active{
-	color: #138797;
-	transition: color 0.2s;
+    color: #138797;
+    transition: color 0.2s;
 }
 
 .preset-wrapper p.title2{
-	font-size: 1.4em;
-	font-weight: 600;
-	text-align: center;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
 }
 
 .preset-wrapper p.incentive{
-	text-align: center;
+    text-align: center;
 }
 
 .preset-wrapper p.incentive span{
-	border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
 }
 
 /* end */
