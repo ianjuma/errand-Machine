@@ -128,18 +128,18 @@ module.exports = function(app, express) {
 
 
   // 404 error handler
+  // redirect 404 to app - handle with angular
   app.get('*', function(req, res) {
-    res.render('404', 404);
+    res.redirect("/");
   });
 
-  if ( process.env.state == state ) {
+  if ( process.env.state === state ) {
     // 500 error handler --> production only
+    app.set('trust proxy', 'loopback');
     app.use(function(error, req, res) {
       res.status(500);
       res.render('500', { title:'500: Internal Server Error', error: error });
     });
-
-    app.set('trust proxy', 'loopback');
   }
 
   module.exports = app;
